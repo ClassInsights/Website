@@ -1,6 +1,7 @@
 {
   "name": "website",
   "private": true,
+  "author": "ClassInsights",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

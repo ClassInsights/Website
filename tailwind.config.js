@@ -12,6 +12,9 @@ export default {
       "black": "#060A12",
       "container": "#F1F3FA",
       "background": "#FAFBFF",
+    },
+    fontFamily: {
+      "roboto": ["Roboto", "sans-serif"],
     }
   },
   plugins: [],

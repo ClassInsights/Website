@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Arrow from "../assets/svg/arrow.svg";
+import Arrow from "./Arrow";
 
 /*
  * The main Navigation Bar component
@@ -24,15 +24,10 @@ const Navbar = () => {
 					href="https://auth.classinsights.at"
 					target="_blank"
 					rel="noreferrer"
-					className="flex items-center gap-2 text-primary"
+					className="flex items-center gap-1.5 text-primary"
 				>
 					<p>Anmelden</p>
-					<img
-						src={Arrow}
-						alt="Arrow indicating navigation"
-						draggable={false}
-						width={18}
-					/>
+					<Arrow fillColor="fill-primary" size={15} />
 				</a>
 			</nav>
 		</header>

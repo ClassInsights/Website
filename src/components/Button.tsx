@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Arrow from "./Arrow";
 
 type ButtonProps = {
 	label: string;
@@ -19,20 +20,23 @@ const Button = ({
 	label,
 	onPress,
 	disabled = false,
+	arrowed = false,
 }: ButtonProps): JSX.Element => {
-	const buttonStyle = `border-none bg-primary px-4 py-2 cursor-pointer rounded-lg text-background
+	const buttonStyle = `border-none bg-primary px-4 py-2 cursor-pointer rounded-lg text-background flex gap-4 items-center
     ${disabled ? "cursor-not-allowed opacity-30" : ""}`;
 
 	if (typeof onPress === "string")
 		return (
 			<Link to={onPress} className={buttonStyle}>
 				{label}
+				{arrowed && <Arrow fillColor="fill-background" />}
 			</Link>
 		);
 
 	return (
 		<button type="button" onClick={onPress} className={buttonStyle}>
 			{label}
+			{arrowed && <Arrow fillColor="fill-background" />}
 		</button>
 	);
 };

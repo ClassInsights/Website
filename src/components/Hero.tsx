@@ -12,8 +12,8 @@ const Hero = () => {
 					Die innovative Energie-Management Lösung für Schulen auf Basis des
 					Stundenplanes
 				</p>
-				<div className="flex w-1/2 items-center justify-center gap-8">
-					<Button label="Demo anfordern" onPress="/demo" />
+				<div className="flex items-center justify-center gap-8">
+					<Button label="Demo anfordern" onPress="/demo" arrowed />
 					<a href="#features" className="underline">
 						Mehr erfahren
 					</a>

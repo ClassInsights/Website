@@ -9,12 +9,7 @@ const Navbar = () => {
 	return (
 		<header className="absolute flex w-full select-none justify-between pt-6">
 			<Link to="/#top">
-				<img
-					src="/logo.svg"
-					alt="ClassInsights Logo"
-					draggable={false}
-					width={40}
-				/>
+				<img src="/logo.svg" alt="ClassInsights Logo" width={40} />
 			</Link>
 			<nav className="flex items-center gap-8">
 				<Link to="#features">Lösungen</Link>

@@ -15,6 +15,8 @@ const router = createBrowserRouter([
 	},
 ]);
 
+document.addEventListener("dragstart", (event) => event.preventDefault());
+
 ReactDOM.createRoot(root).render(
 	<React.StrictMode>
 		<RouterProvider router={router} />

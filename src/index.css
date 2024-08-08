@@ -61,4 +61,9 @@
   small {
     @apply font-light;
   }
+
+  a,
+  button {
+    @apply select-none;
+  }
 }

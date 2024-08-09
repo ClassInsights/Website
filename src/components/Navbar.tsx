@@ -24,7 +24,7 @@ const Navbar = () => {
 	};
 
 	return (
-		<header className="page-spacing fixed right-0 left-0 z-10 flex justify-between bg-background pt-6">
+		<header className="page-spacing fixed right-0 left-0 z-10 flex justify-between bg-background pt-6 pb-3">
 			<Link to="/#top">
 				<img src="/logo.svg" alt="ClassInsights Logo" width={40} />
 			</Link>

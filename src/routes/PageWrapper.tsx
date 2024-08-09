@@ -6,11 +6,7 @@
 const PageWrapper = ({
 	children,
 }: { children: React.ReactNode }): JSX.Element => {
-	return (
-		<main className="relative mx-5 h-dvh sm:mx-20 md:mx-32 xl:mx-60">
-			{children}
-		</main>
-	);
+	return <main className="page-spacing relative h-dvh">{children}</main>;
 };
 
 export default PageWrapper;

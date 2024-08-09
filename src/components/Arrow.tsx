@@ -3,6 +3,12 @@ type ArrowProps = {
 	size?: number;
 };
 
+/**
+ * Arrow component
+ * @param {string} fillColor - The fill color of the arrow
+ * @param {number} size - The size of the arrow
+ * @returns {JSX.Element} The arrow component
+ */
 const Arrow = ({ fillColor = "fill-black", size = 18 }: ArrowProps) => {
 	return (
 		<svg

@@ -93,7 +93,7 @@ const Functionality = () => {
 	}, [startAnimation]);
 
 	return (
-		<section className="mt-20 flex flex-col items-center">
+		<section className="flex flex-col items-center">
 			<h2 className="pb-5 md:pb-10 md:text-center">
 				Automatisiertes Steuern der Computer
 			</h2>

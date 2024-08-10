@@ -16,6 +16,7 @@ export default {
     },
     fontFamily: {
       "roboto": ["Roboto", "sans-serif"],
+      "sacramento": ["Sacramento", "cursive"],
     }
   },
   plugins: [],

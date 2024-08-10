@@ -1,19 +1,26 @@
 import Certificate from "../components/Certificate";
-import Functionality from "../components/Functionality";
-import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import PageWrapper from "../components/PageWrapper";
 import Spacing from "../components/Spacing";
+import CertificateSection from "../components/sections/Certificate";
+import Functionality from "../components/sections/Functionality";
+import Hero from "../components/sections/Hero";
+import { CertificateProvider } from "../contexts/CertificateContext";
 
 function Home() {
 	return (
-		<PageWrapper>
+		<CertificateProvider>
+			<Certificate />
 			<Navbar />
-			<Hero />
-			<Spacing size="md" />
-			<Functionality />
-			<Spacing />
-		</PageWrapper>
+			<PageWrapper>
+				<Hero />
+				<Spacing id="features" size="md" />
+				<Functionality />
+				<Spacing />
+				<CertificateSection />
+				<Spacing />
+			</PageWrapper>
+		</CertificateProvider>
 	);
 }
 

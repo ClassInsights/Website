@@ -33,8 +33,18 @@
     src: url("./assets/fonts/Roboto-Black.ttf");
   }
 
+  @font-face {
+    font-family: "Sacramento";
+    font-weight: 400;
+    src: url("./assets/fonts/Sacramento-Regular.ttf");
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
-    @apply bg-background text-black font-roboto box-border;
+    @apply bg-background text-black font-roboto box-border p-0 m-0;
   }
 
   h1 {
@@ -75,5 +85,9 @@
 @layer components {
   .page-spacing {
     @apply mx-5 md:mx-24 xl:mx-60 2xl:mx-96;
+  }
+
+  .certificate {
+    background-image: url("./assets/svg/certificate.svg");
   }
 }

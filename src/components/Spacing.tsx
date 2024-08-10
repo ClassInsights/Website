@@ -1,4 +1,5 @@
 type SpacingProps = {
+	id?: string;
 	size?: "sm" | "md" | "lg";
 };
 
@@ -7,9 +8,10 @@ type SpacingProps = {
  * @param size - The size of the spacing element.
  * @returns {JSX.Element} The spacing component
  */
-const Spacing = ({ size = "lg" }: SpacingProps) => {
+const Spacing = ({ id, size = "lg" }: SpacingProps) => {
 	return (
 		<div
+			id={id}
 			className={`w-full ${size === "sm" ? "h-16" : size === "md" ? "h-24" : "h-32"}`}
 		/>
 	);

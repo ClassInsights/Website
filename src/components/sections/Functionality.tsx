@@ -97,7 +97,7 @@ const Functionality = () => {
 			<h2 className="w-full pb-5 md:pb-10 md:text-center">
 				Automatisiertes Steuern der Computer
 			</h2>
-			<div ref={elementRef} className="w-full 2xl:w-4/5">
+			<div ref={elementRef} className="w-full lg:w-4/6 2xl:w-4/5">
 				<FunctionalitySVG
 					id="functionality"
 					className="hidden w-full select-none md:inline"

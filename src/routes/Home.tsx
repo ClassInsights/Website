@@ -2,6 +2,7 @@ import Certificate from "../components/Certificate";
 import Navbar from "../components/Navbar";
 import PageWrapper from "../components/PageWrapper";
 import Spacing from "../components/Spacing";
+import BuyDemo from "../components/sections/BuyDemo";
 import CertificateSection from "../components/sections/Certificate";
 import Functionality from "../components/sections/Functionality";
 import Hero from "../components/sections/Hero";
@@ -21,6 +22,8 @@ function Home() {
 				<CertificateSection />
 				<Spacing />
 				<Testimonial />
+				<Spacing />
+				<BuyDemo />
 				<Spacing />
 			</PageWrapper>
 		</CertificateProvider>

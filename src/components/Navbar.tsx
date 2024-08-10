@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import ArrowSVG from "../assets/svg/arrow.svg?react";
 import LoginSVG from "../assets/svg/login.svg?react";
 import MenuSVG from "../assets/svg/menu.svg?react";
-import Arrow from "./Arrow";
 
 /**
  * The main Navigation Bar component
@@ -29,7 +29,7 @@ const Navbar = () => {
 		"w-full py-2 pr-3 pl-14 text-right hover:bg-container-selected";
 
 	return (
-		<header className="px-5 md:px-24 xl:px-60 2xl:px-96 fixed right-0 left-0 z-10 flex justify-between bg-background pt-6 pb-3">
+		<header className="fixed right-0 left-0 z-10 flex justify-between bg-background px-5 pt-6 pb-3 md:px-24 xl:px-60 2xl:px-96">
 			<img
 				src="/logo.svg"
 				alt="ClassInsights Logo"
@@ -84,7 +84,7 @@ const Navbar = () => {
 						className="hidden items-center gap-1.5 text-primary md:flex"
 					>
 						<p>Anmelden</p>
-						<Arrow fillColor="fill-primary" size={15} />
+						<ArrowSVG className="fill-primary" />
 					</a>
 				</div>
 			</nav>

@@ -1,7 +1,7 @@
+import ArrowSVG from "../assets/svg/arrow.svg?react";
 import AwardSVG from "../assets/svg/award.svg?react";
 import CloseSVG from "../assets/svg/close.svg?react";
 import { useCertificate } from "../contexts/CertificateContext";
-import Arrow from "./Arrow";
 
 const Certificate = () => {
 	const certificate = useCertificate();
@@ -60,7 +60,7 @@ const Certificate = () => {
 						className="mt-6 flex items-center gap-1.5 text-primary"
 					>
 						<p>Schulwebsite</p>
-						<Arrow fillColor="fill-primary" size={15} />
+						<ArrowSVG className="fill-primary" />
 					</a>
 					<div className="mt-14 flex w-full flex-col gap-8 md:flex-row md:gap-20">
 						{["Jakob Wassertheurer", "Julian Grill"].map((name) => (

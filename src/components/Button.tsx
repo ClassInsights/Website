@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Arrow from "./Arrow";
+import ArrowSVG from "../assets/svg/arrow.svg?react";
 
 type ButtonProps = {
 	label: string;
@@ -29,14 +29,14 @@ const Button = ({
 		return (
 			<Link to={onPress} className={buttonStyle}>
 				{label}
-				{arrowed && <Arrow fillColor="fill-background" />}
+				{arrowed && <ArrowSVG className="fill-background" width={16} />}
 			</Link>
 		);
 
 	return (
 		<button type="button" onClick={onPress} className={buttonStyle}>
 			{label}
-			{arrowed && <Arrow fillColor="fill-background" />}
+			{arrowed && <ArrowSVG className="fill-background" width={16} />}
 		</button>
 	);
 };

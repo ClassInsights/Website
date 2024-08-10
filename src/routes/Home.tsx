@@ -5,6 +5,7 @@ import Spacing from "../components/Spacing";
 import CertificateSection from "../components/sections/Certificate";
 import Functionality from "../components/sections/Functionality";
 import Hero from "../components/sections/Hero";
+import Testimonial from "../components/sections/Testimonial";
 import { CertificateProvider } from "../contexts/CertificateContext";
 
 function Home() {
@@ -18,6 +19,8 @@ function Home() {
 				<Functionality />
 				<Spacing />
 				<CertificateSection />
+				<Spacing />
+				<Testimonial />
 				<Spacing />
 			</PageWrapper>
 		</CertificateProvider>

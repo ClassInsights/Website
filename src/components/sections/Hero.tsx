@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import ArrowDownSVG from "../assets/svg/arrow-down.svg?react";
-import Button from "./Button";
-import Highlight from "./Highlight";
+import ArrowDownSVG from "../../assets/svg/arrow-down.svg?react";
+import Button from "../Button";
+import Highlight from "../Highlight";
 
 const Hero = () => {
 	return (
 		<section className="flex min-h-lvh flex-col items-center justify-end">
 			{/* Hero C2A Section */}
 			<div className="relative flex min-h-svh w-full flex-grow items-center justify-center pt-20 md:min-h-0">
-				<div className="flex flex-col items-center">
+				<div className="flex flex-col items-center md:pb-14">
 					<h1 className="pb-6 text-5xl sm:text-8xl">
 						ClassInsights<span className="text-primary">.</span>
 					</h1>
@@ -32,7 +32,7 @@ const Hero = () => {
 				</Link>
 			</div>
 			{/* ClassInsights Highlights */}
-			<div className="mt-5 mb-12 flex w-3/4 flex-col items-center gap-10 md:mt-0 md:w-full md:flex-row">
+			<div className="mt-5 mb-12 flex w-4/5 flex-col items-center gap-10 md:mt-0 md:w-full md:flex-row">
 				{[
 					[
 						"Energieeffizienz",

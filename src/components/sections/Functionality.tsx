@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
-import FunctionalitySVG from "../assets/svg/functionality.svg?react";
+import FunctionalitySVG from "../../assets/svg/functionality.svg?react";
 
 const Functionality = () => {
 	const elementRef = useRef(null);
@@ -94,7 +94,7 @@ const Functionality = () => {
 
 	return (
 		<section className="flex flex-col items-center">
-			<h2 className="pb-5 md:pb-10 md:text-center">
+			<h2 className="w-full pb-5 md:pb-10 md:text-center">
 				Automatisiertes Steuern der Computer
 			</h2>
 			<div ref={elementRef} className="w-full 2xl:w-4/5">

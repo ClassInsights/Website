@@ -9,7 +9,7 @@ const KeyPoints = () => {
 			<h2 className="pb-10 text-center">
 				<span className="text-primary">ClassInsights</span> macht es möglich...
 			</h2>
-			<div className="mx-auto grid gap-x-10 gap-y-8 md:w-3/4 md:grid-cols-2 md:gap-y-20">
+			<div className="mx-auto grid gap-x-10 gap-y-8 md:w-3/4 md:grid-cols-2 md:gap-y-20 xl:w-3/5">
 				{[
 					[
 						"Effizient und einfach Strom sparen",

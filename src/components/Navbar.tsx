@@ -61,7 +61,7 @@ const Navbar = () => {
 					</a>
 					{[
 						["/about", "Über uns"],
-						["/installation", "Installation"],
+						["/install", "Installation"],
 					].map(([link, label]) => (
 						<Link
 							key={link}
@@ -76,7 +76,7 @@ const Navbar = () => {
 				<div className="hidden items-center gap-8 md:flex">
 					<a href="#features">Lösungen</a>
 					<Link to="/about">Über uns</Link>
-					<Link to="/installation">Installation</Link>
+					<Link to="/install">Installation</Link>
 					<a
 						href={authUrl}
 						target="_blank"

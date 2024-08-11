@@ -1,11 +1,14 @@
 import Certificate from "../components/Certificate";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import PageWrapper from "../components/PageWrapper";
 import Spacing from "../components/Spacing";
 import BuyDemo from "../components/sections/BuyDemo";
 import CertificateSection from "../components/sections/Certificate";
+import FAQ from "../components/sections/FAQ";
 import Functionality from "../components/sections/Functionality";
 import Hero from "../components/sections/Hero";
+import KeyPoints from "../components/sections/KeyPoints";
 import Testimonial from "../components/sections/Testimonial";
 import { CertificateProvider } from "../contexts/CertificateContext";
 
@@ -21,10 +24,15 @@ function Home() {
 				<Spacing />
 				<CertificateSection />
 				<Spacing />
+				<KeyPoints />
+				<Spacing />
 				<Testimonial />
 				<Spacing />
 				<BuyDemo />
 				<Spacing />
+				<FAQ />
+				<Spacing />
+				<Footer />
 			</PageWrapper>
 		</CertificateProvider>
 	);

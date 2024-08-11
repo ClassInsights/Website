@@ -36,7 +36,7 @@ const Navbar = () => {
 				width={40}
 				onClick={scrollToTop}
 				onKeyDown={scrollToTop}
-				className="cursor-pointer"
+				className="cursor-pointer select-none"
 			/>
 			<nav className="relative flex items-center gap-5">
 				{/* Mobile Login Button */}

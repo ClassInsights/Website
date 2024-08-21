@@ -14,7 +14,7 @@ const Hero = () => {
 					</h1>
 					<p className="pb-6 text-center text-lg sm:w-8/12">
 						Die innovative Energie-Management Lösung für Schulen auf Basis des
-						Stundenplanes
+						Stundenplans
 					</p>
 					<div className="flex flex-col items-center justify-center gap-5 sm:flex-row md:gap-8">
 						<Button label="Demo anfordern" onPress="/demo" arrowed />

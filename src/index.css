@@ -60,8 +60,8 @@
     font-family: 'Sacramento';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/sacramento-v15-latin-regular.woff2') format('woff2'),
-      url('../fonts/sacramento-v15-latin-regular.ttf') format('truetype');
+    src: url('./assets/fonts/sacramento-v15-latin-regular.woff2') format('woff2'),
+      url('./assets/fonts/sacramento-v15-latin-regular.ttf') format('truetype');
   }
 
   html {
@@ -69,7 +69,7 @@
   }
 
   body {
-    @apply bg-background text-black font-roboto box-border p-0 m-0;
+    @apply bg-background text-black font-roboto box-border p-0 m-0 overflow-auto;
   }
 
   h1 {

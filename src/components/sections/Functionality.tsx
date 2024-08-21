@@ -106,7 +106,7 @@ const Functionality = () => {
 			<p className="md:mt-10 md:w-1/2 md:text-center">
 				Wenn in einem Raum{" "}
 				<span className="text-primary">kein Unterricht mehr</span> stattfindet,
-				werden jene Computer, die nicht mehr in Verwendung sind,
+				werden die Computer, die nicht mehr in Verwendung sind,
 				<span className="text-primary"> automatisch heruntergefahren</span>.
 			</p>
 		</section>

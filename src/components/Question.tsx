@@ -31,7 +31,7 @@ const Question = ({
 				onClick={toggleOpen}
 				onKeyUp={toggleOpen}
 			>
-				<b>{question}</b>
+				<b className="select-none">{question}</b>
 				<ArrowSVG
 					width={18}
 					className={`transition-transform ${isOpen ? "rotate-90" : ""}`}

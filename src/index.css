@@ -3,40 +3,65 @@
 @tailwind utilities;
 
 @layer base {
+
+  /* roboto-300 - latin */
   @font-face {
-    font-family: "Roboto";
+    font-display: swap;
+    font-family: 'Roboto';
+    font-style: normal;
     font-weight: 300;
-    src: url("./assets/fonts/Roboto-Light.ttf");
+    src: url('./assets/fonts/roboto-v32-latin-300.woff2') format('woff2'),
+      url('./assets/fonts/roboto-v32-latin-300.ttf') format('truetype');
   }
 
+  /* roboto-regular - latin */
   @font-face {
-    font-family: "Roboto";
+    font-display: swap;
+    font-family: 'Roboto';
+    font-style: normal;
     font-weight: 400;
-    src: url("./assets/fonts/Roboto-Regular.ttf");
+    src: url('./assets/fonts/roboto-v32-latin-regular.woff2') format('woff2'),
+      url('./assets/fonts/roboto-v32-latin-regular.ttf') format('truetype');
   }
 
+  /* roboto-500 - latin */
   @font-face {
-    font-family: "Roboto";
+    font-display: swap;
+    font-family: 'Roboto';
+    font-style: normal;
     font-weight: 500;
-    src: url("./assets/fonts/Roboto-Medium.ttf");
+    src: url('./assets/fonts/roboto-v32-latin-500.woff2') format('woff2'),
+      url('./assets/fonts/roboto-v32-latin-500.ttf') format('truetype');
   }
 
+  /* roboto-700 - latin */
   @font-face {
-    font-family: "Roboto";
+    font-display: swap;
+    font-family: 'Roboto';
+    font-style: normal;
     font-weight: 700;
-    src: url("./assets/fonts/Roboto-Bold.ttf");
+    src: url('./assets/fonts/roboto-v32-latin-700.woff2') format('woff2'),
+      url('./assets/fonts/roboto-v32-latin-700.ttf') format('truetype');
   }
 
+  /* roboto-900 - latin */
   @font-face {
-    font-family: "Roboto";
+    font-display: swap;
+    font-family: 'Roboto';
+    font-style: normal;
     font-weight: 900;
-    src: url("./assets/fonts/Roboto-Black.ttf");
+    src: url('./assets/fonts/roboto-v32-latin-900.woff2') format('woff2'),
+      url('./assets/fonts/roboto-v32-latin-900.ttf') format('truetype');
   }
 
+  /* sacramento-regular - latin */
   @font-face {
-    font-family: "Sacramento";
+    font-display: swap;
+    font-family: 'Sacramento';
+    font-style: normal;
     font-weight: 400;
-    src: url("./assets/fonts/Sacramento-Regular.ttf");
+    src: url('../fonts/sacramento-v15-latin-regular.woff2') format('woff2'),
+      url('../fonts/sacramento-v15-latin-regular.ttf') format('truetype');
   }
 
   html {

@@ -29,7 +29,7 @@ const FAQ = () => {
 							</p>
 							<ul className="list-inside list-disc">
 								<li>Energie und Kostenersparnis</li>
-								<li>Lebensdauer der Computer wird erhöht</li>
+								<li>Lebensdauer der Computer wird potenziell erhöht</li>
 								<li>Zertifikat für Schulwebsite/Social Media</li>
 								<li>Echtzeit Strommessung der Computer</li>
 							</ul>
@@ -40,8 +40,8 @@ const FAQ = () => {
 						<p key="certificate">
 							Mit der Aktivierung einer Lizenz, kann man das Zertifkat in
 							veschiedenen Größen im ClassInsights Dashboard herunterladen. Der
-							Link zum Anklicken auf der eigenen Schulwebsite ist ebenfalls dort
-							vorzufinden.
+							Link zum Anklicken auf der eigenen Schulwebsite ist ebenfalls im
+							Dashboard vorzufinden.
 						</p>,
 					],
 					[
@@ -61,8 +61,8 @@ const FAQ = () => {
 						<p key="subscription">
 							ClassInsights sagt NEIN zu vergessenen Abonnements oder
 							umständlichen Kündigungsverfahren. Sie können eine einjährige
-							Lizenz erwerben, die automatisch ausläuft. Wenn kein Intersse mehr
-							besteht, kann man einfach die Zeit auslaufen lassen.
+							Lizenz erwerben, die automatisch ausläuft. Wenn kein Interesse
+							mehr besteht, kann man einfach die Zeit auslaufen lassen.
 						</p>,
 					],
 					[

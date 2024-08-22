@@ -65,7 +65,7 @@
   }
 
   html {
-    @apply scroll-smooth overflow-x-clip;
+    @apply scroll-smooth;
   }
 
   body {

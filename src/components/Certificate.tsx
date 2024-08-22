@@ -13,7 +13,7 @@ const Certificate = () => {
 				onClick={certificate.hide}
 				onKeyDown={certificate.hide}
 			/>
-			<div className="absolute h-5/6 w-full rounded-t-2xl bg-background px-3 py-3 md:h-auto md:w-10/12 md:rounded-2xl lg:w-4/6 xl:w-1/2 2xl:w-2/5">
+			<div className="absolute h-[88%] w-full rounded-t-2xl bg-background px-3 py-3 md:h-auto md:w-10/12 md:rounded-2xl lg:w-4/6 xl:w-1/2 2xl:w-2/5">
 				{/* Title Bar */}
 				<div className="flex select-none items-center justify-between bg-background pb-2">
 					<CloseSVG className="opacity-0" />

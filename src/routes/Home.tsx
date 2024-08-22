@@ -5,6 +5,7 @@ import PageWrapper from "../components/PageWrapper";
 import Spacing from "../components/Spacing";
 import BuyDemo from "../components/sections/BuyDemo";
 import CertificateSection from "../components/sections/Certificate";
+import Dashboard from "../components/sections/Dashboard";
 import FAQ from "../components/sections/FAQ";
 import Functionality from "../components/sections/Functionality";
 import Hero from "../components/sections/Hero";
@@ -21,6 +22,8 @@ function Home() {
 				<Hero />
 				<Spacing id="features" size="md" />
 				<Functionality />
+				<Spacing />
+				<Dashboard />
 				<Spacing />
 				<CertificateSection />
 				<Spacing />

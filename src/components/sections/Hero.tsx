@@ -16,6 +16,18 @@ const Hero = () => {
 						Die innovative Energie-Management Lösung für Schulen auf Basis des
 						Stundenplans
 					</p>
+					{/* Work in Progress Hint */}
+					<div className="mx-auto mb-6 flex flex-col items-center rounded-lg bg-container px-5 py-2 text-center shadow-sm">
+						<h3 className="pb-2">
+							&#9888;&#65039; ClassInsights befindet sich noch in der
+							Entwicklung &#9888;&#65039;
+						</h3>
+						<p className="hidden pb-1 md:inline">
+							Schriftliche Anfragen werden jedoch jederzeit entgegengenommen.
+						</p>
+						<b>Voraussichtlicher Release: Herbst 2024</b>
+					</div>
+					{/* C2A Buttons */}
 					<div className="flex flex-col items-center justify-center gap-5 sm:flex-row md:gap-8">
 						<Button label="Demo anfordern" onPress="/demo" arrowed />
 						<a href="#features" className="underline">

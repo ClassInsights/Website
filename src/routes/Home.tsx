@@ -13,32 +13,30 @@ import KeyPoints from "../components/sections/KeyPoints";
 import Testimonial from "../components/sections/Testimonial";
 import { CertificateProvider } from "../contexts/CertificateContext";
 
-function Home() {
-	return (
-		<CertificateProvider>
-			<Certificate />
-			<Navbar />
-			<PageWrapper>
-				<Hero />
-				<Spacing id="features" size="md" />
-				<Functionality />
-				<Spacing />
-				<Dashboard />
-				<Spacing />
-				<CertificateSection />
-				<Spacing />
-				<KeyPoints />
-				<Spacing />
-				<Testimonial />
-				<Spacing />
-				<BuyDemo />
-				<Spacing />
-				<FAQ />
-				<Spacing />
-				<Footer />
-			</PageWrapper>
-		</CertificateProvider>
-	);
-}
+const Home = () => (
+	<CertificateProvider>
+		<Certificate />
+		<Navbar />
+		<PageWrapper>
+			<Hero />
+			<Spacing id="features" size="md" />
+			<Functionality />
+			<Spacing />
+			<Dashboard />
+			<Spacing />
+			<CertificateSection />
+			<Spacing />
+			<KeyPoints />
+			<Spacing />
+			<Testimonial />
+			<Spacing />
+			<BuyDemo />
+			<Spacing />
+			<FAQ />
+			<Spacing />
+			<Footer />
+		</PageWrapper>
+	</CertificateProvider>
+);
 
 export default Home;

@@ -15,9 +15,9 @@ const Certificate = () => {
 			/>
 			<div className="absolute h-[88%] w-full rounded-t-2xl bg-background px-3 py-3 md:h-auto md:w-10/12 md:rounded-2xl lg:w-4/6 xl:w-1/2 2xl:w-2/5">
 				{/* Title Bar */}
-				<div className="flex select-none items-center justify-between bg-background pb-2">
+				<div className="flex items-center justify-between bg-background pb-2">
 					<CloseSVG className="opacity-0" />
-					<div className="flex items-center gap-2">
+					<div className="flex select-none items-center gap-2">
 						<AwardSVG />
 						<b>Zertifikat</b>
 					</div>

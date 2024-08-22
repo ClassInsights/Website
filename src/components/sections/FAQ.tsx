@@ -28,16 +28,10 @@ const FAQ = () => {
 								Vorteile:
 							</p>
 							<ul className="list-inside list-disc">
-								{[
-									"Energie und Kostenersparnis",
-									"Lebensdauer der Computer wird erhöht",
-									"Zertifikat für Schulwebsite/Public Relations",
-									"Echtzeit Strommessung der Computer",
-								].map((benefit) => (
-									<li key={benefit}>
-										<span className="-left-1 relative">{benefit}</span>
-									</li>
-								))}
+								<li>Energie und Kostenersparnis</li>
+								<li>Lebensdauer der Computer wird erhöht</li>
+								<li>Zertifikat für Schulwebsite/Social Media</li>
+								<li>Echtzeit Strommessung der Computer</li>
 							</ul>
 						</Fragment>,
 					],

@@ -40,7 +40,7 @@ const Dashboard = () => {
 			<div className="flex w-4/5 flex-col justify-center text-center xl:w-3/5">
 				<h2 className="pb-4">{content.title}</h2>
 				<p className="pb-5">{content.description}</p>
-				<div className="flex select-none justify-center gap-3">
+				<div className="flex justify-center gap-3">
 					<button
 						type="button"
 						onClick={() => (pageIndex !== 0 ? setPageIndex(0) : null)}

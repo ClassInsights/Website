@@ -102,6 +102,7 @@
   }
 
   a,
+  img,
   button {
     @apply select-none;
   }

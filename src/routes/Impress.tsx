@@ -9,7 +9,7 @@ const Impress = () => (
 	<>
 		<PageWrapper>
 			<div className="pt-32 pb-8">
-				<Link to="/" className="flex items-center gap-1.5 pb-2">
+				<Link to="/" className="flex w-max items-center gap-1.5 pb-2">
 					<ArrowSVG className="rotate-180 fill-black" />
 					<p>Zurück zur Startseite</p>
 				</Link>
@@ -49,13 +49,13 @@ const Impress = () => (
 			</div>
 			<div className="flex items-center gap-2">
 				<MailSVG className="fill-black" width={20} />
-				<a href="mailto://office@classinsights.at">office@classinsights.at</a>
+				<a href="mailto:office@classinsights.at">office@classinsights.at</a>
 			</div>
 			<h3 className="pt-6 pb-1">Umsetzung Webdesign</h3>
 			<p>Jakob Wassertheurer</p>
 			<div className="flex items-center gap-2">
 				<MailSVG className="fill-black" width={20} />
-				<a href="mailto://jakob@classinsights.at">jakob@classinsights.at</a>
+				<a href="mailto:jakob@classinsights.at">jakob@classinsights.at</a>
 			</div>
 			<h3 className="pt-6 pb-1">Beschwerden</h3>
 			<p>
@@ -74,12 +74,12 @@ const Impress = () => (
 			<p>
 				Sie können Ihre Beschwerde auch direkt bei uns bei folgender
 				E-Mail-Adresse einbringen:
-				<div className="flex items-center gap-2">
+				<span className="flex items-center gap-2">
 					<MailSVG className="fill-black" width={20} />
-					<a href="mailto://beschwerde@classinsights.at">
+					<a href="mailto:beschwerde@classinsights.at">
 						beschwerde@classinsights.at
 					</a>
-				</div>
+				</span>
 			</p>
 			<h3 className="pt-6 pb-1">Datenschutz</h3>
 			<p>
@@ -88,7 +88,7 @@ const Impress = () => (
 			</p>
 			<div className="flex items-center gap-2 pb-2">
 				<MailSVG className="fill-black" width={20} />
-				<a href="mailto://datenschutz@classinsights.at">
+				<a href="mailto:datenschutz@classinsights.at">
 					datenschutz@classinsights.at
 				</a>
 			</div>

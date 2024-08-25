@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ArrowSVG from "../assets/svg/arrow.svg?react";
 import LoginSVG from "../assets/svg/login.svg?react";
 import MenuSVG from "../assets/svg/menu.svg?react";
@@ -10,6 +10,10 @@ import MenuSVG from "../assets/svg/menu.svg?react";
  */
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
+
+	const location = useLocation();
+	const navigate = useNavigate();
+
 	const authUrl = "https://auth.classinsights.at";
 
 	const handleClick = () => {
@@ -23,7 +27,10 @@ const Navbar = () => {
 		setTimeout(() => document.addEventListener("click", handleClick), 100);
 	};
 
-	const scrollToTop = () => window.scrollTo({ top: 0 });
+	const scrollToTop = () => {
+		if (location.pathname !== "/") navigate("/");
+		window.scrollTo({ top: 0 });
+	};
 
 	const mobileLinkStyle =
 		"w-full py-2 pr-3 pl-14 text-right hover:bg-container-selected";
@@ -60,7 +67,7 @@ const Navbar = () => {
 						Lösungen
 					</Link>
 					{[
-						["/about", "Über uns"],
+						["/unternehmen", "Über uns"],
 						["/installation", "Installation"],
 					].map(([link, label]) => (
 						<Link
@@ -75,7 +82,7 @@ const Navbar = () => {
 				{/* Desktop Menu */}
 				<div className="hidden items-center gap-8 md:flex">
 					<Link to="/#features">Lösungen</Link>
-					<Link to="/about">Über uns</Link>
+					<Link to="/unternehmen">Über uns</Link>
 					<Link to="/installation">Installation</Link>
 					<a
 						href={authUrl}

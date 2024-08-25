@@ -2,17 +2,17 @@ import { Link } from "react-router-dom";
 import ArrowSVG from "../assets/svg/arrow.svg?react";
 import PageWrapper from "../components/PageWrapper";
 
-const Install = () => (
+const About = () => (
 	<PageWrapper>
 		<div className="top-0 flex min-h-dvh w-full items-center justify-center">
 			<div className="rounded-lg bg-container px-10 py-6 text-center shadow-md md:w-3/4 xl:w-1/2">
-				<h1 className="pb-4 text-2xl">Installations Anleitung</h1>
+				<h1 className="pb-4 text-2xl">Über uns</h1>
 				<p className="pb-2">
-					Die Anleitung wird aktuell noch entwickelt. Wir geben unser Bestes,
-					sie sobald wie möglich zu veröffentlichen!
+					Die Unternehmensseite wird aktuell noch entwickelt. Wir geben unser
+					Bestes, sie sobald wie möglich zu veröffentlichen!
 				</p>
 				<p className="pb-4">
-					Bis dahin können Sie sich bei uns via{" "}
+					Bei auftretenden Fragen können Sie sich bei uns via{" "}
 					<a href="mailto:office@classinsights.at" className="text-primary">
 						E-Mail
 					</a>{" "}
@@ -30,4 +30,4 @@ const Install = () => (
 	</PageWrapper>
 );
 
-export default Install;
+export default About;

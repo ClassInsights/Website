@@ -9,7 +9,7 @@ const Privacy = () => {
 	return (
 		<PageWrapper>
 			<div className="pt-32 pb-8">
-				<Link to="/" className="flex items-center gap-1.5 pb-2">
+				<Link to="/" className="flex w-max items-center gap-1.5 pb-2">
 					<ArrowSVG className="rotate-180 fill-black" />
 					<p>Zurück zur Startseite</p>
 				</Link>
@@ -61,7 +61,7 @@ const Privacy = () => {
 			</div>
 			<div className="flex items-center gap-2">
 				<MailSVG className="fill-black" width={20} />
-				<a href="mailto://office@classinsights.at">office@classinsights.at</a>
+				<a href="mailto:office@classinsights.at">office@classinsights.at</a>
 			</div>
 			<h2 className="mt-12 pb-4">II. Rechte der Nutzer und Betroffenen</h2>
 			<p>

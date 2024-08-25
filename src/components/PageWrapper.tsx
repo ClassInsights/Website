@@ -27,7 +27,7 @@ const PageWrapper = ({
 	});
 
 	return (
-		<main className="page-spacing relative h-dvh">
+		<main className="page-spacing relative min-h-dvh">
 			<Navbar />
 			{children}
 			<Footer />

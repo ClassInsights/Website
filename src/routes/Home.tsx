@@ -1,6 +1,4 @@
 import Certificate from "../components/Certificate";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import PageWrapper from "../components/PageWrapper";
 import Spacing from "../components/Spacing";
 import BuyDemo from "../components/sections/BuyDemo";
@@ -16,7 +14,6 @@ import { CertificateProvider } from "../contexts/CertificateContext";
 const Home = () => (
 	<CertificateProvider>
 		<Certificate />
-		<Navbar />
 		<PageWrapper>
 			<Hero />
 			<Spacing id="features" size="md" />
@@ -34,7 +31,6 @@ const Home = () => (
 			<Spacing />
 			<FAQ />
 			<Spacing />
-			<Footer />
 		</PageWrapper>
 	</CertificateProvider>
 );

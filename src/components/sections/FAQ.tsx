@@ -70,7 +70,7 @@ const FAQ = () => {
 						<p key="installation">
 							Wir sind stets bemüht, den Installationsprozess so einfach wie
 							möglich zu gestalten. Daher haben wir einen intuitiven{" "}
-							<Link to="/install" className="text-primary">
+							<Link to="/installation" className="text-primary">
 								Setup Guide
 							</Link>{" "}
 							erstellt, der die Einrichtung nahezu zu einem Kinderspiel macht!

@@ -56,12 +56,12 @@ const Navbar = () => {
 				<div
 					className={`absolute top-10 right-0 flex flex-col overflow-hidden rounded-lg bg-container shadow-md transition-opacity duration-300 ${isOpen ? "visible opacity-100" : "invisible opacity-0"}`}
 				>
-					<a href="#features" className={mobileLinkStyle}>
+					<Link to="/#features" className={mobileLinkStyle}>
 						Lösungen
-					</a>
+					</Link>
 					{[
 						["/about", "Über uns"],
-						["/install", "Installation"],
+						["/installation", "Installation"],
 					].map(([link, label]) => (
 						<Link
 							key={link}
@@ -74,9 +74,9 @@ const Navbar = () => {
 				</div>
 				{/* Desktop Menu */}
 				<div className="hidden items-center gap-8 md:flex">
-					<a href="#features">Lösungen</a>
+					<Link to="/#features">Lösungen</Link>
 					<Link to="/about">Über uns</Link>
-					<Link to="/install">Installation</Link>
+					<Link to="/installation">Installation</Link>
 					<a
 						href={authUrl}
 						target="_blank"

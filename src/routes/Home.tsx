@@ -24,8 +24,8 @@ const Home = () => (
 			<CertificateSection />
 			<Spacing />
 			<KeyPoints />
-			<Spacing />
-			<Testimonial />
+			{/* <Spacing />
+			<Testimonial /> */}
 			<Spacing />
 			<BuyDemo />
 			<Spacing />

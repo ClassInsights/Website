@@ -25,16 +25,26 @@ export const CertificateProvider = ({
 		CertificateData | undefined
 	>(undefined);
 
-	const show = useCallback((data: CertificateData) => {
-		setCertificateData(data);
-		setIsVisible(true);
-		document.body.style.overflow = "hidden";
+	const onEscKeyDown = useCallback((e: KeyboardEvent) => {
+		if (e.key === "Escape") hide();
 	}, []);
+
+	const show = useCallback(
+		(data: CertificateData) => {
+			setCertificateData(data);
+			setIsVisible(true);
+			document.body.style.overflow = "hidden";
+			document.body.addEventListener("keydown", onEscKeyDown);
+		},
+		[onEscKeyDown],
+	);
 
 	const hide = useCallback(() => {
 		setIsVisible(false);
+		console.log("hide");
 		document.body.style.overflow = "auto";
-	}, []);
+		document.body.removeEventListener("keydown", onEscKeyDown);
+	}, [onEscKeyDown]);
 
 	return (
 		<CertificateContext.Provider

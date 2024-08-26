@@ -29,7 +29,11 @@ const Hero = () => {
 					</div>
 					{/* C2A Buttons */}
 					<div className="flex flex-col items-center justify-center gap-5 sm:flex-row md:gap-8">
-						<Button label="Demo anfordern" onPress="/demo" arrowed />
+						<Button
+							label="Demo anfordern"
+							onPress={`mailto:office@classinsights.at?subject=Demo%20Anfrage%20${new Date().toLocaleDateString()}`}
+							arrowed
+						/>
 						<a href="#features" className="underline">
 							Mehr erfahren
 						</a>

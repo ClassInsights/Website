@@ -25,13 +25,21 @@ const Button = ({
 	const buttonStyle = `border-none bg-primary px-4 py-2 cursor-pointer rounded-lg text-background flex gap-4 items-center
     ${disabled ? "cursor-not-allowed opacity-30" : ""}`;
 
-	if (typeof onPress === "string")
+	if (typeof onPress === "string") {
+		if (onPress.startsWith("/"))
+			return (
+				<Link to={onPress} className={buttonStyle}>
+					{label}
+					{arrowed && <ArrowSVG className="fill-background" width={16} />}
+				</Link>
+			);
 		return (
-			<Link to={onPress} className={buttonStyle}>
+			<a href={onPress} className={buttonStyle}>
 				{label}
 				{arrowed && <ArrowSVG className="fill-background" width={16} />}
-			</Link>
+			</a>
 		);
+	}
 
 	return (
 		<button type="button" onClick={onPress} className={buttonStyle}>

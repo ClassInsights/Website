@@ -8,7 +8,6 @@ import FAQ from "../components/sections/FAQ";
 import Functionality from "../components/sections/Functionality";
 import Hero from "../components/sections/Hero";
 import KeyPoints from "../components/sections/KeyPoints";
-import Testimonial from "../components/sections/Testimonial";
 import { CertificateProvider } from "../contexts/CertificateContext";
 
 const Home = () => (

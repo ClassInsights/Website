@@ -48,7 +48,7 @@ const Hero = () => {
 				</Link>
 			</div>
 			{/* ClassInsights Highlights */}
-			<div className="mt-5 mb-12 flex w-4/5 flex-col items-center gap-10 md:mt-0 md:w-full md:flex-row">
+			<div className="mt-5 mb-12 flex w-4/5 flex-col items-center gap-10 md:mt-0 md:w-full md:flex-row md:items-start">
 				{[
 					[
 						"Energieeffizienz",

@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import ArrowSVG from "../assets/svg/arrow.svg?react";
 import CallSVG from "../assets/svg/call.svg?react";
 import MailSVG from "../assets/svg/mail.svg?react";
-import PageWrapper from "../components/PageWrapper";
 import Spacing from "../components/Spacing";
 
 const Privacy = () => {
 	return (
-		<PageWrapper>
+		<>
 			<div className="pt-32 pb-8">
 				<Link to="/" className="flex w-max items-center gap-1.5 pb-2">
 					<ArrowSVG className="rotate-180 fill-black" />
@@ -565,7 +564,7 @@ const Privacy = () => {
 				</a>
 			</p>
 			<Spacing />
-		</PageWrapper>
+		</>
 	);
 };
 

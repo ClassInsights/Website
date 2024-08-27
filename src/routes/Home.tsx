@@ -1,5 +1,4 @@
 import Certificate from "../components/Certificate";
-import PageWrapper from "../components/PageWrapper";
 import Spacing from "../components/Spacing";
 import BuyDemo from "../components/sections/BuyDemo";
 import CertificateSection from "../components/sections/Certificate";
@@ -13,24 +12,22 @@ import { CertificateProvider } from "../contexts/CertificateContext";
 const Home = () => (
 	<CertificateProvider>
 		<Certificate />
-		<PageWrapper>
-			<Hero />
-			<Spacing id="features" size="md" />
-			<Functionality />
-			<Spacing />
-			<Dashboard />
-			<Spacing />
-			<CertificateSection />
-			<Spacing />
-			<KeyPoints />
-			{/* <Spacing />
+		<Hero />
+		<Spacing id="features" size="md" />
+		<Functionality />
+		<Spacing />
+		<Dashboard />
+		<Spacing />
+		<CertificateSection />
+		<Spacing />
+		<KeyPoints />
+		{/* <Spacing />
 			<Testimonial /> */}
-			<Spacing />
-			<BuyDemo />
-			<Spacing />
-			<FAQ />
-			<Spacing />
-		</PageWrapper>
+		<Spacing />
+		<BuyDemo />
+		<Spacing />
+		<FAQ />
+		<Spacing />
 	</CertificateProvider>
 );
 

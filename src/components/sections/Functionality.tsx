@@ -5,7 +5,8 @@ const Functionality = () => {
 	const elementRef = useRef(null);
 
 	const startAnimation = useCallback(() => {
-		const wire = document.getElementById("wire") as HTMLElement;
+		const wire = document.getElementById("wire");
+		if (!wire) return;
 		const dots = Array.from(wire.children).reverse() as HTMLElement[];
 		const shutdown = document.getElementById("shutdown")
 			?.children[0] as HTMLElement;

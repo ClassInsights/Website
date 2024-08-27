@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ArrowSVG from "../assets/svg/arrow.svg?react";
 import LoginSVG from "../assets/svg/login.svg?react";
@@ -14,8 +14,6 @@ const Navbar = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
 
-	const authUrl = "https://auth.classinsights.at";
-
 	const handleClick = () => {
 		setIsOpen(false);
 		document.removeEventListener("click", handleClick);
@@ -27,16 +25,26 @@ const Navbar = () => {
 		setTimeout(() => document.addEventListener("click", handleClick), 100);
 	};
 
-	const scrollToTop = () => {
+	const scrollToTop = useCallback(() => {
 		if (location.pathname !== "/") navigate("/");
-		window.scrollTo({ top: 0 });
-	};
+		else {
+			window.scrollTo({ top: 0 });
+			history.pushState(
+				"",
+				document.title,
+				location.pathname + location.search,
+			);
+		}
+	}, [location, navigate]);
 
 	const mobileLinkStyle =
 		"w-full py-2 pr-3 pl-14 text-right hover:bg-container-selected";
 
 	return (
-		<header className="fixed right-0 left-0 z-10 flex justify-between bg-background px-5 pt-6 pb-3 md:px-24 xl:px-60 2xl:px-96">
+		<header
+			key=""
+			className="fixed right-0 left-0 z-10 flex justify-between bg-background px-5 pt-6 pb-3 md:px-24 xl:px-60 2xl:px-96"
+		>
 			<img
 				src="/logo.svg"
 				alt="ClassInsights Logo"
@@ -48,9 +56,9 @@ const Navbar = () => {
 			<nav className="relative flex items-center gap-5">
 				{/* Mobile Login Button */}
 				<div className="md:hidden">
-					<a href={authUrl} target="_blank" rel="noreferrer">
+					<Link to="/login">
 						<LoginSVG width={25} />
-					</a>
+					</Link>
 				</div>
 				{/* Mobile Menu Icon */}
 				<MenuSVG
@@ -84,15 +92,13 @@ const Navbar = () => {
 					<Link to="/#features">Lösungen</Link>
 					<Link to="/unternehmen">Über uns</Link>
 					<Link to="/installation">Installation</Link>
-					<a
-						href={authUrl}
-						target="_blank"
-						rel="noreferrer"
+					<Link
+						to="/login"
 						className="hidden items-center gap-1.5 text-primary md:flex"
 					>
 						<p>Anmelden</p>
 						<ArrowSVG className="fill-primary" />
-					</a>
+					</Link>
 				</div>
 			</nav>
 		</header>

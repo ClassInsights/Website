@@ -4,15 +4,18 @@ import ArrowSVG from "../assets/svg/arrow.svg?react";
 import DashboardSVG from "../assets/svg/dashboard.svg?react";
 import LoginSVG from "../assets/svg/login.svg?react";
 import MenuSVG from "../assets/svg/menu.svg?react";
-import { useAuth } from "../contexts/AuthContext";
 
 /** The main Navigation Bar component */
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
-	const auth = useAuth();
 	const location = useLocation();
 	const navigate = useNavigate();
+
+	const auth = {
+		isAuthenticated: false,
+		handleLogin: () => alert("Authentifizierung ist noch in Arbeit"),
+	};
 
 	/** Handler for clicking inside the viewport */
 	const onDocumentClick = () => {

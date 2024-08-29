@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+/** The main footer on the bottom of every page */
 const Footer = () => {
 	return (
 		<footer className="absolute bottom-0 flex w-full select-none flex-col items-center justify-between bg-background pb-8 sm:flex-row">

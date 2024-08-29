@@ -3,6 +3,7 @@ import AwardSVG from "../assets/svg/award.svg?react";
 import CloseSVG from "../assets/svg/close.svg?react";
 import { useCertificate } from "../contexts/CertificateContext";
 
+/** Modal to showcase the certificate of schools */
 const Certificate = () => {
 	const certificate = useCertificate();
 	if (!certificate.isVisible) return null;

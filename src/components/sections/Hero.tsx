@@ -18,10 +18,10 @@ const Hero = () => {
 					</p>
 					{/* Work in Progress Hint */}
 					<div className="mx-auto mb-6 flex flex-col items-center rounded-lg bg-container px-5 py-2 text-center shadow-sm">
-						<h3 className="pb-2">
+						<h2 className="pb-2 text-xl">
 							&#9888;&#65039; ClassInsights befindet sich noch in der
 							Entwicklung &#9888;&#65039;
-						</h3>
+						</h2>
 						<p className="hidden pb-1 md:inline">
 							Schriftliche Anfragen werden jedoch jederzeit entgegengenommen.
 						</p>
@@ -34,12 +34,13 @@ const Hero = () => {
 							onPress={`mailto:office@classinsights.at?subject=Demo%20Anfrage%20${new Date().toLocaleDateString()}`}
 							arrowed
 						/>
-						<a href="#features" className="underline">
+						<Link to="/#features" aria-label="Lösungen" className="underline">
 							Mehr erfahren
-						</a>
+						</Link>
 					</div>
 				</div>
-				<Link to="/#features">
+				{/* Mobile arrow button to the features */}
+				<Link to="/#features" aria-label="Lösungen">
 					<ArrowDownSVG
 						className="absolute right-0 bottom-4 left-0 mx-auto animate-bounce md:hidden"
 						width={35}

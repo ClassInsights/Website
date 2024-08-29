@@ -9,6 +9,7 @@ const FAQ = () => {
 		<section>
 			<h2 className="pb-4">Fragen & Antworten</h2>
 			<div className="relative grid w-full gap-x-5 gap-y-4 pb-12 md:grid-cols-2">
+				{/* Render all the different questions and answers */}
 				{[
 					[
 						"Was ist ClassInsights überhaupt?",
@@ -92,6 +93,7 @@ const FAQ = () => {
 					</Question>
 				))}
 			</div>
+			{/* Contact information */}
 			<p>
 				Noch Fragen? Wir sind für Sie immer unter{" "}
 				<a

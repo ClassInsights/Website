@@ -10,6 +10,7 @@ const KeyPoints = () => {
 				<span className="text-primary">ClassInsights</span> macht es möglich...
 			</h2>
 			<div className="mx-auto grid gap-x-10 gap-y-8 md:w-3/4 md:grid-cols-2 md:gap-y-20 xl:w-3/5">
+				{/** List of highlights */}
 				{[
 					[
 						"Effizient und einfach Strom sparen",
@@ -36,7 +37,7 @@ const KeyPoints = () => {
 						className="flex flex-col items-center gap-3"
 					>
 						{svg}
-						<h4 className="text-center lg:w-3/4 xl:w-3/5">{title}</h4>
+						<h3 className="text-center text-lg lg:w-3/4 xl:w-3/5">{title}</h3>
 					</div>
 				))}
 			</div>

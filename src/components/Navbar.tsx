@@ -1,28 +1,30 @@
 import { useCallback, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ArrowSVG from "../assets/svg/arrow.svg?react";
+import DashboardSVG from "../assets/svg/dashboard.svg?react";
 import LoginSVG from "../assets/svg/login.svg?react";
 import MenuSVG from "../assets/svg/menu.svg?react";
+import { useAuth } from "../contexts/AuthContext";
 
-/**
- * The main Navigation Bar component
- * @returns {JSX.Element} The navbar component
- */
+/** The main Navigation Bar component */
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
+	const auth = useAuth();
 	const location = useLocation();
 	const navigate = useNavigate();
 
-	const handleClick = () => {
+	/** Handler for clicking inside the viewport */
+	const onDocumentClick = () => {
 		setIsOpen(false);
-		document.removeEventListener("click", handleClick);
+		document.removeEventListener("click", onDocumentClick);
 	};
 
+	/** Extract the mobile menu */
 	const handleMenu = () => {
 		if (isOpen) return;
 		setIsOpen(true);
-		setTimeout(() => document.addEventListener("click", handleClick), 100);
+		setTimeout(() => document.addEventListener("click", onDocumentClick), 100);
 	};
 
 	const scrollToTop = useCallback(() => {
@@ -55,10 +57,17 @@ const Navbar = () => {
 			/>
 			<nav className="relative flex items-center gap-5">
 				{/* Mobile Login Button */}
-				<div className="md:hidden">
-					<Link to="/login">
-						<LoginSVG width={25} />
-					</Link>
+				<div
+					className="cursor-pointer md:hidden"
+					aria-label={auth.isAuthenticated ? "Anmelden" : "Zum Dashboard"}
+					onClick={auth.handleLogin}
+					onKeyDown={auth.handleLogin}
+				>
+					{auth.isAuthenticated ? (
+						<DashboardSVG width={25} className="fill-primary" />
+					) : (
+						<LoginSVG width={25} className="fill-primary" />
+					)}
 				</div>
 				{/* Mobile Menu Icon */}
 				<MenuSVG
@@ -71,7 +80,11 @@ const Navbar = () => {
 				<div
 					className={`absolute top-10 right-0 flex flex-col overflow-hidden rounded-lg bg-container shadow-md transition-opacity duration-300 ${isOpen ? "visible opacity-100" : "invisible opacity-0"}`}
 				>
-					<Link to="/#features" className={mobileLinkStyle}>
+					<Link
+						to="/#features"
+						aria-label="Lösungen"
+						className={mobileLinkStyle}
+					>
 						Lösungen
 					</Link>
 					{[
@@ -89,16 +102,19 @@ const Navbar = () => {
 				</div>
 				{/* Desktop Menu */}
 				<div className="hidden items-center gap-8 md:flex">
-					<Link to="/#features">Lösungen</Link>
+					<Link to="/#features" aria-label="Lösungen">
+						Lösungen
+					</Link>
 					<Link to="/unternehmen">Über uns</Link>
 					<Link to="/installation">Installation</Link>
-					<Link
-						to="/login"
-						className="hidden items-center gap-1.5 text-primary md:flex"
+					<div
+						className="hidden cursor-pointer items-center gap-1.5 text-primary md:flex"
+						onClick={auth.handleLogin}
+						onKeyDown={auth.handleLogin}
 					>
-						<p>Anmelden</p>
+						<p>{auth.isAuthenticated ? "Zum Dashboard" : "Anmelden"}</p>
 						<ArrowSVG className="fill-primary" />
-					</Link>
+					</div>
 				</div>
 			</nav>
 		</header>

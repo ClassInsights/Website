@@ -34,7 +34,7 @@ const Button = ({
 				</Link>
 			);
 		return (
-			<a href={onPress} className={buttonStyle}>
+			<a href={onPress} aria-label={label} className={buttonStyle}>
 				{label}
 				{arrowed && <ArrowSVG className="fill-background" width={16} />}
 			</a>
@@ -42,7 +42,12 @@ const Button = ({
 	}
 
 	return (
-		<button type="button" onClick={onPress} className={buttonStyle}>
+		<button
+			type="button"
+			aria-label={label}
+			onClick={onPress}
+			className={buttonStyle}
+		>
 			{label}
 			{arrowed && <ArrowSVG className="fill-background" width={16} />}
 		</button>

@@ -65,6 +65,7 @@
   }
 
   html {
+    scrollbar-gutter: stable;
     @apply scroll-smooth;
   }
 
@@ -115,5 +116,9 @@
 
   .certificate {
     background-image: url("./assets/svg/certificate.svg");
+  }
+
+  .scrollbar {
+    scrollbar-color: gray transparent;
   }
 }

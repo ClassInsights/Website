@@ -13,17 +13,11 @@ type CertificateContextType = {
 	hide: () => void;
 };
 
-const CertificateContext = createContext<CertificateContextType | undefined>(
-	undefined,
-);
+const CertificateContext = createContext<CertificateContextType | undefined>(undefined);
 
-export const CertificateProvider = ({
-	children,
-}: { children: React.ReactNode }) => {
+export const CertificateProvider = ({ children }: { children: React.ReactNode }) => {
 	const [isVisible, setIsVisible] = useState(false);
-	const [certificateData, setCertificateData] = useState<
-		CertificateData | undefined
-	>(undefined);
+	const [certificateData, setCertificateData] = useState<CertificateData | undefined>(undefined);
 
 	const onEscKeyDown = useCallback((e: KeyboardEvent) => {
 		if (e.key === "Escape") hide();
@@ -41,15 +35,13 @@ export const CertificateProvider = ({
 
 	const hide = useCallback(() => {
 		setIsVisible(false);
-		console.log("hide");
+		setCertificateData(undefined);
 		document.body.style.overflow = "auto";
 		document.body.removeEventListener("keydown", onEscKeyDown);
 	}, [onEscKeyDown]);
 
 	return (
-		<CertificateContext.Provider
-			value={{ isVisible, certificateData, show, hide }}
-		>
+		<CertificateContext.Provider value={{ isVisible, certificateData, show, hide }}>
 			{children}
 		</CertificateContext.Provider>
 	);

@@ -3,6 +3,7 @@ import roomPath from "../../assets/img/room.webp";
 import settingsPath from "../../assets/img/settings.webp";
 import ArrowSVG from "../../assets/svg/arrow.svg?react";
 
+/** Dashboard section with multiple pages to navigate */
 const Dashboard = () => {
 	const [pageIndex, setPageIndex] = useState(0);
 
@@ -35,7 +36,7 @@ const Dashboard = () => {
 			<ArrowSVG
 				key={`page-${index}`}
 				width={25}
-				className={`flex-shrink-0 fill-black ${index === 0 ? "rotate-180 " : ""}${pageIndex === index ? "opacity-20 " : "cursor-pointer "}${isMobile ? "lg:hidden" : "hidden lg:inline"}`}
+				className={`shrink-0 fill-black ${index === 0 ? "rotate-180 " : ""}${pageIndex === index ? "opacity-20 " : "cursor-pointer "}${isMobile ? "lg:hidden" : "hidden lg:inline"}`}
 				onClick={() => updatePageIndex(index)}
 				onKeyDown={() => updatePageIndex(index)}
 				aria-label={index === 0 ? "Vorherige Seite" : "Nächste Seite"}
@@ -50,10 +51,7 @@ const Dashboard = () => {
 				{pageIndex === 0 ? (
 					<img src={roomPath} alt="Room Page of the ClassInsights Dashboard" />
 				) : (
-					<img
-						src={settingsPath}
-						alt="Settings Page of the ClassInsights Dashboard"
-					/>
+					<img src={settingsPath} alt="Settings Page of the ClassInsights Dashboard" />
 				)}
 			</div>
 			{/* Explaining Content */}

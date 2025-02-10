@@ -4,11 +4,12 @@ import CallSVG from "../assets/svg/call.svg?react";
 import MailSVG from "../assets/svg/mail.svg?react";
 import Spacing from "../components/Spacing";
 
+/** The impress page */
 const Impress = () => (
 	<>
 		<div className="pt-32 pb-8">
 			<Link to="/" className="flex w-max items-center gap-1.5 pb-2">
-				<ArrowSVG className="rotate-180 fill-black" />
+				<ArrowSVG className="shrink-0 rotate-180 fill-black" />
 				<p>Zurück zur Startseite</p>
 			</Link>
 			<h1 className="text-5xl">Impressum</h1>
@@ -42,60 +43,43 @@ const Impress = () => (
 			<p className="pt-3">Bezirkshauptmannschaft Landeck</p> */}
 		<h3 className="pt-6 pb-1">Kontakt</h3>
 		<div className="flex items-center gap-2">
-			<CallSVG className="fill-black" width={20} />
+			<CallSVG className="shrink-0 fill-black" width={20} />
 			<p>Bald für Sie telefonisch erreichbar!</p>
 		</div>
 		<div className="flex items-center gap-2">
-			<MailSVG className="fill-black" width={20} />
+			<MailSVG className="shrink-0 fill-black" width={20} />
 			<a href="mailto:office@classinsights.at">office@classinsights.at</a>
 		</div>
 		<h3 className="pt-6 pb-1">Umsetzung Webdesign</h3>
 		<p>Jakob Wassertheurer</p>
 		<div className="flex items-center gap-2">
-			<MailSVG className="fill-black" width={20} />
+			<MailSVG className="shrink-0 fill-black" width={20} />
 			<a href="mailto:jakob@classinsights.at">jakob@classinsights.at</a>
 		</div>
 		<h3 className="pt-6 pb-1">Beschwerden</h3>
 		<p>
-			Verbraucher haben die Möglichkeit, Beschwerden an die
-			Online-Streitbeilegungsplattform der EU zu richten:{" "}
-			<a
-				href="http://ec.europa.eu/odr"
-				rel="noreferrer"
-				target="_blank"
-				className="text-primary"
-			>
+			Verbraucher haben die Möglichkeit, Beschwerden an die Online-Streitbeilegungsplattform der EU zu richten:{" "}
+			<a href="http://ec.europa.eu/odr" rel="noreferrer" target="_blank" className="text-primary">
 				http://ec.europa.eu/odr
 			</a>
 			.
 		</p>
 		<p>
-			Sie können Ihre Beschwerde auch direkt bei uns bei folgender
-			E-Mail-Adresse einbringen:
+			Sie können Ihre Beschwerde auch direkt bei uns bei folgender E-Mail-Adresse einbringen:
 			<span className="flex items-center gap-2">
-				<MailSVG className="fill-black" width={20} />
-				<a href="mailto:beschwerde@classinsights.at">
-					beschwerde@classinsights.at
-				</a>
+				<MailSVG className="shrink-0 fill-black" width={20} />
+				<a href="mailto:beschwerde@classinsights.at">beschwerde@classinsights.at</a>
 			</span>
 		</p>
 		<h3 className="pt-6 pb-1">Datenschutz</h3>
-		<p>
-			Sie haben Bedenken bezüglich des Datenschutzes? Kontaktieren Sie uns gerne
-			unter:
-		</p>
+		<p>Sie haben Bedenken bezüglich des Datenschutzes? Kontaktieren Sie uns gerne unter:</p>
 		<div className="flex items-center gap-2 pb-2">
-			<MailSVG className="fill-black" width={20} />
-			<a href="mailto:datenschutz@classinsights.at">
-				datenschutz@classinsights.at
-			</a>
+			<MailSVG className="shrink-0 fill-black" width={20} />
+			<a href="mailto:datenschutz@classinsights.at">datenschutz@classinsights.at</a>
 		</div>
-		<Link
-			to="/datenschutz"
-			className="hidden items-center gap-1.5 text-primary md:flex"
-		>
+		<Link to="/datenschutz" className="hidden items-center gap-1.5 text-primary md:flex">
 			<p>Datenschutzerklärung</p>
-			<ArrowSVG className="fill-primary" />
+			<ArrowSVG className="shrink-0 fill-primary" />
 		</Link>
 		<Spacing />
 	</>

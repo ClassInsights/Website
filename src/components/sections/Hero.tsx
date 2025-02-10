@@ -3,6 +3,7 @@ import ArrowDownSVG from "../../assets/svg/arrow-down.svg?react";
 import Button from "../Button";
 import Highlight from "../Highlight";
 
+/** The homepage hero section */
 const Hero = () => {
 	return (
 		<section className="flex min-h-lvh flex-col items-center justify-end">
@@ -13,14 +14,13 @@ const Hero = () => {
 						ClassInsights<span className="text-primary">.</span>
 					</h1>
 					<p className="pb-6 text-center text-lg sm:w-8/12">
-						Die innovative Energie-Management Lösung für Schulen auf Basis des
-						Stundenplans
+						Die innovative Energie-Management Lösung für Schulen auf Basis des Stundenplans
 					</p>
 					{/* C2A Buttons */}
 					<div className="flex flex-col items-center justify-center gap-5 sm:flex-row md:gap-8">
 						<Button
 							label="Demo anfordern"
-							onPress={`mailto:office@classinsights.at?subject=Demo%20Anfrage%20${new Date().toLocaleDateString()}`}
+							onPress="mailto:office@classinsights.at?subject=ClassInsights%20Demo%20Anfrage"
 							arrowed
 						/>
 						<Link to="/#features" aria-label="Lösungen" className="underline">
@@ -31,7 +31,7 @@ const Hero = () => {
 				{/* Mobile arrow button to the features */}
 				<Link to="/#features" aria-label="Lösungen">
 					<ArrowDownSVG
-						className="absolute right-0 bottom-4 left-0 mx-auto animate-bounce md:hidden"
+						className="absolute right-0 bottom-4 left-0 mx-auto shrink-0 animate-bounce md:hidden"
 						width={35}
 						height={35}
 					/>
@@ -53,11 +53,7 @@ const Hero = () => {
 						"Unser intuitiver Setup Guide in Kombination mit Docker macht die Einrichtung fast zu einem Kinderspiel.",
 					],
 				].map(([title, description]) => (
-					<Highlight
-						key={title.slice(0, 5)}
-						title={title}
-						description={description}
-					/>
+					<Highlight key={title.slice(0, 5)} title={title} description={description} />
 				))}
 			</div>
 		</section>

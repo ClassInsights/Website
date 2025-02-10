@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { AuthProvider } from "../contexts/AuthContext";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
@@ -24,10 +25,12 @@ const PageWrapper = (): JSX.Element => {
 	});
 
 	return (
-		<main className="page-spacing relative min-h-dvh">
-			<Navbar />
-			<Outlet />
-			<Footer />
+		<main className="page-spacing relative min-h-100dvh max-w-5xl">
+			<AuthProvider>
+				<Navbar />
+				<Outlet />
+				<Footer />
+			</AuthProvider>
 		</main>
 	);
 };

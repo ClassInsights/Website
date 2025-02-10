@@ -9,6 +9,7 @@ import Hero from "../components/sections/Hero";
 import KeyPoints from "../components/sections/KeyPoints";
 import { CertificateProvider } from "../contexts/CertificateContext";
 
+/** The home page */
 const Home = () => (
 	<CertificateProvider>
 		<Certificate />

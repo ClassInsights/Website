@@ -1,21 +1,18 @@
 import { useCallback, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ArrowSVG from "../assets/svg/arrow.svg?react";
-import DashboardSVG from "../assets/svg/dashboard.svg?react";
 import LoginSVG from "../assets/svg/login.svg?react";
 import MenuSVG from "../assets/svg/menu.svg?react";
+import SchoolSVG from "../assets/svg/school.svg?react";
+import { useAuth } from "../contexts/AuthContext";
 
 /** The main Navigation Bar component */
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
+	const auth = useAuth();
 	const location = useLocation();
 	const navigate = useNavigate();
-
-	const auth = {
-		isAuthenticated: false,
-		handleLogin: () => alert("Authentifizierung ist noch in Arbeit"),
-	};
 
 	/** Handler for clicking inside the viewport */
 	const onDocumentClick = () => {
@@ -34,21 +31,16 @@ const Navbar = () => {
 		if (location.pathname !== "/") navigate("/");
 		else {
 			window.scrollTo({ top: 0 });
-			history.pushState(
-				"",
-				document.title,
-				location.pathname + location.search,
-			);
+			history.pushState("", document.title, location.pathname + location.search);
 		}
 	}, [location, navigate]);
 
-	const mobileLinkStyle =
-		"w-full py-2 pr-3 pl-14 text-right hover:bg-container-selected";
+	const mobileLinkStyle = "w-full py-2 pr-3 pl-14 text-right hover:bg-container-selected";
 
 	return (
 		<header
 			key=""
-			className="fixed right-0 left-0 z-10 flex justify-between bg-background px-5 pt-6 pb-3 md:px-24 xl:px-60 2xl:px-96"
+			className="fixed right-0 left-0 z-10 mx-auto flex max-w-screen-2xl justify-between bg-background px-5 pt-6 pb-3 md:px-24 xl:px-60 2xl:px-96"
 		>
 			<img
 				src="/logo.svg"
@@ -62,43 +54,30 @@ const Navbar = () => {
 				{/* Mobile Login Button */}
 				<div
 					className="cursor-pointer md:hidden"
-					aria-label={auth.isAuthenticated ? "Anmelden" : "Zum Dashboard"}
+					aria-label={auth.isAuthenticated ? "Anmelden" : "Zur Schulauswahl"}
 					onClick={auth.handleLogin}
 					onKeyDown={auth.handleLogin}
 				>
 					{auth.isAuthenticated ? (
-						<DashboardSVG width={25} className="fill-primary" />
+						<SchoolSVG width={25} className="shrink-0 fill-primary" />
 					) : (
-						<LoginSVG width={25} className="fill-primary" />
+						<LoginSVG width={25} className="shrink-0 fill-primary" />
 					)}
 				</div>
 				{/* Mobile Menu Icon */}
-				<MenuSVG
-					width={25}
-					onClick={handleMenu}
-					onKeyDown={handleMenu}
-					className="cursor-pointer md:hidden"
-				/>
+				<MenuSVG width={25} onClick={handleMenu} onKeyDown={handleMenu} className="shrink-0 cursor-pointer md:hidden" />
 				{/* Mobile Menu */}
 				<div
 					className={`absolute top-10 right-0 flex flex-col overflow-hidden rounded-lg bg-container shadow-md transition-opacity duration-300 ${isOpen ? "visible opacity-100" : "invisible opacity-0"}`}
 				>
-					<Link
-						to="/#features"
-						aria-label="Lösungen"
-						className={mobileLinkStyle}
-					>
+					<Link to="/#features" aria-label="Lösungen" className={mobileLinkStyle}>
 						Lösungen
 					</Link>
 					{[
 						["/unternehmen", "Über uns"],
 						["/installation", "Installation"],
 					].map(([link, label]) => (
-						<Link
-							key={link}
-							to={link}
-							className={`${mobileLinkStyle} border-black border-t border-opacity-10`}
-						>
+						<Link key={link} to={link} className={`${mobileLinkStyle} border-black border-t border-opacity-10`}>
 							{label}
 						</Link>
 					))}
@@ -115,8 +94,8 @@ const Navbar = () => {
 						onClick={auth.handleLogin}
 						onKeyDown={auth.handleLogin}
 					>
-						<p>{auth.isAuthenticated ? "Zum Dashboard" : "Anmelden"}</p>
-						<ArrowSVG className="fill-primary" />
+						<p>{auth.isAuthenticated ? "Zur Schulauswahl" : "Anmelden"}</p>
+						<ArrowSVG className="shrink-0 fill-primary" />
 					</div>
 				</div>
 			</nav>

@@ -8,7 +8,9 @@ import ErrorPage from "./routes/Error.tsx";
 import Home from "./routes/Home.tsx";
 import Impress from "./routes/Impress.tsx";
 import Install from "./routes/Install.tsx";
+import Login from "./routes/Login.tsx";
 import Privacy from "./routes/Privacy.tsx";
+import Schools from "./routes/Schools.tsx";
 
 const root = document.getElementById("root");
 
@@ -40,11 +42,17 @@ const router = createBrowserRouter([
 				path: "/unternehmen",
 				element: <About />,
 			},
+			{
+				path: "/login",
+				element: <Login />,
+			},
+			{
+				path: "/schulen",
+				element: <Schools />,
+			},
 		],
 	},
 ]);
-
-document.addEventListener("dragstart", (event) => event.preventDefault());
 
 ReactDOM.createRoot(root).render(
 	<React.StrictMode>

@@ -3,6 +3,7 @@ import ElectricitySVG from "../../assets/svg/electricity.svg?react";
 import MeasureSVG from "../../assets/svg/measure.svg?react";
 import MonitorSVG from "../../assets/svg/monitor.svg?react";
 
+/** The key points of the application */
 const KeyPoints = () => {
 	return (
 		<section className="w-full">
@@ -14,28 +15,16 @@ const KeyPoints = () => {
 				{[
 					[
 						"Effizient und einfach Strom sparen",
-						<ElectricitySVG
-							key="electricity"
-							className="h-14 w-14 fill-primary"
-						/>,
+						<ElectricitySVG key="electricity" className="h-14 w-14 shrink-0 fill-primary" />,
 					],
-					[
-						"Stromverbrauch der Computer messen",
-						<MeasureSVG key="measure" className="h-14 w-14 fill-primary" />,
-					],
+					["Stromverbrauch der Computer messen", <MeasureSVG key="measure" className="h-14 w-14 fill-primary" />],
 					[
 						"Awareness für Energieverbrauch schaffen",
-						<AwarenessSVG key="awareness" className="h-14 w-14 fill-primary" />,
+						<AwarenessSVG key="awareness" className="h-14 w-14 shrink-0 fill-primary" />,
 					],
-					[
-						"Computer Verbrauch überwachen",
-						<MonitorSVG key="monitor" className="h-14 w-14 fill-primary" />,
-					],
+					["Computer Verbrauch überwachen", <MonitorSVG key="monitor" className="h-14 w-14 shrink-0 fill-primary" />],
 				].map(([title, svg]) => (
-					<div
-						key={title.toString()}
-						className="flex flex-col items-center gap-3"
-					>
+					<div key={title.toString()} className="flex flex-col items-center gap-3">
 						{svg}
 						<h3 className="text-center text-lg lg:w-3/4 xl:w-3/5">{title}</h3>
 					</div>

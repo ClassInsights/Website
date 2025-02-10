@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import HintSVG from "../../assets/svg/hint.svg?react";
 import { useCertificate } from "../../contexts/CertificateContext";
 
+/** The certificate section with certificate popup button */
 const Certificate = () => {
 	const certificate = useCertificate();
 
@@ -20,13 +21,12 @@ const Certificate = () => {
 			<div className="text-center md:w-3/5 md:text-left">
 				<h2 className="pb-4">Zertifikat für teilnehmende Schulen</h2>
 				<p>
-					Alle Schulen mit aktivem ClassInsights erhalten ein Zertifikat, das
-					sie in ihre Website einbinden können. Zudem können Schule ihre
-					maßgeschneiderte Zertifikatsseite als Link einfügen.
+					Alle Schulen mit aktivem ClassInsights erhalten ein Zertifikat, das sie in ihre Website einbinden können.
+					Zudem können Schule ihre maßgeschneiderte Zertifikatsseite als Link einfügen.
 				</p>
 			</div>
 			<div className="flex items-end gap-3">
-				<HintSVG className="mb-1 w-16 md:w-24" />
+				<HintSVG className="mb-1 w-16 shrink-0 md:w-24" />
 				<div
 					onClick={openCertificate}
 					onKeyDown={openCertificate}

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import FunctionalitySVG from "../../assets/svg/functionality.svg?react";
 
+/** Functionality section with svg animation */
 const Functionality = () => {
 	/** Reference to the parent div of the SVG */
 	const elementRef = useRef(null);
@@ -11,8 +12,7 @@ const Functionality = () => {
 		const wire = document.getElementById("wire");
 		if (!wire) return;
 		const dots = Array.from(wire.children).reverse() as HTMLElement[];
-		const shutdown = document.getElementById("shutdown")
-			?.children[0] as HTMLElement;
+		const shutdown = document.getElementById("shutdown")?.children[0] as HTMLElement;
 		const screen = document.getElementById("screen") as HTMLElement;
 
 		// Set the transition property for animated elements
@@ -102,21 +102,15 @@ const Functionality = () => {
 
 	return (
 		<section className="flex flex-col items-center">
-			<h2 className="w-full pb-5 md:pb-10 md:text-center">
-				Automatisiertes Steuern der Computer
-			</h2>
+			<h2 className="w-full pb-5 md:pb-10 md:text-center">Automatisiertes Steuern der Computer</h2>
 			{/* Functionality graphic*/}
 			<div ref={elementRef} className="w-full lg:w-4/6 2xl:w-4/5">
-				<FunctionalitySVG
-					id="functionality"
-					className="hidden w-full select-none md:inline"
-				/>
+				<FunctionalitySVG id="functionality" className="hidden w-full shrink-0 select-none md:inline" />
 			</div>
 			{/* Explanation of graphic */}
 			<p className="md:mt-10 md:w-1/2 md:text-center">
-				Wenn in einem Raum{" "}
-				<span className="text-primary">kein Unterricht mehr</span> stattfindet,
-				werden die Computer, die nicht mehr in Verwendung sind,
+				Wenn in einem Raum <span className="text-primary">kein Unterricht mehr</span> stattfindet, werden die Computer,
+				die nicht mehr in Verwendung sind,
 				<span className="text-primary"> automatisch heruntergefahren</span>.
 			</p>
 		</section>

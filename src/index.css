@@ -121,4 +121,28 @@
   .scrollbar {
     scrollbar-color: gray transparent;
   }
+
+  .school {
+    @apply border-b-2 md:odd:border-r-2 md:odd:pr-6 md:even:pl-6 lg:odd:pr-12 lg:even:pl-12 border-[#F1F4FF];
+  } 
+
+  /* Select first two schools if there are at least three schools */
+  #schools:has(> :nth-child(3)) > :nth-child(-n+2) {
+    @apply py-4;
+  }
+
+  /* Select all schools except the first two */
+  .school:nth-child(n+3) {
+    @apply py-4;
+  }
+
+  /* Select last two schools when the amount of schools is even */
+  #schools:has(> :nth-child(even):last-child) > *:nth-last-child(-n+2) {
+    @apply border-b-0;
+  }
+  
+  /* Select last school when the amount of schools is odd */
+  #schools:has(> :nth-child(odd):last-child) > *:last-child {
+    @apply border-b-0;
+  }
 }

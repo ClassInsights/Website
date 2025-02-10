@@ -2,6 +2,7 @@ import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import Question from "../Question";
 
+/** FAQ section with extendable questions */
 const FAQ = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(-1);
 
@@ -14,20 +15,16 @@ const FAQ = () => {
 					[
 						"Was ist ClassInsights überhaupt?",
 						<p key="general">
-							Bei ClassInsights handelt es sich um eine Software Lösung für
-							Schulen, die es ermöglicht, den Energieverbrauch von Computern
-							deutlich zu optimieren. Dabei werden die Computer nach der letzten
-							Unterrichtsstunde eines Raumes automatisch heruntergefahren. Das
-							spart nicht nur Energie, sondern auch Geld.
+							Bei ClassInsights handelt es sich um eine Software Lösung für Schulen, die es ermöglicht, den
+							Energieverbrauch von Computern deutlich zu optimieren. Dabei werden die Computer nach der letzten
+							Unterrichtsstunde eines Raumes automatisch heruntergefahren. Das spart nicht nur Energie, sondern auch
+							Geld.
 						</p>,
 					],
 					[
 						"Welche Vorteile hat man dadurch?",
 						<Fragment key="benefits">
-							<p>
-								Eine ClassInsights zertifierte Schule erhält zahlreiche
-								Vorteile:
-							</p>
+							<p>Eine ClassInsights zertifierte Schule erhält zahlreiche Vorteile:</p>
 							<ul className="list-inside list-disc">
 								<li>Energie und Kostenersparnis</li>
 								<li>Lebensdauer der Computer wird potenziell erhöht</li>
@@ -39,10 +36,8 @@ const FAQ = () => {
 					[
 						"Wie erhält man das Zertifikat?",
 						<p key="certificate">
-							Mit der Aktivierung einer Lizenz, kann man das Zertifkat in
-							veschiedenen Größen im ClassInsights Dashboard herunterladen. Der
-							Link zum Anklicken auf der eigenen Schulwebsite ist ebenfalls im
-							Dashboard vorzufinden.
+							Mit der Aktivierung einer Lizenz, kann man das Zertifkat in veschiedenen Größen im ClassInsights Dashboard
+							herunterladen. Der Link zum Anklicken auf der eigenen Schulwebsite ist ebenfalls im Dashboard vorzufinden.
 						</p>,
 					],
 					[
@@ -55,30 +50,27 @@ const FAQ = () => {
 							>
 								Demo Anfrage Seite
 							</a>{" "}
-							registrieren. Nach erfolgreicher Registrierung und Installation
-							können Sie mit dem zugesendeten Lizenzschlüssel ClassInsights für
-							30 Tage testen.
+							registrieren. Nach erfolgreicher Registrierung und Installation können Sie mit dem zugesendeten
+							Lizenzschlüssel ClassInsights für 30 Tage testen.
 						</p>,
 					],
 					[
 						"Handelt es sich um ein Abonnement?",
 						<p key="subscription">
-							ClassInsights sagt NEIN zu vergessenen Abonnements oder
-							umständlichen Kündigungsverfahren. Sie können eine einjährige
-							Lizenz erwerben, die automatisch ausläuft. Wenn kein Interesse
-							mehr besteht, kann man einfach die Zeit auslaufen lassen.
+							ClassInsights sagt NEIN zu vergessenen Abonnements oder umständlichen Kündigungsverfahren. Sie können eine
+							einjährige Lizenz erwerben, die automatisch ausläuft. Wenn kein Interesse mehr besteht, kann man einfach
+							die Zeit auslaufen lassen.
 						</p>,
 					],
 					[
 						"Wie funktioniert die Installation?",
 						<p key="installation">
-							Wir sind stets bemüht, den Installationsprozess so einfach wie
-							möglich zu gestalten. Daher haben wir einen intuitiven{" "}
+							Wir sind stets bemüht, den Installationsprozess so einfach wie möglich zu gestalten. Daher haben wir einen
+							intuitiven{" "}
 							<Link to="/installation" className="text-primary">
 								Setup Guide
 							</Link>{" "}
-							erstellt, der die Einrichtung nahezu zu einem Kinderspiel macht!
-							;&#41;
+							erstellt, der die Einrichtung nahezu zu einem Kinderspiel macht! ;&#41;
 						</p>,
 					],
 				].map(([question, answer], index) => (
@@ -96,10 +88,7 @@ const FAQ = () => {
 			{/* Contact information */}
 			<p>
 				Noch Fragen? Wir sind für Sie immer unter{" "}
-				<a
-					href="mailto:office@classinsights.at"
-					className="select-auto text-primary"
-				>
+				<a href="mailto:office@classinsights.at" className="select-auto text-primary">
 					office@classinsights.at
 				</a>{" "}
 				erreichbar.

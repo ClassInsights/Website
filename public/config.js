@@ -1,0 +1,5 @@
+window.__CONFIG__ = {
+    VITE_AUTH_URL: "CHANGE_ME",
+    VITE_API_URL: "CHANGE_ME",
+    VITE_JWKS_URL: "CHANGE_ME"
+};

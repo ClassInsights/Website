@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { conf } from "../config";
 import type { SchoolData } from "../types/SchoolData";
 import { useAuth } from "./AuthContext";
-import { conf } from "../config";
 
 type SchoolContextType = {
 	isVisible: boolean;

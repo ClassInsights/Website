@@ -2,11 +2,11 @@ import * as jose from "jose";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCookie, removeCookie, setCookie } from "typescript-cookie";
+import { conf } from "../config";
 import { type AuthData, isAuthData } from "../types/AuthData";
 import { type AuthResponse, isAuthResponse } from "../types/AuthResponse";
 import { type TokenData, isTokenData } from "../types/TokenData";
 import type { UserData } from "../types/UserData";
-import { conf } from "../config";
 
 type AuthContextType = {
 	/** True if the user is authenticated */

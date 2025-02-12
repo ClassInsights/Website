@@ -2,6 +2,7 @@ import * as jose from "jose";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCookie, removeCookie, setCookie } from "typescript-cookie";
+import { conf } from "../config";
 import { type AuthData, isAuthData } from "../types/AuthData";
 import { type AuthResponse, isAuthResponse } from "../types/AuthResponse";
 import { type TokenData, isTokenData } from "../types/TokenData";
@@ -32,11 +33,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	const navigate = useNavigate();
 
 	const isAuthenticated = useMemo(() => authData !== null && authData.expires_at > Date.now() / 1000, [authData]);
-	const JWKS = useMemo(() => jose.createRemoteJWKSet(new URL(import.meta.env.VITE_JWKS_URL)), []);
+	const JWKS = useMemo(() => jose.createRemoteJWKSet(new URL(conf().VITE_JWKS_URL)), []);
 
 	/** Redirect the user to the school selection (if logged in) or authentification server */
 	const handleLogin = useCallback(
-		() => (isAuthenticated ? navigate("/schulen") : window.location.replace(import.meta.env.VITE_AUTH_URL)),
+		() => (isAuthenticated ? navigate("/schulen") : window.location.replace(conf().VITE_AUTH_URL)),
 		[isAuthenticated, navigate],
 	);
 
@@ -106,7 +107,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 			let result: Response;
 
 			try {
-				result = await fetch(`${import.meta.env.VITE_API_URL}/token`, {
+				result = await fetch(`${conf().VITE_API_URL}/token`, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
@@ -199,7 +200,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 			let result: Response;
 
 			try {
-				result = await fetch(`${import.meta.env.VITE_API_URL}/azure/login?code=${code}`);
+				result = await fetch(`${conf().VITE_API_URL}/azure/login?code=${code}`);
 				if (!result.ok) return result.status;
 			} catch {
 				return -1;
@@ -224,7 +225,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 			return;
 		}
 
-		fetch(`${import.meta.env.VITE_API_URL}/token/revoke`, {
+		fetch(`${conf().VITE_API_URL}/token/revoke`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

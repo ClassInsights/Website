@@ -1,12 +1,12 @@
 import { useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import PersonSVG from "../assets/svg/person.svg?react";
 import Button from "../components/Button";
 import EditSchool from "../components/EditSchool";
 import School from "../components/School";
 import { useAuth } from "../contexts/AuthContext";
 import { SchoolProvider } from "../contexts/SchoolContext";
 import { Role } from "../types/SchoolData";
-import PersonSVG from "../assets/svg/person.svg?react";
 
 /** The school selection page */
 const Schools = () => {

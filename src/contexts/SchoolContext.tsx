@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { conf } from "../config";
 import type { SchoolData } from "../types/SchoolData";
 import { useAuth } from "./AuthContext";
 
@@ -71,7 +72,7 @@ export const SchoolProvider = ({ children }: { children: React.ReactNode }) => {
 				local_dashboard_url: updatedData.LocalDashboardUrl,
 			};
 
-			fetch(`${import.meta.env.VITE_API_URL}/school`, {
+			fetch(`${conf().VITE_API_URL}/school`, {
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json",

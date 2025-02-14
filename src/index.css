@@ -137,12 +137,12 @@
   }
 
   /* Select last two schools when the amount of schools is even */
-  #schools:has(> :nth-child(even):last-child) > *:nth-last-child(-n+2) {
+  #schools:has(> :nth-child(even):last-child) > .school:nth-last-child(-n+2) {
     @apply border-b-0;
   }
   
   /* Select last school when the amount of schools is odd */
-  #schools:has(> :nth-child(odd):last-child) > *:last-child {
+  #schools:has(> :nth-child(odd):last-child) > .school:last-child {
     @apply border-b-0;
   }
 }

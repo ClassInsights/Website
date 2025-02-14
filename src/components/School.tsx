@@ -16,7 +16,7 @@ const School = ({ school, multiple }: SchoolProps) => {
 	const editSchool = useCallback(() => schoolModal.show(school), [school, schoolModal]);
 
 	return (
-		<div className={`w-full ${multiple ? "school" : ""}`}>
+		<div className={`w-full ${multiple ? "school" : "rounded-md border-2 border-[#F1F4FF] px-8 py-4"}`}>
 			<div className="flex items-start justify-between gap-2">
 				<h2 className="text-2xl">{school.Name}</h2>
 				<SettingsSVG
@@ -28,7 +28,7 @@ const School = ({ school, multiple }: SchoolProps) => {
 				/>
 			</div>
 			<p>Rolle: {school.Roles.map((role) => translateRole(role)).join(", ")}</p>
-			<ExternalLink href={school.LocalDashboardUrl} label="Zum Dashboard" />
+			<ExternalLink href={school.LocalDashboardUrl} label="Zum Dashboard" newPage />
 		</div>
 	);
 };

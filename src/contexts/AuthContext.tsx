@@ -218,14 +218,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	);
 
 	/** Logout the user and remove the cookie */
-	const logout = useCallback(() => {
+	const logout = useCallback(async () => {
 		removeCookie("tasty");
 		if (!authData) {
-			navigate("/login");
+			window.location.replace(conf().VITE_LOGOUT_URL);
 			return;
 		}
 
-		fetch(`${conf().VITE_API_URL}/token/revoke`, {
+		await fetch(`${conf().VITE_API_URL}/token/revoke`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -234,8 +234,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 		});
 
 		setAuthData(null);
-		navigate("/login");
-	}, [authData, navigate]);
+		window.location.replace(conf().VITE_LOGOUT_URL);
+	}, [authData]);
 
 	/** Initialize the authentification context */
 	const initializeAuth = useCallback(async () => {
@@ -256,7 +256,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	if (isLoading) return;
 
 	return (
-		<AuthContext.Provider value={{ isAuthenticated, data: authData, handleLogin, exchangeCode, refreshToken, logout }}>
+		<AuthContext.Provider
+			value={{
+				isAuthenticated,
+				data: authData,
+				handleLogin,
+				exchangeCode,
+				refreshToken,
+				logout,
+			}}
+		>
 			{children}
 		</AuthContext.Provider>
 	);

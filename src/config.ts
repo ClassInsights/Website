@@ -7,8 +7,9 @@ declare global {
 }
 
 const env: Record<keyof ConfigData, undefined | string> = {
-	VITE_API_URL: import.meta.env.VITE_API_URL,
 	VITE_AUTH_URL: import.meta.env.VITE_AUTH_URL,
+	VITE_LOGOUT_URL: import.meta.env.VITE_LOGOUT_URL,
+	VITE_API_URL: import.meta.env.VITE_API_URL,
 	VITE_JWKS_URL: import.meta.env.VITE_JWKS_URL,
 };
 
@@ -21,8 +22,9 @@ function getValue(key: keyof ConfigData): string {
 
 export function conf(): ConfigData {
 	return {
-		VITE_API_URL: getValue("VITE_API_URL"),
 		VITE_AUTH_URL: getValue("VITE_AUTH_URL"),
+		VITE_LOGOUT_URL: getValue("VITE_LOGOUT_URL"),
+		VITE_API_URL: getValue("VITE_API_URL"),
 		VITE_JWKS_URL: getValue("VITE_JWKS_URL"),
 	};
 }

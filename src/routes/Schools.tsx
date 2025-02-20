@@ -64,10 +64,10 @@ const Schools = () => {
 					<>
 						<h1 className="text-center text-6xl">Kein Zugriff erlaubt</h1>
 						<p className="mt-6 pb-8 text-center text-lg sm:w-3/5">
-							Um auf die ClassInsights Dienste zugreifen zu können, müssen Sie sich mit einem Lehrer . oder
-							Administrator Microsoft Konto anmelden.
+							Um auf die ClassInsights Dienste zugreifen zu können, müssen Sie sich mit einem Lehrer oder Administrator
+							Microsoft Konto anmelden.
 						</p>
-						<Button onPress={() => navigate("/")} label="Zur Startseite" arrowed />
+						<Button onPress={auth.logout} label="Abmelden" arrowed />
 					</>
 				)}
 			</div>

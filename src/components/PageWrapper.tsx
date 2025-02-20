@@ -12,13 +12,7 @@ const PageWrapper = (): JSX.Element => {
 	const { hash } = useLocation();
 
 	useEffect(() => {
-		scroll({
-			top: 0,
-			behavior: "instant",
-		});
-
 		if (!hash) return;
-
 		const element = document.getElementById(hash.slice(1));
 		if (!element) return;
 		element.scrollIntoView();

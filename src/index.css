@@ -65,7 +65,8 @@
   }
 
   html {
-    scrollbar-gutter: stable;
+    overflow-y: scroll;
+    scrollbar-color: #cbcdd7 #FAFBFF;
     @apply scroll-smooth;
   }
 

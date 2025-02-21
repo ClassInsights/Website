@@ -7,6 +7,7 @@ import School from "../components/School";
 import { useAuth } from "../contexts/AuthContext";
 import { SchoolProvider } from "../contexts/SchoolContext";
 import { Role } from "../types/SchoolData";
+import DashboardRedirect from "../components/DashboardRedirect";
 
 /** The school selection page */
 const Schools = () => {
@@ -33,6 +34,7 @@ const Schools = () => {
 	return (
 		<SchoolProvider>
 			<EditSchool />
+			<DashboardRedirect />
 			<div className="flex min-h-dvh flex-col items-center justify-center">
 				{hasAccess ? (
 					<div className="flex flex-col items-center justify-center pt-24 pb-32 md:pb-24">

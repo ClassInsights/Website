@@ -40,7 +40,7 @@ export const SchoolProvider = ({ children }: { children: React.ReactNode }) => {
 				name: data.Name,
 				local_api_url: data.LocalApiUrl,
 				local_dashboard_url: data.LocalDashboardUrl,
-				azure_admin_groups: data.TeacherGroups,
+				azure_teacher_groups: data.TeacherGroups,
 			});
 
 			if (!azureGroups) {

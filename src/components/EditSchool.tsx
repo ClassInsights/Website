@@ -55,9 +55,9 @@ const EditSchool = () => {
 					<p>Folgende Azure Gruppen haben Zugriff auf das lokale ClassInsights Dashboard.</p>
 					<MultipleSelect
 						label="Berechtigte Gruppen"
-						initialSelection={data.azure_admin_groups}
+						initialSelection={data.azure_teacher_groups}
 						options={azureGroups}
-						onChange={(options) => schoolModal.updateData({ ...data, azure_admin_groups: options })}
+						onChange={(options) => schoolModal.updateData({ ...data, azure_teacher_groups: options })}
 					/>
 					<div className="mt-20 flex justify-end pb-16 md:pb-0">
 						<Button label="Speichern" onPress={() => schoolModal.save()} disabled={!schoolModal.hasChanges} />

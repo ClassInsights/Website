@@ -4,5 +4,5 @@ export type SchoolConfig = {
 	name: string;
 	local_api_url: string;
 	local_dashboard_url: string;
-	azure_admin_groups: string[];
+	azure_teacher_groups: string[];
 };

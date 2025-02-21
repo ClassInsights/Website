@@ -29,13 +29,19 @@ const DashboardRedirect = () => {
 	useEffect(() => {
 		if (!auth.data) return;
 
-		// Only show the redirect dialog if the user is not an admin and only has one school
-		if (auth.data?.user.schools.length !== 1 || auth.data.user.schools[0].Roles.includes(Role.ADMIN)) return;
+		if (
+			// Check if the user has multiple schools
+			auth.data?.user.schools.length !== 1 ||
+			// Check if the user is just a student
+			auth.data?.user.schools[0].Roles.every((role) => role === Role.STUDENT) ||
+			// Check if the user is an admin
+			auth.data.user.schools[0].Roles.includes(Role.ADMIN)
+		)
+			return;
 
 		if (countdownRef.current) return;
 
 		countdownRef.current = setInterval(() => {
-			console.log("TICK");
 			setCountdown((prev) => {
 				if (prev === 1) {
 					clearInterval(countdownRef.current);

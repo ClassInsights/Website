@@ -35,7 +35,9 @@ const School = ({ school, multiple }: SchoolProps) => {
 					/>
 				)}
 			</div>
-			<p>Rolle: {school.Roles.map((role) => translateRole(role)).join(", ")}</p>
+			<p>
+				{school.Roles.length === 1 ? "Rolle" : "Rollen"}: {school.Roles.map((role) => translateRole(role)).join(", ")}
+			</p>
 			<div
 				className="mt-3 flex cursor-pointer items-center gap-1.5 text-primary"
 				onClick={navigateToDashboard}

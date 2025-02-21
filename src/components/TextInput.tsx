@@ -22,7 +22,8 @@ const TextInput = ({ id, label, initialValue, onChange }: TextInputProps) => {
 					setValue(e.target.value);
 					onChange(e.target.value);
 				}}
-				className="w-full rounded-md border-[1px] border-black bg-background px-4 py-2 opacity-70 outline-none transition-opacity focus:opacity-100 focus:shadow-md"
+				className="w-full rounded-md border-[1px] border-black bg-background px-4 py-2 opacity-70 outline-none transition-shadow hover:opacity-100 hover:shadow-md focus:opacity-100 focus:shadow-md"
+				autoComplete="off"
 			/>
 		</div>
 	);

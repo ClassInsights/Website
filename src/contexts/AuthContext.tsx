@@ -233,7 +233,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 			body: JSON.stringify({ token: authData.refresh_token, token_type_hint: "refresh_token" }),
 		});
 
-		setAuthData(null);
 		window.location.replace(conf().VITE_LOGOUT_URL);
 	}, [authData]);
 

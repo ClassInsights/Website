@@ -17,7 +17,7 @@ type ButtonProps = {
  * @returns {JSX.Element} The button component
  */
 const Button = ({ label, onPress, disabled = false, arrowed = false }: ButtonProps): JSX.Element => {
-	const buttonStyle = `transition-opacity border-none bg-primary px-4 py-2 rounded-lg text-background flex gap-4 items-center ${disabled ? "cursor-not-allowed opacity-30" : "cursor-pointer"}`;
+	const buttonStyle = `shrink-0 transition-opacity border-none bg-primary px-4 py-2 rounded-lg text-background flex gap-4 items-center ${disabled ? "cursor-not-allowed opacity-30" : "cursor-pointer"}`;
 
 	if (typeof onPress === "string") {
 		if (onPress.startsWith("/"))

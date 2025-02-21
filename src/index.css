@@ -146,4 +146,9 @@
   #schools:has(> :nth-child(odd):last-child) > .school:last-child {
     @apply border-b-0;
   }
+
+  .logo {
+    background: url(./logo.svg) no-repeat;
+    background-size: contain;
+  }
 }

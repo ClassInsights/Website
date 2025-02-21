@@ -40,7 +40,7 @@ const Navbar = () => {
 	return (
 		<header
 			key=""
-			className="fixed right-0 left-0 z-10 mx-auto flex max-w-screen-2xl justify-between bg-background px-5 pt-6 pb-3 md:px-24 xl:px-60 2xl:px-96"
+			className="page-spacing fixed right-0 left-0 z-10 flex max-w-5xl justify-between bg-background pt-6 pb-3"
 		>
 			<img
 				src="/logo.svg"

@@ -46,7 +46,7 @@ const Schools = () => {
 						<div className="mt-2 flex items-center gap-2 pb-4">
 							<PersonSVG className="shrink-0" />
 							<p>
-								{auth.data?.user.unique_name} (
+								{auth.data?.user.name} (
 								<button className="text-primary" onClick={auth.logout} onKeyDown={auth.logout} type="button">
 									Abmelden
 								</button>

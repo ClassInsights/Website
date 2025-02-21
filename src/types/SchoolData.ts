@@ -4,6 +4,7 @@ export type SchoolData = {
 	Name: string;
 	LocalApiUrl: string;
 	LocalDashboardUrl: string;
+	TeacherGroups: string[];
 	Roles: Role[];
 };
 
@@ -20,6 +21,9 @@ export function isSchoolData(data: unknown): data is SchoolData {
 		typeof data.LocalApiUrl === "string" &&
 		"LocalDashboardUrl" in data &&
 		typeof data.LocalDashboardUrl === "string" &&
+		"TeacherGroups" in data &&
+		Array.isArray(data.TeacherGroups) &&
+		data.TeacherGroups.every((group) => typeof group === "string") &&
 		"Roles" in data &&
 		Array.isArray(data.Roles) &&
 		data.Roles.every((role) => role in Role)

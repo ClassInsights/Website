@@ -3,7 +3,7 @@ import type { SchoolData } from "./SchoolData";
 /** Data structure for decoded JWT id_token data */
 export type TokenData = {
 	id: string;
-	unique_name: string;
+	name: string;
 	email: string;
 	schools: SchoolData[];
 };
@@ -15,8 +15,8 @@ export function isTokenData(data: unknown): data is TokenData {
 		data !== null &&
 		"id" in data &&
 		typeof data.id === "string" &&
-		"unique_name" in data &&
-		typeof data.unique_name === "string" &&
+		"name" in data &&
+		typeof data.name === "string" &&
 		"email" in data &&
 		typeof data.email === "string" &&
 		"schools" in data &&

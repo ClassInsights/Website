@@ -3,14 +3,16 @@ import CloseSVG from "../assets/svg/close.svg?react";
 import { useSchoolModal } from "../contexts/SchoolContext";
 import Button from "./Button";
 import TextInput from "./TextInput";
+import MultipleSelect from "./GroupSelect";
 
 /** Modal to edit the school */
 const EditSchool = () => {
 	const schoolModal = useSchoolModal();
 
 	const data = useMemo(() => schoolModal.getData(), [schoolModal]);
+	const azureGroups = useMemo(() => schoolModal.azureGroups, [schoolModal]);
 
-	if (!schoolModal.isVisible || !data) return null;
+	if (!schoolModal.isVisible || !data || !azureGroups) return null;
 
 	return (
 		<dialog className="fixed top-0 z-20 flex h-dvh w-screen items-end justify-center bg-transparent md:items-center">
@@ -24,7 +26,7 @@ const EditSchool = () => {
 				<div className="flex items-start justify-between bg-background pb-2">
 					<CloseSVG className="shrink-0 opacity-0" />
 					<div className="flex select-none items-center gap-2">
-						<p className="font-bold">{data.Name}</p>
+						<p className="font-bold">{data.name}</p>
 					</div>
 					<CloseSVG className="shrink-0 cursor-pointer" onClick={schoolModal.hide} />
 				</div>
@@ -38,18 +40,26 @@ const EditSchool = () => {
 					<TextInput
 						id="api"
 						label="API URL"
-						initialValue={data.LocalApiUrl}
-						onChange={(value) => schoolModal.updateData({ ...data, LocalApiUrl: value })}
+						initialValue={data.local_api_url}
+						onChange={(value) => schoolModal.updateData({ ...data, local_api_url: value })}
 					/>
 					<h3 className="mt-8 pb-1">Lokale Dashboard URL</h3>
 					<p>Zu dieser URL werden Sie mit einem Klick auf "Zum Dashboard" weitergeleitet.</p>
 					<TextInput
 						id="dashboard"
 						label="Dashboard URL"
-						initialValue={data.LocalDashboardUrl}
-						onChange={(value) => schoolModal.updateData({ ...data, LocalDashboardUrl: value })}
+						initialValue={data.local_dashboard_url}
+						onChange={(value) => schoolModal.updateData({ ...data, local_dashboard_url: value })}
 					/>
-					<div className="mt-8 flex justify-end">
+					<h3 className="mt-8 pb-1">Azure Lehrer Gruppe</h3>
+					<p>Folgende Azure Gruppen haben Zugriff auf das lokale ClassInsights Dashboard.</p>
+					<MultipleSelect
+						label="Berechtigte Gruppen"
+						initialSelection={data.azure_admin_groups}
+						options={azureGroups}
+						onChange={(options) => schoolModal.updateData({ ...data, azure_admin_groups: options })}
+					/>
+					<div className="mt-20 flex justify-end pb-16 md:pb-0">
 						<Button label="Speichern" onPress={() => schoolModal.save()} disabled={!schoolModal.hasChanges} />
 					</div>
 				</div>

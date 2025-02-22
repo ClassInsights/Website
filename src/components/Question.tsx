@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ArrowSVG from "../assets/svg/arrow.svg?react";
 
 type QuestionProps = {
@@ -23,7 +23,15 @@ const Question = ({ question, qId, currentQuestion, setQuestion, children }: Que
 
 	const toggleOpen = () => setQuestion(isOpen ? -1 : qId);
 
+	const close = useCallback(() => setQuestion(-1), [setQuestion]);
+
 	useEffect(() => setIsOpen(qId === currentQuestion), [qId, currentQuestion]);
+
+	useEffect(() => {
+		if (!isOpen) return;
+		document.addEventListener("click", close);
+		return () => document.removeEventListener("click", close);
+	}, [isOpen, close]);
 
 	return (
 		<div className={`relative bg-container ${isOpen ? "z-10 rounded-t-lg shadow-md" : "rounded-lg"}`}>

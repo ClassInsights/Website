@@ -51,53 +51,72 @@ const Navbar = () => {
 				className="cursor-pointer"
 			/>
 			<nav className="relative flex items-center gap-5">
-				{/* Mobile Login Button */}
-				<div
-					className="cursor-pointer md:hidden"
-					aria-label={auth.isAuthenticated ? "Anmelden" : "Zur Schulauswahl"}
-					onClick={auth.handleLogin}
-					onKeyDown={auth.handleLogin}
-				>
-					{auth.isAuthenticated ? (
-						<SchoolSVG width={25} className="shrink-0 fill-primary" />
-					) : (
-						<LoginSVG width={25} className="shrink-0 fill-primary" />
-					)}
-				</div>
-				{/* Mobile Menu Icon */}
-				<MenuSVG width={25} onClick={handleMenu} onKeyDown={handleMenu} className="shrink-0 cursor-pointer md:hidden" />
-				{/* Mobile Menu */}
-				<div
-					className={`absolute top-10 right-0 flex flex-col overflow-hidden rounded-lg bg-container shadow-md transition-opacity duration-300 ${isOpen ? "visible opacity-100" : "invisible opacity-0"}`}
-				>
-					<Link to="/#features" aria-label="Lösungen" className={mobileLinkStyle}>
-						Lösungen
-					</Link>
-					{[
-						["/unternehmen", "Über uns"],
-						["/installation", "Installation"],
-					].map(([link, label]) => (
-						<Link key={link} to={link} className={`${mobileLinkStyle} border-black border-t border-opacity-10`}>
-							{label}
-						</Link>
-					))}
-				</div>
-				{/* Desktop Menu */}
-				<div className="hidden items-center gap-8 md:flex">
-					<Link to="/#features" aria-label="Lösungen">
-						Lösungen
-					</Link>
-					<Link to="/unternehmen">Über uns</Link>
-					<Link to="/installation">Installation</Link>
+				{location.pathname === "/schulen" ? (
 					<div
-						className="hidden cursor-pointer items-center gap-1.5 text-primary md:flex"
-						onClick={auth.handleLogin}
-						onKeyDown={auth.handleLogin}
+						className="flex cursor-pointer items-center gap-1.5 text-primary"
+						onClick={() => navigate("/")}
+						onKeyDown={() => navigate("/")}
 					>
-						<p>{auth.isAuthenticated ? "Zur Schulauswahl" : "Anmelden"}</p>
+						<p className="hidden sm:block">Zurück zur Startseite</p>
+						<p className="sm:hidden">Startseite</p>
 						<ArrowSVG className="shrink-0 fill-primary" />
 					</div>
-				</div>
+				) : (
+					<>
+						{/* Mobile Login Button */}
+						<div
+							className="cursor-pointer md:hidden"
+							aria-label={auth.isAuthenticated ? "Anmelden" : "Zur Schulauswahl"}
+							onClick={auth.handleLogin}
+							onKeyDown={auth.handleLogin}
+						>
+							{auth.isAuthenticated ? (
+								<SchoolSVG width={25} className="shrink-0 fill-primary" />
+							) : (
+								<LoginSVG width={25} className="shrink-0 fill-primary" />
+							)}
+						</div>
+						{/* Mobile Menu Icon */}
+						<MenuSVG
+							width={25}
+							onClick={handleMenu}
+							onKeyDown={handleMenu}
+							className="shrink-0 cursor-pointer md:hidden"
+						/>
+						{/* Mobile Menu */}
+						<div
+							className={`absolute top-10 right-0 flex flex-col overflow-hidden rounded-lg bg-container shadow-md transition-opacity duration-300 ${isOpen ? "visible opacity-100" : "invisible opacity-0"}`}
+						>
+							<Link to="/#features" aria-label="Lösungen" className={mobileLinkStyle}>
+								Lösungen
+							</Link>
+							{[
+								["/unternehmen", "Über uns"],
+								["/installation", "Installation"],
+							].map(([link, label]) => (
+								<Link key={link} to={link} className={`${mobileLinkStyle} border-black border-t border-opacity-10`}>
+									{label}
+								</Link>
+							))}
+						</div>
+						{/* Desktop Menu */}
+						<div className="hidden items-center gap-8 md:flex">
+							<Link to="/#features" aria-label="Lösungen">
+								Lösungen
+							</Link>
+							<Link to="/unternehmen">Über uns</Link>
+							<Link to="/installation">Installation</Link>
+							<div
+								className="hidden cursor-pointer items-center gap-1.5 text-primary md:flex"
+								onClick={auth.handleLogin}
+								onKeyDown={auth.handleLogin}
+							>
+								<p>{auth.isAuthenticated ? "Zur Schulauswahl" : "Anmelden"}</p>
+								<ArrowSVG className="shrink-0 fill-primary" />
+							</div>
+						</div>
+					</>
+				)}
 			</nav>
 		</header>
 	);

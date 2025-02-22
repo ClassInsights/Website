@@ -57,7 +57,7 @@ const Dashboard = () => {
 			{/* Explaining Content */}
 			<div className="flex w-full items-center xl:w-4/5 2xl:w-3/5">
 				{getArrowSVG(0, false)}
-				<div className="relative flex flex-col justify-center px-5 text-center">
+				<div className="relative flex flex-col justify-center text-center md:px-5">
 					{/* Mobile Placeholder for identical height */}
 					<div className="-z-10 relative select-none opacity-0 lg:hidden">
 						<h2 className="pb-4 ">{content(1).title}</h2>
@@ -69,7 +69,7 @@ const Dashboard = () => {
 						<p>{content(pageIndex).description}</p>
 					</div>
 					{/* Mobile Navigation */}
-					<div className="mt-4 flex items-center justify-center gap-12 lg:hidden">
+					<div className="flex items-center justify-center gap-12 md:mt-4 lg:hidden">
 						{getArrowSVG(0, true)}
 						<p className="lg:hidden">Seite {pageIndex + 1}</p>
 						{getArrowSVG(1, true)}

@@ -9,7 +9,7 @@ import Button from "./Button";
 const DashboardRedirect = () => {
 	const [isVisible, setIsVisible] = useState(false);
 	const [countdown, setCountdown] = useState(10);
-	const countdownRef = useRef<NodeJS.Timeout>();
+	const countdownRef = useRef<number>();
 
 	const auth = useAuth();
 

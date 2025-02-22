@@ -17,7 +17,7 @@ const Login = () => {
 	const navigateHome = useCallback(() => navigate("/"), [navigate]);
 
 	useEffect(() => {
-		history.replaceState(null, "", "/login");
+		window.history.replaceState({}, "", `${window.location.origin}${window.location.pathname}`);
 		setError(null);
 
 		if (!loginCode) {

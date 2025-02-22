@@ -103,6 +103,10 @@
     @apply font-light text-sm;
   }
 
+  img {
+    @apply pointer-events-none;
+  }
+
   a,
   img,
   button {

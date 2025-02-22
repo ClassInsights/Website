@@ -13,7 +13,7 @@ const Timeline = () => (
 		{timelineData.map((item, index) => {
 			const isLast = index === timelineData.length - 1;
 			return (
-				<li key={item.date} className="relative flex items-baseline gap-6 pb-4">
+				<li key={`${item.date}-${item.description}`} className="relative flex items-baseline gap-6 pb-4">
 					<div
 						className={isLast ? "" : "before:absolute before:left-[4px] before:h-full before:w-[2px] before:bg-black"}
 					>

@@ -48,7 +48,7 @@ const Navbar = () => {
 				width={40}
 				onClick={scrollToTop}
 				onKeyDown={scrollToTop}
-				className="cursor-pointer"
+				className="pointer-events-auto cursor-pointer"
 			/>
 			<nav className="relative flex items-center gap-5">
 				{location.pathname === "/schulen" || location.pathname === "/login" ? (

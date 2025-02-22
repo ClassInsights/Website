@@ -9,6 +9,7 @@ export default {
     colors: {
       "transparent": "transparent",
       "primary": "#2C63F1",
+      "error": "#e80d0d",
       "black": "#060A12",
       "container": "#F1F3FA",
       "container-selected": "#edeff6", 

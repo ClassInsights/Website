@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ProgressSVG from "../assets/svg/progress.svg?react";
 import Button from "../components/Button";
 import { useAuth } from "../contexts/AuthContext";
+import { useToast } from "../contexts/ToastContext";
 
 /** The login page */
 const Login = () => {
@@ -11,6 +12,8 @@ const Login = () => {
 	const alreadyExchanged = useRef(false);
 
 	const auth = useAuth();
+	const toasts = useToast();
+
 	const navigate = useNavigate();
 	const loginCode = useMemo(() => new URLSearchParams(location.search).get("code"), []);
 
@@ -32,6 +35,7 @@ const Login = () => {
 		auth.exchangeCode(loginCode).then((code) => {
 			switch (code) {
 				case 200:
+					toasts.showMessage("Erfolgreich angemeldet");
 					navigate("/schulen");
 					return;
 				case 400:

@@ -4,6 +4,7 @@ import type { SchoolData } from "../types/SchoolData";
 import { useAuth } from "./AuthContext";
 import { isAzureGroup, type AzureGroup } from "../types/AzureGroup";
 import type { SchoolConfig } from "../types/SchoolConfig";
+import { useToast } from "./ToastContext";
 
 type SchoolContextType = {
 	isVisible: boolean;
@@ -26,6 +27,7 @@ export const SchoolProvider = ({ children }: { children: React.ReactNode }) => {
 	const [azureGroups, setAzureGroups] = useState<AzureGroup[] | undefined>(undefined);
 
 	const auth = useAuth();
+	const toast = useToast();
 
 	const getData = useCallback(() => (updatedData ? updatedData : data), [data, updatedData]);
 
@@ -49,9 +51,21 @@ export const SchoolProvider = ({ children }: { children: React.ReactNode }) => {
 						Authorization: `Bearer ${auth.data?.access_token}`,
 					},
 				}).then(async (response) => {
-					if (!response.ok) return;
+					if (response.status === 429) {
+						toast.showMessage("Zu viele Anfragen! Warte einen Moment", "error");
+						return;
+					}
+
+					if (!response.ok) {
+						toast.showMessage("Fehler beim Laden der Azure Gruppen", "error");
+						return;
+					}
+
 					const data = await response.json();
-					if (!Array.isArray(data) || !data.every((obj) => isAzureGroup(obj))) return;
+					if (!Array.isArray(data) || !data.every((obj) => isAzureGroup(obj))) {
+						toast.showMessage("Fehler beim Laden der Azure Gruppen", "error");
+						return;
+					}
 					setAzureGroups(data);
 				});
 			}
@@ -60,7 +74,7 @@ export const SchoolProvider = ({ children }: { children: React.ReactNode }) => {
 			document.body.style.overflow = "hidden";
 			document.body.addEventListener("keydown", onEscKeyDown);
 		},
-		[azureGroups, auth.data?.access_token, onEscKeyDown],
+		[azureGroups, auth.data?.access_token, onEscKeyDown, toast.showMessage],
 	);
 
 	const hide = useCallback(() => {
@@ -99,15 +113,21 @@ export const SchoolProvider = ({ children }: { children: React.ReactNode }) => {
 				},
 				body: JSON.stringify(updatedData),
 			}).then((response) => {
-				if (!response.ok) setData(backup);
-				else if (auth.data) auth.refreshToken(auth.data.refresh_token);
+				if (!response.ok) {
+					toast.showMessage("Fehler beim Speichern der Daten", "error");
+					setData(backup);
+				} else if (auth.data) {
+					toast.showMessage("Änderungen gespeichert");
+					auth.refreshToken(auth.data.refresh_token);
+				}
 			});
 		} catch {
+			toast.showMessage("Fehler beim Speichern der Daten", "error");
 			setData(backup);
 		} finally {
 			setUpdatedData(undefined);
 		}
-	}, [updatedData, data, auth.data, auth.refreshToken, hasChanges, hide]);
+	}, [updatedData, data, auth.data, auth.refreshToken, hasChanges, hide, toast.showMessage]);
 
 	return (
 		<SchoolContext.Provider value={{ isVisible, getData, updateData, hasChanges, azureGroups, save, show, hide }}>

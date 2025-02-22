@@ -7,6 +7,7 @@ import { type AuthData, isAuthData } from "../types/AuthData";
 import { type AuthResponse, isAuthResponse } from "../types/AuthResponse";
 import { type TokenData, isTokenData } from "../types/TokenData";
 import type { UserData } from "../types/UserData";
+import { useToast } from "./ToastContext";
 
 type AuthContextType = {
 	/** True if the user is authenticated */
@@ -30,6 +31,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	const [authData, setAuthData] = useState<UserData | null>(null);
 	const refreshTimeout = useRef<number>();
 
+	const toast = useToast();
 	const navigate = useNavigate();
 
 	const isAuthenticated = useMemo(() => authData !== null && authData.expires_at > Date.now() / 1000, [authData]);
@@ -220,6 +222,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	/** Logout the user and remove the cookie */
 	const logout = useCallback(async () => {
 		removeCookie("tasty");
+		localStorage.setItem("logout", Date.now().toString());
 		if (!authData) {
 			window.location.replace(conf().VITE_LOGOUT_URL);
 			return;
@@ -243,8 +246,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	}, [decodeCookie]);
 
 	useEffect(() => {
+		const logoutTime = localStorage.getItem("logout");
+		if (logoutTime) {
+			localStorage.removeItem("logout");
+			if (Date.now() - Number.parseInt(logoutTime) < 10000)
+				setTimeout(() => toast.showMessage("Erfolgreich abgemeldet"), 0);
+		}
 		if (isLoading) initializeAuth();
-	}, [isLoading, initializeAuth]);
+	}, [toast.showMessage, isLoading, initializeAuth]);
 
 	useEffect(() => {
 		return () => {

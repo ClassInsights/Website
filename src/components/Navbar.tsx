@@ -51,7 +51,7 @@ const Navbar = () => {
 				className="cursor-pointer"
 			/>
 			<nav className="relative flex items-center gap-5">
-				{location.pathname === "/schulen" ? (
+				{location.pathname === "/schulen" || location.pathname === "/login" ? (
 					<div
 						className="flex cursor-pointer items-center gap-1.5 text-primary"
 						onClick={() => navigate("/")}

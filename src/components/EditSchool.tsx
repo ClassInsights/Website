@@ -2,8 +2,8 @@ import { useMemo } from "react";
 import CloseSVG from "../assets/svg/close.svg?react";
 import { useSchoolModal } from "../contexts/SchoolContext";
 import Button from "./Button";
-import TextInput from "./TextInput";
 import MultipleSelect from "./GroupSelect";
+import TextInput from "./TextInput";
 
 /** Modal to edit the school */
 const EditSchool = () => {

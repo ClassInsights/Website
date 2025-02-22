@@ -29,7 +29,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [authData, setAuthData] = useState<UserData | null>(null);
-	const refreshTimeout = useRef<number>();
+	const refreshTimeout = useRef<NodeJS.Timeout>();
 
 	const toast = useToast();
 	const navigate = useNavigate();

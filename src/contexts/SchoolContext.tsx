@@ -1,9 +1,9 @@
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
 import { conf } from "../config";
+import { type AzureGroup, isAzureGroup } from "../types/AzureGroup";
+import type { SchoolConfig } from "../types/SchoolConfig";
 import type { SchoolData } from "../types/SchoolData";
 import { useAuth } from "./AuthContext";
-import { isAzureGroup, type AzureGroup } from "../types/AzureGroup";
-import type { SchoolConfig } from "../types/SchoolConfig";
 import { useToast } from "./ToastContext";
 
 type SchoolContextType = {

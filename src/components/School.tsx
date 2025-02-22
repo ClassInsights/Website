@@ -1,9 +1,9 @@
 import { useCallback } from "react";
+import ArrowSVG from "../assets/svg/arrow.svg?react";
 import SettingsSVG from "../assets/svg/settings.svg?react";
+import { useAuth } from "../contexts/AuthContext";
 import { useSchoolModal } from "../contexts/SchoolContext";
 import { Role, type SchoolData, translateRole } from "../types/SchoolData";
-import ArrowSVG from "../assets/svg/arrow.svg?react";
-import { useAuth } from "../contexts/AuthContext";
 
 type SchoolProps = {
 	school: SchoolData;
@@ -16,10 +16,11 @@ const School = ({ school, multiple }: SchoolProps) => {
 	const auth = useAuth();
 
 	const editSchool = useCallback(() => schoolModal.show(school), [school, schoolModal]);
-	const navigateToDashboard = useCallback(
-		() => location.replace(`${school.LocalDashboardUrl}?token=${auth.data?.access_token}`),
-		[school, auth.data],
-	);
+	const navigateToDashboard = useCallback(() => {
+		const token = auth.data?.access_token;
+		if (!token) return;
+		location.replace(`${school.LocalDashboardUrl}?token=${token}`);
+	}, [school, auth.data]);
 
 	return (
 		<div className={`w-full ${multiple ? "school" : "rounded-md border-2 border-[#F1F4FF] px-8 py-4"}`}>

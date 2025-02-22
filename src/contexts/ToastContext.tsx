@@ -21,7 +21,7 @@ const ToastContext = createContext<ToastContextType | undefined>(undefined);
 
 export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
 	const [toast, setToast] = useState<ToastType>({ message: "", isVisible: false, type: "success" });
-	const [timeoutId, setTimeoutId] = useState<number | undefined>(undefined);
+	const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
 
 	/** Show a toast message */
 	const showMessage = useCallback(

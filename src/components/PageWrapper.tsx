@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { AuthProvider } from "../contexts/AuthContext";
+import { ToastProvider } from "../contexts/ToastContext";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import { ToastProvider } from "../contexts/ToastContext";
 
 /**
  * The wrapper for all pages (spaces the content from the edges)

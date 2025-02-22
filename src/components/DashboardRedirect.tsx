@@ -1,24 +1,25 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CloseSVG from "../assets/svg/close.svg?react";
+import ProgressSVG from "../assets/svg/progress.svg?react";
 import { useAuth } from "../contexts/AuthContext";
 import { Role } from "../types/SchoolData";
-import ProgressSVG from "../assets/svg/progress.svg?react";
 import Button from "./Button";
 
 /** The local dashboard redirect indicator */
 const DashboardRedirect = () => {
 	const [isVisible, setIsVisible] = useState(false);
 	const [countdown, setCountdown] = useState(10);
-	const countdownRef = useRef<number>();
+	const countdownRef = useRef<NodeJS.Timeout>();
 
 	const auth = useAuth();
 
 	const school = useMemo(() => auth.data?.user.schools[0], [auth.data]);
 
-	const redirect = useCallback(
-		() => location.replace(`${school?.LocalDashboardUrl}?token=${auth.data?.access_token}`),
-		[school, auth.data],
-	);
+	const redirect = useCallback(() => {
+		const token = auth.data?.access_token;
+		if (!token || !school) return;
+		location.replace(`${school.LocalDashboardUrl}?token=${token}`);
+	}, [school, auth.data]);
 
 	const cancelRedirect = useCallback(() => {
 		clearInterval(countdownRef.current);
@@ -46,7 +47,7 @@ const DashboardRedirect = () => {
 				if (prev === 1) {
 					clearInterval(countdownRef.current);
 					countdownRef.current = undefined;
-					console.log("Redirecting...");
+					redirect();
 					return 0;
 				}
 				return prev - 1;
@@ -55,7 +56,7 @@ const DashboardRedirect = () => {
 
 		setIsVisible(true);
 		return () => cancelRedirect();
-	}, [auth.data, cancelRedirect]);
+	}, [auth.data, cancelRedirect, redirect]);
 
 	if (!isVisible || !school) return <></>;
 

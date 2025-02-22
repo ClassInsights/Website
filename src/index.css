@@ -65,9 +65,7 @@
   }
 
   html {
-    overflow-y: scroll;
     scrollbar-color: #cbcdd7 #FAFBFF;
-    @apply scroll-smooth;
   }
 
   body {
@@ -152,7 +150,7 @@
   }
 
   .logo {
-    background: url(./logo.svg) no-repeat;
+    background: url(/logo.svg) no-repeat;
     background-size: contain;
   }
 }

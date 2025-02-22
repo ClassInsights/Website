@@ -13,10 +13,13 @@ const PageWrapper = (): JSX.Element => {
 	const { hash } = useLocation();
 
 	useEffect(() => {
-		if (!hash) return;
+		if (!hash) {
+			window.scrollTo(0, 0);
+			return;
+		}
 		const element = document.getElementById(hash.slice(1));
 		if (!element) return;
-		element.scrollIntoView();
+		element.scrollIntoView({ behavior: "smooth" });
 	});
 
 	return (

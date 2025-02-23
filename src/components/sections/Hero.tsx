@@ -31,7 +31,7 @@ const Hero = () => {
 				{/* Mobile arrow button to the features */}
 				<Link to="/#features" aria-label="Lösungen">
 					<ArrowDownSVG
-						className="absolute right-0 bottom-4 left-0 mx-auto shrink-0 animate-bounce md:hidden"
+						className="right-0 bottom-4 left-0 mx-auto shrink-0 animate-bounce md:hidden portrait:absolute landscape:hidden"
 						width={35}
 						height={35}
 					/>

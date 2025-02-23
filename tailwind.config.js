@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'portrait': { 'raw': '(orientation: portrait)' },
+        'landscape': { 'raw': '(orientation: landscape)' }
+      }
+    },
     colors: {
       "transparent": "transparent",
       "primary": "#2C63F1",

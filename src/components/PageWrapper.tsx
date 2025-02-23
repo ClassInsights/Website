@@ -4,6 +4,7 @@ import { AuthProvider } from "../contexts/AuthContext";
 import { ToastProvider } from "../contexts/ToastContext";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import CookieConsent from "./CookieConsent";
 
 /**
  * The wrapper for all pages (spaces the content from the edges)
@@ -24,6 +25,7 @@ const PageWrapper = (): JSX.Element => {
 
 	return (
 		<main className="page-spacing relative min-h-100dvh max-w-5xl">
+			<CookieConsent />
 			<ToastProvider>
 				<AuthProvider>
 					<Navbar />

@@ -118,7 +118,7 @@
   }
 
   .certificate {
-    background-image: url("./assets/svg/certificate.svg");
+    background-image: url("/certificate.svg");
   }
 
   .scrollbar {

@@ -63,7 +63,7 @@
     src: url('./assets/fonts/sacramento-v15-latin-regular.woff2') format('woff2'),
       url('./assets/fonts/sacramento-v15-latin-regular.ttf') format('truetype');
   }
-
+  
   html {
     scrollbar-color: #cbcdd7 #FAFBFF;
   }
@@ -114,7 +114,7 @@
 
 @layer components {
   .page-spacing {
-    @apply mx-5 md:mx-24 xl:mx-60 2xl:mx-96;
+    @apply mx-auto px-5 md:px-24;
   }
 
   .certificate {

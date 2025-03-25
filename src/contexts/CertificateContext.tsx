@@ -28,6 +28,7 @@ export const CertificateProvider = ({ children }: { children: React.ReactNode })
 			setCertificateData(data);
 			setIsVisible(true);
 			document.body.style.overflow = "hidden";
+			document.body.style.paddingRight = `${Math.abs(window.innerWidth - document.documentElement.clientWidth)}px`;
 			document.body.addEventListener("keydown", onEscKeyDown);
 		},
 		[onEscKeyDown],
@@ -37,6 +38,7 @@ export const CertificateProvider = ({ children }: { children: React.ReactNode })
 		setIsVisible(false);
 		setCertificateData(undefined);
 		document.body.style.overflow = "auto";
+		document.body.style.paddingRight = "";
 		document.body.removeEventListener("keydown", onEscKeyDown);
 	}, [onEscKeyDown]);
 

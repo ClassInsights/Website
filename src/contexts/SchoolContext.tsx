@@ -72,6 +72,7 @@ export const SchoolProvider = ({ children }: { children: React.ReactNode }) => {
 
 			setIsVisible(true);
 			document.body.style.overflow = "hidden";
+			document.body.style.paddingRight = `${Math.abs(window.innerWidth - document.documentElement.clientWidth)}px`;
 			document.body.addEventListener("keydown", onEscKeyDown);
 		},
 		[azureGroups, auth.data?.access_token, onEscKeyDown, toast.showMessage],
@@ -82,6 +83,7 @@ export const SchoolProvider = ({ children }: { children: React.ReactNode }) => {
 		setData(undefined);
 		setUpdatedData(undefined);
 		document.body.style.overflow = "auto";
+		document.body.style.paddingRight = "";
 		document.body.removeEventListener("keydown", onEscKeyDown);
 	}, [onEscKeyDown]);
 

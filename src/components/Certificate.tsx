@@ -25,7 +25,7 @@ const Certificate = () => {
 					<CloseSVG className="shrink-0 cursor-pointer" onClick={certificate.hide} />
 				</div>
 				{/* Certificate Content */}
-				<div className="scrollbar h-full overflow-y-scroll px-3 pt-12 pb-16 md:px-16 md:py-16">
+				<div className="scrollbar h-full max-h-[90svh] overflow-y-scroll px-3 pt-12 pb-16 md:px-16 md:py-16">
 					<h2 className="pb-1.5 text-primary">{certificate.certificateData?.name}</h2>
 					<h3>
 						ist Teil von ClassInsights.

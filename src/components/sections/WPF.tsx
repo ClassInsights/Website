@@ -6,7 +6,7 @@ const WPF = () => (
 		<div className="w-full max-w-lg select-none">
 			<img src={Monitor} alt="ClassInsights Automatisches Herunterfahren Meldung" />
 		</div>
-		<div className="text-center md:w-3/5 md:text-left">
+		<div className="pb-14 text-center md:w-3/5 md:text-left xl:pb-20">
 			<h2 className="pb-4">Kein zwanghaftes Herunterfahren</h2>
 			<p>
 				Nutzer können das Herunterfahren des Computers jederzeit verhindern, um ungespeicherte Arbeit zu schützen. Bei

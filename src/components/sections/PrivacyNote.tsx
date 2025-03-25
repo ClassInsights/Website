@@ -5,7 +5,7 @@ const PrivacyNote = () => (
 	<section className="flex w-full flex-col-reverse items-center justify-between gap-10 md:flex-row md:gap-20">
 		<div className="text-center md:mt-8 md:text-left">
 			<h2 className="pb-4">Datenschutz ist uns wichtig</h2>
-			<p>
+			<p className="md:w-3/5">
 				Unsere schulinterne API verarbeitet sensible Daten (Hostnamen, Raumzuordnungen) ausschließlich lokal. Externe
 				Abfragen laufen verschlüsselt über die ClassInsights-API - so verbinden wir lokale Datensicherheit mit einer
 				effizienter Infrastruktur.

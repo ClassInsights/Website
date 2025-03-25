@@ -24,7 +24,7 @@ const PageWrapper = (): JSX.Element => {
 	});
 
 	return (
-		<main className="page-spacing relative min-h-100dvh max-w-5xl">
+		<main className="page-spacing relative min-h-100dvh max-w-screen-xl">
 			<CookieConsent />
 			<ToastProvider>
 				<AuthProvider>

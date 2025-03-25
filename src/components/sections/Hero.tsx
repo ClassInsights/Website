@@ -14,7 +14,8 @@ const Hero = () => {
 						ClassInsights<span className="text-primary">.</span>
 					</h1>
 					<p className="pb-6 text-center text-lg sm:w-8/12">
-						Die innovative Energie-Management Lösung für Schulen auf Basis des Stundenplans
+						<span className="font-bold">Spare bis zu 50% Stromkosten</span> mit der innovativen Energie-Management
+						Lösung für Schulen auf Basis des Stundenplans
 					</p>
 					{/* C2A Buttons */}
 					<div className="flex flex-col items-center justify-center gap-5 sm:flex-row md:gap-8">

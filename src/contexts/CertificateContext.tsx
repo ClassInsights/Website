@@ -27,8 +27,10 @@ export const CertificateProvider = ({ children }: { children: React.ReactNode })
 		(data: CertificateData) => {
 			setCertificateData(data);
 			setIsVisible(true);
+			const scrollTop = document.scrollingElement?.scrollTop;
 			document.body.style.overflow = "hidden";
-			document.body.style.paddingRight = `${Math.abs(window.innerWidth - document.documentElement.clientWidth)}px`;
+			document.body.style.paddingRight = `${Math.abs(window.innerWidth - document.documentElement.clientWidth)}px`;	
+			if (document.scrollingElement && scrollTop) document.scrollingElement.scrollTop = scrollTop;
 			document.body.addEventListener("keydown", onEscKeyDown);
 		},
 		[onEscKeyDown],

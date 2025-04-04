@@ -2,6 +2,7 @@
 export type SchoolData = {
 	SchoolId: number;
 	Name: string;
+	Website: string;
 	LocalApiUrl: string;
 	LocalDashboardUrl: string;
 	TeacherGroups: string[];
@@ -17,6 +18,8 @@ export function isSchoolData(data: unknown): data is SchoolData {
 		typeof data.SchoolId === "number" &&
 		"Name" in data &&
 		typeof data.Name === "string" &&
+		"Website" in data &&
+		typeof data.Website === "string" &&
 		"LocalApiUrl" in data &&
 		typeof data.LocalApiUrl === "string" &&
 		"LocalDashboardUrl" in data &&

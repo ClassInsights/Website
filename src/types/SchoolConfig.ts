@@ -2,6 +2,7 @@
 export type SchoolConfig = {
 	school_id: number;
 	name: string;
+	website: string;
 	local_api_url: string;
 	local_dashboard_url: string;
 	azure_teacher_groups: string[];

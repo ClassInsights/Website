@@ -40,10 +40,11 @@ export const SchoolProvider = ({ children }: { children: React.ReactNode }) => {
 			setData({
 				school_id: data.SchoolId,
 				name: data.Name,
+				website: data.Website,
 				local_api_url: data.LocalApiUrl,
 				local_dashboard_url: data.LocalDashboardUrl,
 				azure_teacher_groups: data.TeacherGroups,
-			});
+			} as SchoolConfig);
 
 			if (!azureGroups) {
 				fetch(`${conf().VITE_API_URL}/azure/groups`, {

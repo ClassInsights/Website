@@ -59,6 +59,14 @@ const EditSchool = () => {
 						options={azureGroups}
 						onChange={(options) => schoolModal.updateData({ ...data, azure_teacher_groups: options })}
 					/>
+					<h3 className="mt-8 pb-1">Schulwebsite</h3>
+					<p>Die vollständige URL der schuleigenen Website.</p>
+					<TextInput
+						id="website"
+						label="Website URL"
+						initialValue={data.website}
+						onChange={(value) => schoolModal.updateData({ ...data, website: value })}
+					/>
 					<div className="mt-20 flex justify-end pb-16 md:pb-0">
 						<Button label="Speichern" onPress={() => schoolModal.save()} disabled={!schoolModal.hasChanges} />
 					</div>

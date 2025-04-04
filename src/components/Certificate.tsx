@@ -31,7 +31,7 @@ const Certificate = () => {
 						ist Teil von ClassInsights.
 						<span className="ml-2 font-light text-sm">
 							(seit{" "}
-							{certificate.certificateData?.memberSince.toLocaleDateString("de-AT", {
+							{new Date(certificate.certificateData?.member_since ?? "").toLocaleDateString("de-AT", {
 								day: "2-digit",
 								month: "2-digit",
 								year: "numeric",

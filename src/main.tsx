@@ -11,6 +11,7 @@ import Install from "./routes/Install.tsx";
 import Login from "./routes/Login.tsx";
 import Privacy from "./routes/Privacy.tsx";
 import Schools from "./routes/Schools.tsx";
+import Demo from "./routes/Demo.tsx";
 
 const root = document.getElementById("root");
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
 			{
 				path: "/unternehmen",
 				element: <About />,
+			},
+			{
+				path: "/demo",
+				element: <Demo />,
 			},
 			{
 				path: "/login",

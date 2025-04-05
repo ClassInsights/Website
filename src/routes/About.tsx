@@ -59,11 +59,7 @@ const About = () => (
 		<Spacing />
 		<section className="flex flex-col items-center justify-between gap-8 pb-10 md:flex-row md:gap-20">
 			<h2 className="text-center md:text-start">Lass uns gemeinsam Strom sparen!</h2>
-			<Button
-				label="Demo anfordern"
-				onPress="mailto:office@classinsights.at?subject=ClassInsights%20Demo%20Anfrage"
-				arrowed
-			/>
+			<Button label="Demo anfordern" onPress="/demo" arrowed />
 		</section>
 		<Spacing />
 	</div>

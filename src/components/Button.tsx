@@ -22,13 +22,13 @@ const Button = ({ label, onPress, disabled = false, arrowed = false }: ButtonPro
 	if (typeof onPress === "string") {
 		if (onPress.startsWith("/"))
 			return (
-				<Link to={onPress} className={buttonStyle}>
+				<Link to={disabled ? "" : onPress} className={buttonStyle}>
 					{label}
 					{arrowed && <ArrowSVG className="shrink-0 fill-background" width={16} />}
 				</Link>
 			);
 		return (
-			<a href={onPress} aria-label={label} className={buttonStyle}>
+			<a href={disabled ? undefined : onPress} aria-label={label} className={buttonStyle}>
 				{label}
 				{arrowed && <ArrowSVG className="shrink-0 fill-background" width={16} />}
 			</a>
@@ -36,7 +36,7 @@ const Button = ({ label, onPress, disabled = false, arrowed = false }: ButtonPro
 	}
 
 	return (
-		<button type="button" aria-label={label} onClick={onPress} className={buttonStyle}>
+		<button type="button" aria-label={label} onClick={() => (disabled ? undefined : onPress())} className={buttonStyle}>
 			{label}
 			{arrowed && <ArrowSVG className="shrink-0 fill-background" width={16} />}
 		</button>

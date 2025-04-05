@@ -11,6 +11,7 @@ const env: Record<keyof ConfigData, undefined | string> = {
 	VITE_LOGOUT_URL: import.meta.env.VITE_LOGOUT_URL,
 	VITE_API_URL: import.meta.env.VITE_API_URL,
 	VITE_JWKS_URL: import.meta.env.VITE_JWKS_URL,
+	VITE_TURNSTILE_SITE_KEY: import.meta.env.VITE_TURNSTILE_SITE_KEY,
 };
 
 // returns config value from environment or config.js
@@ -26,5 +27,6 @@ export function conf(): ConfigData {
 		VITE_LOGOUT_URL: getValue("VITE_LOGOUT_URL"),
 		VITE_API_URL: getValue("VITE_API_URL"),
 		VITE_JWKS_URL: getValue("VITE_JWKS_URL"),
+		VITE_TURNSTILE_SITE_KEY: getValue("VITE_TURNSTILE_SITE_KEY"),
 	};
 }

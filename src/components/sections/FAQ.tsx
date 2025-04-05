@@ -44,12 +44,9 @@ const FAQ = () => {
 						"Wie kann ich ClassInsights testen?",
 						<p key="test">
 							Um ClassInsights zu testen, können Sie sich einfach auf unserer{" "}
-							<a
-								href={`mailto:office@classinsights.at?subject=Demo%20Anfrage%20${new Date().toLocaleDateString()}`}
-								className="text-primary"
-							>
+							<Link to="/demo" className="text-primary">
 								Demo Anfrage Seite
-							</a>{" "}
+							</Link>{" "}
 							registrieren. Nach erfolgreicher Registrierung und Installation können Sie mit dem zugesendeten
 							Lizenzschlüssel ClassInsights für 30 Tage testen.
 						</p>,

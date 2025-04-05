@@ -10,11 +10,7 @@ const BuyDemo = () => {
 					Die kostenlose Demophase wird Sie definitiv überzeugen. Mit nur wenigen Klicks erhalten Sie Zugriff auf das
 					gesamte ClassInsights Ökosystem. So können Sie sich selbst ein Bild machen.
 				</p>
-				<Button
-					label="Demo anfordern"
-					onPress={`mailto:office@classinsights.at?subject=Demo%20Anfrage%20${new Date().toLocaleDateString()}`}
-					arrowed
-				/>
+				<Button label="Demo anfordern" onPress="/demo" arrowed />
 			</div>
 		</section>
 	);

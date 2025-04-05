@@ -33,7 +33,7 @@ const TextInput = ({
 					setValue(e.target.value);
 					onChange(e.target.value);
 				}}
-				className={`w-full rounded-md border-[1px] bg-background px-4 py-2 outline-none transition-opacity transition-shadow ${error ? "border-error" : "border-black"} ${disabled ? "cursor-not-allowed opacity-30" : "opacity-70 hover:opacity-100 hover:shadow-md focus:opacity-100 focus:shadow-md"}`}
+				className={`w-full rounded-md border-[1px] bg-background px-4 py-2 outline-none transition-opacity transition-shadow ${error ? "border-error" : "border-black"}${disabled ? "cursor-not-allowed opacity-30" : "opacity-70 hover:opacity-100 hover:shadow-md focus:opacity-100 focus:shadow-md"}`}
 				autoComplete="off"
 				maxLength={maxLength}
 				disabled={disabled}

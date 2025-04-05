@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import ProgressSVG from "../assets/svg/progress.svg?react";
 import ArrowSVG from "../assets/svg/arrow.svg?react";
+import ProgressSVG from "../assets/svg/progress.svg?react";
 import { conf } from "../config";
 
 const Verify = () => {

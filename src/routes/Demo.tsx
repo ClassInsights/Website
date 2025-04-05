@@ -1,13 +1,13 @@
 import { useCallback, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import Turnstile from "react-turnstile";
+import ArrowSVG from "../assets/svg/arrow.svg?react";
+import Button from "../components/Button";
 import Spacing from "../components/Spacing";
 import TextInput from "../components/TextInput";
-import { isDemoRequest } from "../types/DemoRequest";
-import Turnstile from "react-turnstile";
 import { conf } from "../config";
-import Button from "../components/Button";
-import { Link } from "react-router-dom";
-import ArrowSVG from "../assets/svg/arrow.svg?react";
 import { useToast } from "../contexts/ToastContext";
+import { isDemoRequest } from "../types/DemoRequest";
 
 const Demo = () => {
 	const [missingFields, setMissingFields] = useState<string[]>([]);

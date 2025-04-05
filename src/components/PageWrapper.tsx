@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { AuthProvider } from "../contexts/AuthContext";
 import { ToastProvider } from "../contexts/ToastContext";
+import CookieConsent from "./CookieConsent";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import CookieConsent from "./CookieConsent";
 
 /**
  * The wrapper for all pages (spaces the content from the edges)

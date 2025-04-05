@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CloseSVG from "../assets/svg/close.svg?react";
 import { getCookie, removeCookie, setCookie } from "typescript-cookie";
+import CloseSVG from "../assets/svg/close.svg?react";
 
 const CookieConsent = () => {
 	const [alreadyAccepted, setAlreadyAccepted] = useState(false);

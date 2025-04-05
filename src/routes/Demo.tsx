@@ -252,7 +252,7 @@ const Demo = () => {
 						</div>
 						<div className="relative mt-4 flex flex-col items-start justify-center gap-4 pb-10 xl:flex-row xl:items-center xl:justify-start xl:pb-4">
 							<Button
-								label="Anfrange absenden"
+								label="Anfrage absenden"
 								onPress={() => handleSubmit()}
 								disabled={
 									missingFields.length > 0 ||

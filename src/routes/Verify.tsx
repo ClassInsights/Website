@@ -36,7 +36,7 @@ const Verify = () => {
 			</h1>
 			<p className="mt-6 pb-8 text-center text-lg md:w-3/4">
 				{isError
-					? "Den Bestätigungslink, den Sie aufgerufen haben, wurde entweder bereits verwendet oder ist ungültig. Sollte dieser Fehler weiterhin auftreten, ohne dass Sie bereits eine Bestätigung erhalten haben, wenden Sie sich bitte an den"
+					? "Der Bestätigungslink, den Sie aufgerufen haben, wurde entweder bereits verwendet oder ist ungültig. Sollte dieser Fehler weiterhin auftreten, ohne dass Sie bereits eine Bestätigung erhalten haben, wenden Sie sich bitte an den"
 					: isLoading
 						? "Anfrage wird gerade automatisch bestätigt. Sie werden automatisch weitergeleitet, sobald die Bestätigung abgeschlossen ist."
 						: "Vielen Dank für Ihre Anfrage. Wir werden Ihnen binnen 48 Stunden den Demo Lizenzschlüssel zusenden. Diesen müssen Sie dann im Installationsprozess angeben."}

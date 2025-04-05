@@ -12,6 +12,7 @@ import Login from "./routes/Login.tsx";
 import Privacy from "./routes/Privacy.tsx";
 import Schools from "./routes/Schools.tsx";
 import Demo from "./routes/Demo.tsx";
+import Verify from "./routes/Verify.tsx";
 
 const root = document.getElementById("root");
 
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
 			{
 				path: "/schulen",
 				element: <Schools />,
+			},
+			{
+				path: "/verify/:token",
+				element: <Verify />,
 			},
 		],
 	},

@@ -10,7 +10,7 @@ const Certificate = () => {
 		() =>
 			certificate.show({
 				name: "HAK/HLW Landeck",
-				memberSince: new Date(1726092000000),
+				member_since: "2024-09-12T19:43:38.743427Z",
 				website: "https://eco-landeck.at",
 			}),
 		[certificate.show],

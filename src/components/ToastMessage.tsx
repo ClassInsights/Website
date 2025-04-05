@@ -18,7 +18,9 @@ const ToastMessage = ({ isVisible, message, type = "success" }: ToastMessageProp
 			isVisible ? "translate-y-0" : "-translate-y-[400%]"
 		}`}
 	>
-		<p className={`rounded-full px-5 py-2 text-background shadow-lg ${type === "success" ? "bg-primary" : "bg-error"}`}>
+		<p
+			className={`rounded-full px-5 py-2 text-center text-background shadow-lg ${type === "success" ? "bg-primary" : "bg-error"}`}
+		>
 			{message}
 		</p>
 	</div>

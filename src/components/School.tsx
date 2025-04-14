@@ -4,23 +4,47 @@ import SettingsSVG from "../assets/svg/settings.svg?react";
 import { useAuth } from "../contexts/AuthContext";
 import { useSchoolModal } from "../contexts/SchoolContext";
 import { Role, type SchoolData, translateRole } from "../types/SchoolData";
+import { useToast } from "../contexts/ToastContext";
+import { conf } from "../config";
 
 type SchoolProps = {
 	school: SchoolData;
 	multiple: boolean;
 };
 
+type DashboardResponse = {
+	dashboard_token: string;
+};
+
+const isDashboardResponse = (data: unknown): data is DashboardResponse =>
+	typeof data === "object" && data !== null && "dashboard_token" in data && typeof data.dashboard_token === "string";
+
 /** The School component with redirect to local dashboard */
 const School = ({ school, multiple }: SchoolProps) => {
 	const schoolModal = useSchoolModal();
 	const auth = useAuth();
+	const toast = useToast();
 
 	const editSchool = useCallback(() => schoolModal.show(school), [school, schoolModal]);
-	const navigateToDashboard = useCallback(() => {
-		const token = auth.data?.access_token;
-		if (!token) return;
-		location.replace(`${school.LocalDashboardUrl}?token=${token}`);
-	}, [school, auth.data]);
+
+	const navigateToDashboard = useCallback(async () => {
+		try {
+			const response = await fetch(`${conf().VITE_API_URL}/schools/${school.SchoolId}/dashboard`, {
+				headers: {
+					Authorization: `Bearer ${auth.data?.access_token}`,
+				},
+			});
+
+			if (!response.ok) throw new Error();
+
+			const data = await response.json();
+			if (!isDashboardResponse(data)) throw new Error();
+
+			window.location.replace(`${school.LocalDashboardUrl}?token=${data.dashboard_token}`);
+		} catch {
+			toast.showMessage("Fehler beim Weiterleiten zum Dashboard", "error");
+		}
+	}, [school, auth.data, toast.showMessage]);
 
 	return (
 		<div className={`w-full ${multiple ? "school" : "rounded-md border-2 border-[#F1F4FF] px-8 py-4"}`}>

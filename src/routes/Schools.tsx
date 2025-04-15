@@ -31,6 +31,14 @@ const Schools = () => {
 		[auth.data],
 	);
 
+	useEffect(() => {
+		const params = new URLSearchParams(window.location.search);
+		if (params.get("logout") === "true") {
+			auth.logout();
+			window.history.replaceState({}, document.title, window.location.pathname);
+		}
+	}, [auth.logout]);
+
 	return (
 		<SchoolProvider>
 			<EditSchool />

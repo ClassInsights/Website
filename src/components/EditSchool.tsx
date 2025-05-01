@@ -35,7 +35,7 @@ const EditSchool = () => {
 					<h3 className="pb-1">Lokale API URL</h3>
 					<p>
 						Hier können Sie die URL der lokalen ClassInsights API bearbeiten. Diese ist wichtig, da sie die
-						Schnittstelle zu unserem Server darstellt.
+						Schnittstelle zu unserem Server darstellt und muss mit jener aus der Gruppenrichtlinie übereinstimmen.
 					</p>
 					<TextInput
 						id="api"

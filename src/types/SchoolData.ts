@@ -34,6 +34,7 @@ export function isSchoolData(data: unknown): data is SchoolData {
 }
 
 export enum Role {
+	OWNER = "Owner",
 	ADMIN = "Admin",
 	TEACHER = "Teacher",
 	STUDENT = "Student",
@@ -47,5 +48,7 @@ export const translateRole = (role: Role): string => {
 			return "Lehrer";
 		case Role.STUDENT:
 			return "Schüler";
+		case Role.OWNER:
+			return "CI";
 	}
 };

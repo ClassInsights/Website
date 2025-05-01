@@ -63,7 +63,7 @@ const DashboardRedirect = () => {
 				onClick={cancelRedirect}
 				onKeyDown={cancelRedirect}
 			/>
-			<div className="absolute h-[88%] w-full rounded-t-2xl bg-background p-4 md:h-auto md:w-3/5 md:rounded-2xl lg:w-2/5">
+			<div className="absolute w-full rounded-t-2xl bg-background p-4 md:h-auto md:w-3/5 md:rounded-2xl lg:w-2/5">
 				{/* Title Bar */}
 				<div className="flex items-start justify-between bg-background pb-2">
 					<CloseSVG className="shrink-0 opacity-0" />

@@ -42,6 +42,7 @@ const Demo = () => {
 	}, []);
 
 	const handleSubmit = useCallback(async () => {
+		setAlreadyTried(true);
 		setIsSubmitting(true);
 
 		if (!isDemoRequest(demoRef.current)) {

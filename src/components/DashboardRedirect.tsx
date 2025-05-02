@@ -15,12 +15,6 @@ const DashboardRedirect = () => {
 
 	const school = useMemo(() => auth.data?.user.schools[0], [auth.data]);
 
-	const redirect = useCallback(() => {
-		const token = auth.data?.access_token;
-		if (!token || !school) return;
-		location.replace(`${school.LocalDashboardUrl}?token=${token}`);
-	}, [school, auth.data]);
-
 	const cancelRedirect = useCallback(() => {
 		clearInterval(countdownRef.current);
 		countdownRef.current = undefined;
@@ -28,17 +22,18 @@ const DashboardRedirect = () => {
 	}, []);
 
 	useEffect(() => {
-		if (!auth.data) return;
+		if (!auth.data || !school) return;
 
 		if (
 			// Check if the user has multiple schools
 			auth.data?.user.schools.length !== 1 ||
 			// Check if the user is just a student
-			auth.data?.user.schools[0].Roles.every((role) => role === Role.STUDENT) ||
-			// Check if the user is an admin
-			auth.data.user.schools[0].Roles.includes(Role.ADMIN)
+			school.Roles.every((role) => role === Role.STUDENT)
 		)
 			return;
+
+		const params = new URLSearchParams(window.location.search);
+		if (school.Roles.includes(Role.ADMIN) && params.get("auto-redirect") !== "true") return;
 
 		if (countdownRef.current) return;
 
@@ -47,7 +42,8 @@ const DashboardRedirect = () => {
 				if (prev === 1) {
 					clearInterval(countdownRef.current);
 					countdownRef.current = undefined;
-					redirect();
+					if (!school) return 0;
+					auth.navigateToDashboard(school.SchoolId);
 					return 0;
 				}
 				return prev - 1;
@@ -56,7 +52,7 @@ const DashboardRedirect = () => {
 
 		setIsVisible(true);
 		return () => cancelRedirect();
-	}, [auth.data, cancelRedirect, redirect]);
+	}, [auth.data, cancelRedirect, auth.navigateToDashboard, school]);
 
 	if (!isVisible || !school) return <></>;
 
@@ -67,7 +63,7 @@ const DashboardRedirect = () => {
 				onClick={cancelRedirect}
 				onKeyDown={cancelRedirect}
 			/>
-			<div className="absolute h-[88%] w-full rounded-t-2xl bg-background p-4 md:h-auto md:w-3/5 md:rounded-2xl lg:w-2/5">
+			<div className="absolute w-full rounded-t-2xl bg-background p-4 md:h-auto md:w-3/5 md:rounded-2xl lg:w-2/5">
 				{/* Title Bar */}
 				<div className="flex items-start justify-between bg-background pb-2">
 					<CloseSVG className="shrink-0 opacity-0" />
@@ -92,7 +88,7 @@ const DashboardRedirect = () => {
 						<button className="cursor-pointer text-primary" type="button" onClick={cancelRedirect}>
 							Abbrechen
 						</button>
-						<Button label={`Weiter (${countdown})`} arrowed onPress={redirect} />
+						<Button label={`Weiter (${countdown})`} arrowed onPress={() => auth.navigateToDashboard(school.SchoolId)} />
 					</div>
 				</div>
 			</div>

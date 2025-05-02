@@ -21,7 +21,7 @@ const EditSchool = () => {
 				onClick={schoolModal.hide}
 				onKeyDown={schoolModal.hide}
 			/>
-			<div className="absolute h-[88%] w-full rounded-t-2xl bg-background p-4 md:h-auto md:w-10/12 md:rounded-2xl lg:w-4/6 xl:w-1/2 2xl:w-2/5">
+			<div className="absolute h-[88%] max-h-[88%] w-full overflow-hidden rounded-t-2xl bg-background p-4 pb-2 md:w-10/12 md:rounded-2xl lg:w-4/6 xl:w-1/2 2xl:w-2/5">
 				{/* Title Bar */}
 				<div className="flex items-start justify-between bg-background pb-2">
 					<CloseSVG className="shrink-0 opacity-0" />
@@ -35,7 +35,7 @@ const EditSchool = () => {
 					<h3 className="pb-1">Lokale API URL</h3>
 					<p>
 						Hier können Sie die URL der lokalen ClassInsights API bearbeiten. Diese ist wichtig, da sie die
-						Schnittstelle zu unserem Server darstellt.
+						Schnittstelle zu unserem Server darstellt und muss mit jener aus der Gruppenrichtlinie übereinstimmen.
 					</p>
 					<TextInput
 						id="api"
@@ -67,7 +67,7 @@ const EditSchool = () => {
 						initialValue={data.website}
 						onChange={(value) => schoolModal.updateData({ ...data, website: value })}
 					/>
-					<div className="mt-20 flex justify-end pb-16 md:pb-0">
+					<div className="mt-8 flex justify-end pb-12">
 						<Button label="Speichern" onPress={() => schoolModal.save()} disabled={!schoolModal.hasChanges} />
 					</div>
 				</div>

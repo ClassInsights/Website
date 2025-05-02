@@ -10,7 +10,20 @@ import { useToast } from "../contexts/ToastContext";
 import { isDemoRequest } from "../types/DemoRequest";
 
 const Demo = () => {
-	const [missingFields, setMissingFields] = useState<string[]>([]);
+	const [alreadyTried, setAlreadyTried] = useState(false);
+	const [missingFields, setMissingFields] = useState<string[]>([
+		"turnstile",
+		"name",
+		"street",
+		"house",
+		"zip",
+		"city",
+		"website",
+		"firstName",
+		"lastName",
+		"email",
+		"phone",
+	]);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [hasAcceptedTerms, setHasAcceptedTerms] = useState(false);
 	const [currentState, setCurrentState] = useState<"initial" | "success" | "error">("initial");
@@ -262,7 +275,7 @@ const Demo = () => {
 									demoRef.current.turnstile === undefined
 								}
 							/>
-							{missingFields.length > 0 && !isSubmitting && (
+							{missingFields.length > 0 && !isSubmitting && alreadyTried && (
 								<p className="absolute bottom-0 text-error xl:static">
 									Bitte füllen Sie alle erforderlichen Felder aus.
 								</p>

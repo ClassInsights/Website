@@ -16,11 +16,6 @@ const School = ({ school, multiple }: SchoolProps) => {
 	const auth = useAuth();
 
 	const editSchool = useCallback(() => schoolModal.show(school), [school, schoolModal]);
-	const navigateToDashboard = useCallback(() => {
-		const token = auth.data?.access_token;
-		if (!token) return;
-		location.replace(`${school.LocalDashboardUrl}?token=${token}`);
-	}, [school, auth.data]);
 
 	return (
 		<div className={`w-full ${multiple ? "school" : "rounded-md border-2 border-[#F1F4FF] px-8 py-4"}`}>
@@ -41,8 +36,8 @@ const School = ({ school, multiple }: SchoolProps) => {
 			</p>
 			<div
 				className="mt-3 flex cursor-pointer items-center gap-1.5 text-primary"
-				onClick={navigateToDashboard}
-				onKeyDown={navigateToDashboard}
+				onClick={() => auth.navigateToDashboard(school.SchoolId)}
+				onKeyDown={() => auth.navigateToDashboard(school.SchoolId)}
 			>
 				<p>Zum Dashboard</p>
 				<ArrowSVG className="shrink-0 fill-primary" />

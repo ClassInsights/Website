@@ -8,6 +8,7 @@ import { type AuthResponse, isAuthResponse } from "../types/AuthResponse";
 import { type TokenData, isTokenData } from "../types/TokenData";
 import type { UserData } from "../types/UserData";
 import { useToast } from "./ToastContext";
+import { isDashboardResponse } from "../types/DashboardResponse";
 
 type AuthContextType = {
 	/** True if the user is authenticated */
@@ -22,6 +23,8 @@ type AuthContextType = {
 	refreshToken: (refreshToken: string) => Promise<AuthResponse | undefined>;
 	/** Logout the user and remove the cookie */
 	logout: () => void;
+	/** Navigate to dashboard */
+	navigateToDashboard: (schoolId: number) => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -239,6 +242,37 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 		window.location.replace(conf().VITE_LOGOUT_URL);
 	}, [authData]);
 
+	const navigateToDashboard = useCallback(
+		async (schoolId: number) => {
+			if (!authData) {
+				toast.showMessage("Melden Sie sich erneut an!", "error");
+				return;
+			}
+
+			try {
+				const response = await fetch(`${conf().VITE_API_URL}/schools/${schoolId}/dashboard`, {
+					headers: {
+						Authorization: `Bearer ${authData.access_token}`,
+					},
+				});
+
+				if (!response.ok) throw new Error();
+
+				const data = await response.json();
+
+				if (!isDashboardResponse(data)) throw new Error();
+
+				const school = authData.user.schools.find((s) => s.SchoolId === schoolId);
+				if (!school) throw new Error();
+
+				window.location.replace(`${school.LocalDashboardUrl}?token=${data.dashboard_token}`);
+			} catch {
+				toast.showMessage("Fehler beim Weiterleiten zum Dashboard", "error");
+			}
+		},
+		[authData, toast.showMessage],
+	);
+
 	/** Initialize the authentification context */
 	const initializeAuth = useCallback(async () => {
 		await decodeCookie();
@@ -272,6 +306,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 				exchangeCode,
 				refreshToken,
 				logout,
+				navigateToDashboard,
 			}}
 		>
 			{children}

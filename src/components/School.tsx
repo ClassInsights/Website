@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 import ArrowSVG from "../assets/svg/arrow.svg?react";
-import SettingsSVG from "../assets/svg/settings.svg?react";
 import LicenseSVG from "../assets/svg/license.svg?react";
+import SettingsSVG from "../assets/svg/settings.svg?react";
 import { useAuth } from "../contexts/AuthContext";
 import { useSchoolModal } from "../contexts/SchoolContext";
-import { Role, type SchoolData, translateRole } from "../types/SchoolData";
 import { useToast } from "../contexts/ToastContext";
+import { Role, type SchoolData, translateRole } from "../types/SchoolData";
 
 type SchoolProps = {
 	school: SchoolData;

@@ -5,10 +5,10 @@ import { getCookie, removeCookie, setCookie } from "typescript-cookie";
 import { conf } from "../config";
 import { type AuthData, isAuthData } from "../types/AuthData";
 import { type AuthResponse, isAuthResponse } from "../types/AuthResponse";
+import { isDashboardResponse } from "../types/DashboardResponse";
 import { type TokenData, isTokenData } from "../types/TokenData";
 import type { UserData } from "../types/UserData";
 import { useToast } from "./ToastContext";
-import { isDashboardResponse } from "../types/DashboardResponse";
 
 type AuthContextType = {
 	/** True if the user is authenticated */

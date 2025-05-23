@@ -52,7 +52,9 @@ const About = () => (
 			<p className="mx-auto mt-6 w-4/5 text-center md:w-2/3">
 				Wir bedanken uns zudem herzlich bei <span className="font-bold">Anja Ladner</span> und{" "}
 				<span className="font-bold">Mona Rueland</span> für die herausragende Zusammenarbeit sowie ihre fachliche
-				Expertise, die wesentlich zum Erfolg unserer Diplomarbeit beigetragen haben.
+				Expertise, die wesentlich zum Erfolg unserer Diplomarbeit beigetragen haben. Auch bedanken wir uns bei{" "}
+				<span className="font-bold">Gerhard Netzer</span> für die hervorragende Unterstützung als Diplomarbeit
+				Projektbetreuer.
 			</p>
 		</section>
 

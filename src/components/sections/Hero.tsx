@@ -8,13 +8,13 @@ const Hero = () => {
 	return (
 		<section className="flex min-h-lvh flex-col items-center justify-end">
 			{/* Hero C2A Section */}
-			<div className="relative flex min-h-svh w-full flex-grow items-center justify-center pt-20 md:min-h-0">
+			<div className="relative flex min-h-dvh w-full flex-grow items-center justify-center pt-20 md:min-h-0">
 				<div className="flex flex-col items-center md:pb-14">
 					<h1 className="pb-6 text-5xl sm:text-8xl">
 						ClassInsights<span className="text-primary">.</span>
 					</h1>
 					<p className="pb-6 text-center text-lg sm:w-8/12">
-						<span className="font-bold">Spare bis zu 50% Stromkosten</span> mit der innovativen Energie-Management
+						<span className="font-bold">Spare bis zu 30% Stromkosten*</span> mit der innovativen Energie-Management
 						Lösung für Schulen auf Basis des Stundenplans
 					</p>
 					{/* C2A Buttons */}
@@ -42,8 +42,8 @@ const Hero = () => {
 						"Automatisiertes Steuern der Computer ermöglicht maximale Effizienz und Kostenersparnis für Schulen.",
 					],
 					[
-						"Verbrauch Monitoring",
-						"Der Stromverbrauch der Computer wird automatisch gemessen und in Echtzeit in der App angezeigt.",
+						"Insights & Steuerung",
+						"Erhalten Sie detailierte Einblicke über die Computer Ihrer Schule. Zudem können Computer manuell gesteuert werden.",
 					],
 					[
 						"Einfache Einrichtung",

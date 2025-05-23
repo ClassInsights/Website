@@ -11,7 +11,7 @@ type HighlightProps = {
  */
 const Highlight = ({ title, description }: HighlightProps): JSX.Element => {
 	return (
-		<article className="text-center md:text-left">
+		<article className="w-full text-center md:text-left">
 			<h3>{title}</h3>
 			<p>{description}</p>
 		</article>

@@ -21,7 +21,10 @@ const Schools = () => {
 	const hasAccess = useMemo(
 		() =>
 			!auth.data?.user.schools.every(
-				(school) => !school.Roles.includes(Role.ADMIN) && !school.Roles.includes(Role.TEACHER),
+				(school) =>
+					!school.Roles.includes(Role.ADMIN) &&
+					!school.Roles.includes(Role.OWNER) &&
+					!school.Roles.includes(Role.TEACHER),
 			),
 		[auth.data],
 	);

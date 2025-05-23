@@ -32,30 +32,36 @@ const Login = () => {
 		if (alreadyExchanged.current) return;
 		alreadyExchanged.current = true;
 
-		auth.exchangeCode(loginCode).then((code) => {
-			switch (code) {
-				case 200:
-					toasts.showMessage("Erfolgreich angemeldet");
-					navigate("/schulen");
-					return;
-				case 400:
-					setError("Es wurde ein ungültiger Authentifizierungscode übergeben. Bitte versuchen Sie es später erneut.");
-					break;
-				case 401:
-					setError(
-						"Dieser Microsoft Account ist in keiner Schule, die ClassInsights verwendet. Probieren Sie es mit einem anderen Microsoft Konto.",
-					);
-					break;
-				case 500:
-					setError("Ein unerwarteter Serverfehler ist aufgetreten. Bitte versuchen Sie es später erneut.");
-					break;
-				default:
-					setError("Ein unbekannter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.");
-					break;
-			}
+		auth
+			.exchangeCode(loginCode)
+			.then((code) => {
+				switch (code) {
+					case 200:
+						toasts.showMessage("Erfolgreich angemeldet");
+						navigate("/schulen");
+						return;
+					case 400:
+						setError("Es wurde ein ungültiger Authentifizierungscode übergeben. Bitte versuchen Sie es später erneut.");
+						break;
+					case 401:
+						setError(
+							"Dieser Microsoft Account ist in keiner Schule, die ClassInsights verwendet. Probieren Sie es mit einem anderen Microsoft Konto.",
+						);
+						break;
+					case 500:
+						setError("Ein unerwarteter Serverfehler ist aufgetreten. Bitte versuchen Sie es später erneut.");
+						break;
+					default:
+						setError("Ein unbekannter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.");
+						break;
+				}
 
-			setIsLoading(false);
-		});
+				if (code !== 200) setIsLoading(false);
+			})
+			.catch(() => {
+				setError("Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.");
+				setIsLoading(false);
+			});
 	});
 
 	return (

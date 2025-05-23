@@ -35,6 +35,12 @@ const Home = () => (
 		<Spacing />
 		<FAQ />
 		<Spacing />
+		<small>
+			*Die tatsächliche Einsparung variiert stark mit der Anzahl der Computer, der Raumbelegung, den Unterrichtsfächern,
+			der Entwicklung der Strompreise und anderen Faktoren. Dementsprechend kann die Einsparung deutlich darüber oder
+			darunter liegen.
+		</small>
+		<Spacing />
 	</CertificateProvider>
 );
 

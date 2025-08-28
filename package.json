@@ -13,6 +13,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@tanstack/react-query": "^4.40.1",
 		"@types/react-router-dom": "^5.3.3",
 		"jose": "^5.9.6",
 		"react": "^18.3.1",

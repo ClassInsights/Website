@@ -56,7 +56,10 @@ const Login = () => {
 						break;
 				}
 
-				if (code !== 200) setIsLoading(false);
+				if (code !== 200) {
+					setIsLoading(false);
+					toasts.showMessage("Anmeldung fehlgeschlagen", "error");
+				}
 			})
 			.catch(() => {
 				setError("Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.");

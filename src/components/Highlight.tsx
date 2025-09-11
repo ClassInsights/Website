@@ -1,6 +1,8 @@
+import type { JSX } from "react";
+
 type HighlightProps = {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
 };
 
 /**
@@ -10,12 +12,12 @@ type HighlightProps = {
  * @returns {JSX.Element} The highlight component
  */
 const Highlight = ({ title, description }: HighlightProps): JSX.Element => {
-	return (
-		<article className="w-full text-center md:text-left">
-			<h3>{title}</h3>
-			<p>{description}</p>
-		</article>
-	);
+  return (
+    <article className="w-full text-center md:text-left">
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </article>
+  );
 };
 
 export default Highlight;

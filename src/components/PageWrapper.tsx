@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { useEffect, type JSX } from "react";
+import { Outlet, useLocation } from "react-router";
 import { AuthProvider } from "../contexts/AuthContext";
 import { ToastProvider } from "../contexts/ToastContext";
 import CookieConsent from "./CookieConsent";
@@ -11,30 +11,30 @@ import Navbar from "./Navbar";
  * @returns {JSX.Element} The page wrapper
  */
 const PageWrapper = (): JSX.Element => {
-	const { hash } = useLocation();
+  const { hash } = useLocation();
 
-	useEffect(() => {
-		if (!hash) {
-			window.scrollTo(0, 0);
-			return;
-		}
-		const element = document.getElementById(hash.slice(1));
-		if (!element) return;
-		element.scrollIntoView({ behavior: "smooth" });
-	});
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    const element = document.getElementById(hash.slice(1));
+    if (!element) return;
+    element.scrollIntoView({ behavior: "smooth" });
+  });
 
-	return (
-		<main className="page-spacing relative min-h-100dvh max-w-screen-xl">
-			<CookieConsent />
-			<ToastProvider>
-				<AuthProvider>
-					<Navbar />
-					<Outlet />
-					<Footer />
-				</AuthProvider>
-			</ToastProvider>
-		</main>
-	);
+  return (
+    <main className="page-spacing min-h-100dvh relative max-w-screen-xl">
+      <CookieConsent />
+      <ToastProvider>
+        <AuthProvider>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </AuthProvider>
+      </ToastProvider>
+    </main>
+  );
 };
 
 export default PageWrapper;

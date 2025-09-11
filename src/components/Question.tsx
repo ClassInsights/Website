@@ -1,12 +1,12 @@
+import { ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
-import ArrowSVG from "../assets/svg/arrow.svg?react";
 
 type QuestionProps = {
-	question: string;
-	qId: number;
-	currentQuestion: number;
-	setQuestion: (index: number) => void;
-	children: React.ReactNode;
+  question: string;
+  qId: number;
+  currentQuestion: number;
+  setQuestion: (index: number) => void;
+  children: React.ReactNode;
 };
 
 /**
@@ -19,35 +19,40 @@ type QuestionProps = {
  * @returns {JSX.Element} The question component
  */
 const Question = ({ question, qId, currentQuestion, setQuestion, children }: QuestionProps) => {
-	const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-	const toggleOpen = () => setQuestion(isOpen ? -1 : qId);
+  const toggleOpen = () => setQuestion(isOpen ? -1 : qId);
 
-	const close = useCallback(() => setQuestion(-1), [setQuestion]);
+  const close = useCallback(() => setQuestion(-1), [setQuestion]);
 
-	useEffect(() => setIsOpen(qId === currentQuestion), [qId, currentQuestion]);
+  useEffect(() => setIsOpen(qId === currentQuestion), [qId, currentQuestion]);
 
-	useEffect(() => {
-		if (!isOpen) return;
-		document.addEventListener("click", close);
-		return () => document.removeEventListener("click", close);
-	}, [isOpen, close]);
+  useEffect(() => {
+    if (!isOpen) return;
+    document.addEventListener("click", close);
+    return () => document.removeEventListener("click", close);
+  }, [isOpen, close]);
 
-	return (
-		<div className={`relative bg-container ${isOpen ? "z-10 rounded-t-lg shadow-md" : "rounded-lg"}`}>
-			{/* Question block */}
-			<div
-				className="flex cursor-pointer items-center justify-between px-5 py-3"
-				onClick={toggleOpen}
-				onKeyUp={toggleOpen}
-			>
-				<b className="select-none">{question}</b>
-				<ArrowSVG width={18} className={`shrink-0 transition-transform ${isOpen ? "rotate-90" : ""}`} />
-			</div>
-			{/* Answer block */}
-			{isOpen && <div className="absolute w-full rounded-b-lg bg-container px-5 pb-3 shadow-md">{children}</div>}
-		</div>
-	);
+  return (
+    <div className={`relative bg-card ${isOpen ? "z-10 rounded-t-lg shadow-md" : "rounded-lg"}`}>
+      {/* Question block */}
+      <div
+        className="flex cursor-pointer items-center justify-between px-5 py-3"
+        onClick={toggleOpen}
+        onKeyUp={toggleOpen}
+      >
+        <b className="select-none">{question}</b>
+        <ChevronRight
+          width={18}
+          className={`shrink-0 transition-transform ${isOpen ? "rotate-90" : ""}`}
+        />
+      </div>
+      {/* Answer block */}
+      {isOpen && (
+        <div className="absolute w-full rounded-b-lg bg-card px-5 pb-3 shadow-md">{children}</div>
+      )}
+    </div>
+  );
 };
 
 export default Question;

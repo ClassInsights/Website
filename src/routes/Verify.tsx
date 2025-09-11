@@ -58,7 +58,7 @@ const Verify = () => {
         )}
       </p>
       {isLoading && (
-        <ProgressSVG width={60} height={60} className="shrink-0 animate-spin fill-primary" />
+        <ProgressSVG width={60} height={60} className="shrink-0 animate-spin text-primary" />
       )}
       {!isLoading && !isError && (
         <Link to="/" className="flex w-max items-center gap-1.5 pb-2">

@@ -66,9 +66,14 @@ const FAQ = () => {
             <p key="installation">
               Wir sind stets bemüht, den Installationsprozess so einfach wie möglich zu gestalten.
               Daher haben wir einen intuitiven{" "}
-              <Link to="/installation" className="text-primary">
+              <a
+                href="https://docs.classinsights.at"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary"
+              >
                 Setup Guide
-              </Link>{" "}
+              </a>{" "}
               erstellt, der die Einrichtung nahezu zu einem Kinderspiel macht! ;&#41;
             </p>,
           ],

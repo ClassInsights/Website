@@ -8,7 +8,6 @@ import Demo from "./routes/Demo.tsx";
 import ErrorPage from "./routes/Error.tsx";
 import Home from "./routes/Home.tsx";
 import Impress from "./routes/Impress.tsx";
-import Install from "./routes/Install.tsx";
 import Login from "./routes/Login.tsx";
 import Privacy from "./routes/Privacy.tsx";
 import Schools from "./routes/Schools.tsx";
@@ -26,7 +25,6 @@ ReactDOM.createRoot(root).render(
           <Route index element={<Home />} />
           <Route path="impressum" element={<Impress />} />
           <Route path="datenschutz" element={<Privacy />} />
-          <Route path="installation" element={<Install />} />
           <Route path="unternehmen" element={<About />} />
           <Route path="demo" element={<Demo />} />
           <Route path="login" element={<Login />} />

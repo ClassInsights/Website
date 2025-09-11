@@ -4,37 +4,38 @@ import { useCertificate } from "../../contexts/CertificateContext";
 
 /** The certificate section with certificate popup button */
 const Certificate = () => {
-	const certificate = useCertificate();
+  const certificate = useCertificate();
 
-	const openCertificate = useCallback(
-		() =>
-			certificate.show({
-				name: "HAK/HLW Landeck",
-				member_since: "2024-09-12T19:43:38.743427Z",
-				website: "https://eco-landeck.at",
-			}),
-		[certificate.show],
-	);
+  const openCertificate = useCallback(
+    () =>
+      certificate.show({
+        name: "HAK/HLW Landeck",
+        member_since: "2024-09-12T19:43:38.743427Z",
+        website: "https://eco-landeck.at",
+      }),
+    [certificate.show],
+  );
 
-	return (
-		<section className="flex w-full flex-col items-center justify-between gap-10 md:flex-row">
-			<div className="text-center md:w-3/5 md:text-left">
-				<h2 className="pb-4">Zertifikat für teilnehmende Schulen</h2>
-				<p>
-					Alle Schulen mit aktivem ClassInsights erhalten ein Zertifikat, das sie in ihre Website einbinden können.
-					Zudem können Schule ihre maßgeschneiderte Zertifikatsseite als Link einfügen.
-				</p>
-			</div>
-			<div className="flex items-end gap-3">
-				<HintSVG className="mb-1 w-16 shrink-0 md:w-24" />
-				<div
-					onClick={openCertificate}
-					onKeyDown={openCertificate}
-					className="certificate h-40 w-40 cursor-pointer rounded-full shadow-md md:h-40 md:w-40 lg:h-60 lg:w-60"
-				/>
-			</div>
-		</section>
-	);
+  return (
+    <section className="flex w-full flex-col items-center justify-between gap-10 md:flex-row">
+      <div className="text-center md:w-3/5 md:text-left">
+        <h2 className="pb-4">Zertifikat für teilnehmende Schulen</h2>
+        <p>
+          Alle Schulen mit aktivem ClassInsights erhalten ein Zertifikat, das sie in ihre Website
+          einbinden können. Zudem können Schule ihre maßgeschneiderte Zertifikatsseite als Link
+          einfügen.
+        </p>
+      </div>
+      <div className="flex items-end gap-3">
+        <HintSVG className="mb-1 w-16 shrink-0 md:w-24" />
+        <div
+          onClick={openCertificate}
+          onKeyDown={openCertificate}
+          className="certificate h-40 w-40 cursor-pointer rounded-full shadow-md md:h-40 md:w-40 lg:h-60 lg:w-60"
+        />
+      </div>
+    </section>
+  );
 };
 
 export default Certificate;

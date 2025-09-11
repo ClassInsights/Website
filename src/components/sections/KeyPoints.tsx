@@ -15,19 +15,19 @@ const KeyPoints = () => {
         {[
           [
             "Effizient und einfach Strom sparen",
-            <ElectricitySVG key="electricity" className="h-14 w-14 shrink-0 fill-primary" />,
+            <ElectricitySVG key="electricity" className="h-14 w-14 shrink-0 text-primary" />,
           ],
           [
             "Stromverbrauch der Computer messen",
-            <MeasureSVG key="measure" className="h-14 w-14 fill-primary" />,
+            <MeasureSVG key="measure" className="h-14 w-14 text-primary" />,
           ],
           [
             "Awareness für Energieverbrauch schaffen",
-            <AwarenessSVG key="awareness" className="h-14 w-14 shrink-0 fill-primary" />,
+            <AwarenessSVG key="awareness" className="h-14 w-14 shrink-0 text-primary" />,
           ],
           [
             "Computer Verbrauch überwachen",
-            <MonitorSVG key="monitor" className="h-14 w-14 shrink-0 fill-primary" />,
+            <MonitorSVG key="monitor" className="h-14 w-14 shrink-0 text-primary" />,
           ],
         ].map(([title, svg]) => (
           <div key={title.toString()} className="flex flex-col items-center gap-3">

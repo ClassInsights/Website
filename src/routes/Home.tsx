@@ -13,35 +13,35 @@ import { CertificateProvider } from "../contexts/CertificateContext";
 
 /** The home page */
 const Home = () => (
-	<CertificateProvider>
-		<Certificate />
-		<Hero />
-		<Spacing id="features" size="md" />
-		<Functionality />
-		<Spacing />
-		<WPF />
-		<Spacing />
-		<PrivacyNote />
-		<Spacing />
-		<Dashboard />
-		<Spacing />
-		<CertificateSection />
-		<Spacing />
-		<KeyPoints />
-		{/* <Spacing />
+  <CertificateProvider>
+    <Certificate />
+    <Hero />
+    <Spacing id="features" size="md" />
+    <Functionality />
+    <Spacing />
+    <WPF />
+    <Spacing />
+    <PrivacyNote />
+    <Spacing />
+    <Dashboard />
+    <Spacing />
+    <CertificateSection />
+    <Spacing />
+    <KeyPoints />
+    {/* <Spacing />
 		<Testimonial /> */}
-		<Spacing />
-		<BuyDemo />
-		<Spacing />
-		<FAQ />
-		<Spacing />
-		<small>
-			*Die tatsächliche Einsparung variiert stark mit der Anzahl der Computer, der Raumbelegung, den Unterrichtsfächern,
-			der Entwicklung der Strompreise und anderen Faktoren. Dementsprechend kann die Einsparung deutlich darüber oder
-			darunter liegen.
-		</small>
-		<Spacing />
-	</CertificateProvider>
+    <Spacing />
+    <BuyDemo />
+    <Spacing />
+    <FAQ />
+    <Spacing />
+    <small>
+      *Die tatsächliche Einsparung variiert stark mit der Anzahl der Computer, der Raumbelegung, den
+      Unterrichtsfächern, der Entwicklung der Strompreise und anderen Faktoren. Dementsprechend kann
+      die Einsparung deutlich darüber oder darunter liegen.
+    </small>
+    <Spacing />
+  </CertificateProvider>
 );
 
 export default Home;

@@ -87,18 +87,20 @@ const Navbar = () => {
               <Link to="/#features" aria-label="Lösungen" className={mobileLinkStyle}>
                 Lösungen
               </Link>
-              {[
-                ["/unternehmen", "Über uns"],
-                ["/installation", "Installation"],
-              ].map(([link, label]) => (
-                <Link
-                  key={link}
-                  to={link}
-                  className={`${mobileLinkStyle} border-opacity-10 border-t border-black`}
-                >
-                  {label}
-                </Link>
-              ))}
+              <Link
+                to="/unternehmen"
+                className={`${mobileLinkStyle} border-opacity-10 border-t border-black`}
+              >
+                Über uns
+              </Link>
+              <a
+                href="https://docs.classinsights.at"
+                target="_blank"
+                rel="noreferrer"
+                className={`${mobileLinkStyle} border-opacity-10 border-t border-black`}
+              >
+                Installation
+              </a>
             </div>
             {/* Desktop Menu */}
             <div className="hidden items-center gap-8 md:flex">
@@ -106,7 +108,9 @@ const Navbar = () => {
                 Lösungen
               </Link>
               <Link to="/unternehmen">Über uns</Link>
-              <Link to="/installation">Installation</Link>
+              <a href="https://docs.classinsights.at" target="_blank" rel="noreferrer">
+                Installation
+              </a>
               <div
                 className="hidden cursor-pointer items-center gap-1.5 text-primary md:flex"
                 onClick={auth.handleLogin}

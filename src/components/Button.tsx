@@ -30,13 +30,13 @@ const Button = ({
       return (
         <Link to={disabled ? "" : onPress} className={buttonStyle}>
           {label}
-          {arrowed && <ChevronRight className="shrink-0 fill-background" width={16} />}
+          {arrowed && <ChevronRight className="shrink-0 text-background" width={16} />}
         </Link>
       );
     return (
       <a href={disabled ? undefined : onPress} aria-label={label} className={buttonStyle}>
         {label}
-        {arrowed && <ChevronRight className="shrink-0 fill-background" width={16} />}
+        {arrowed && <ChevronRight className="shrink-0 text-background" width={16} />}
       </a>
     );
   }
@@ -49,7 +49,7 @@ const Button = ({
       className={buttonStyle}
     >
       {label}
-      {arrowed && <ChevronRight className="shrink-0 fill-background" width={16} />}
+      {arrowed && <ChevronRight className="shrink-0 text-background" width={16} />}
     </button>
   );
 };

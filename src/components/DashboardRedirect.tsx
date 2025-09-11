@@ -82,7 +82,7 @@ const DashboardRedirect = () => {
             Um das Konto zu wechseln, klicken Sie auf "Abbrechen" und anschließend auf "Abmelden".
           </p>
           <div className="flex justify-center">
-            <ProgressSVG width={60} height={60} className="shrink-0 animate-spin fill-primary" />
+            <ProgressSVG width={60} height={60} className="shrink-0 animate-spin text-primary" />
           </div>
           <div className="mt-8 flex items-center justify-center gap-6">
             <button className="cursor-pointer text-primary" type="button" onClick={cancelRedirect}>

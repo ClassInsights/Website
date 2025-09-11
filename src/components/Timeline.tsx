@@ -4,7 +4,7 @@ const timelineData = [
   { date: "April 2024", description: "Präsentation der Diplomarbeit" },
   { date: "November 2024", description: "Integrationspartnerschaft mit WebUntis" },
   { date: "Dezember 2024", description: "Veröffentlichung Website" },
-  { date: "Mai 2025", description: "Gründung ClassInsights OG" },
+  // { date: "Mai 2025", description: "Gründung ClassInsights GbR" },
   { description: "Ihre Schule wird ClassInsights Partner", isCurrent: true },
 ];
 

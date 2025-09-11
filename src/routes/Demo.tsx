@@ -146,7 +146,7 @@ const Demo = () => {
             für Ihr Verständnis und entschuldigen uns für die entstandenen Unannehmlichkeiten.
           </p>
           <Link to="/" className="flex w-max items-center gap-1.5 pb-2">
-            <ChevronLeft className="shrink-0 rotate-180 text-black" />
+            <ChevronLeft className="shrink-0 text-black" />
             <p>Zurück zur Startseite</p>
           </Link>
         </div>

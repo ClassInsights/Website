@@ -22,8 +22,8 @@ const Certificate = () => {
         <h2 className="pb-4">Zertifikat für teilnehmende Schulen</h2>
         <p>
           Alle Schulen mit aktivem ClassInsights erhalten ein Zertifikat, das sie in ihre Website
-          einbinden können. Zudem können Schule ihre maßgeschneiderte Zertifikatsseite als Link
-          einfügen.
+          einbinden können. Somit wissen alle, dass diese Schule aktiv Energie spart und die Umwelt
+          schützt!
         </p>
       </div>
       <div className="flex items-end gap-3">

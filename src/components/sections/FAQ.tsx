@@ -17,8 +17,9 @@ const FAQ = () => {
             <p key="general">
               Bei ClassInsights handelt es sich um eine Software Lösung für Schulen, die es
               ermöglicht, den Energieverbrauch von Computern deutlich zu optimieren. Dabei werden
-              die Computer nach der letzten Unterrichtsstunde eines Raumes automatisch
-              heruntergefahren. Das spart nicht nur Energie, sondern auch Geld.
+              die Computer eines Raumes automatisch heruntergefahren, wenn bestimmte
+              (konfigurierbare) Szenarien eintreffen. (z. B. Eine zweistündige Pause zwischen den
+              Unterrichtsstunden). Das spart nicht nur Energie, sondern auch Geld.
             </p>,
           ],
           [
@@ -27,18 +28,19 @@ const FAQ = () => {
               <p>Eine ClassInsights zertifierte Schule erhält zahlreiche Vorteile:</p>
               <ul className="list-inside list-disc">
                 <li>Energie und Kostenersparnis</li>
+                <li>Admin-Dashboard mit zahlreichen hilfreichen Funktionen</li>
+                <li>Einfache Steuerung der Computer</li>
                 <li>Lebensdauer der Computer wird potenziell erhöht</li>
                 <li>Zertifikat für Schulwebsite/Social Media</li>
-                <li>Echtzeit Strommessung der Computer</li>
               </ul>
             </Fragment>,
           ],
           [
             "Wie erhält man das Zertifikat?",
             <p key="certificate">
-              Mit der Aktivierung einer Lizenz, kann man das Zertifkat in veschiedenen Größen im
-              ClassInsights Dashboard herunterladen. Der Link zum Anklicken auf der eigenen
-              Schulwebsite ist ebenfalls im Dashboard vorzufinden.
+              Sobald Sie mit Ihrem Konto angemeldet sind und Ihre Schule ClassInsights nutzt, können
+              Sie den entsprechenden HTML Code bei der ClassInsights Schulauswahl zum Einbinden in
+              Ihre Schulwebsite kopieren.
             </p>,
           ],
           [

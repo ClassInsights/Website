@@ -39,14 +39,14 @@ const About = () => (
       <Member
         imgPath={Jakob}
         name="Jakob Wassertheurer"
-        position="Co-CEO ClassInsights"
+        position="Mitgründer ClassInsights"
         tasks="Web- & Mobile-Entwicklung, Design, Buchhaltung, Kundenbetreuung"
         mail="jakob@classinsights.at"
       />
       <Member
         imgPath={Julian}
         name="Julian Grill"
-        position="Co-CEO ClassInsights"
+        position="Mitgründer ClassInsights"
         tasks="Backend-Entwicklung, Software-Architektur, Kundenbetreuung"
         mail="julian@classinsights.at"
       />
@@ -55,7 +55,7 @@ const About = () => (
         <span className="font-bold">Mona Rueland</span> für die herausragende Zusammenarbeit sowie
         ihre fachliche Expertise, die wesentlich zum Erfolg unserer Diplomarbeit beigetragen haben.
         Auch bedanken wir uns bei <span className="font-bold">Gerhard Netzer</span> für die
-        hervorragende Unterstützung als Diplomarbeit Projektbetreuer.
+        erstklassige Unterstützung als Diplomarbeit Projektbetreuer.
       </p>
     </section>
 

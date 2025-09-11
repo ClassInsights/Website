@@ -21,7 +21,7 @@ const Dashboard = () => {
           ? {
               title: "Einfach Änderungen vornehmen",
               description:
-                "Das ClassInsights Dashboard ermöglicht es, schnell und einfach zentrale Änderungen am System vorzunehmen. Einige Einstellungen können sogar automatisch vom Active Directory übernommen werden.",
+                "Das ClassInsights Dashboard ermöglicht es, schnell und einfach Änderungen am System vorzunehmen. Einige Einstellungen können sogar automatisch vom Active Directory übernommen werden.",
             }
           : {
               title: "Automatische Updates",

@@ -266,7 +266,7 @@ const Demo = () => {
               />
               <label htmlFor="terms">
                 Hiermit bestätige ich, dass ich die geltenden{" "}
-                <Link to="/agb" className="text-primary">
+                <Link to="/agb" target="_blank" className="text-primary">
                   Allgemeinen Geschäftsbedingungen
                 </Link>{" "}
                 vollumfänglich zur Kenntnis genommen habe und diesen zustimme. Des Weiteren erkläre

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { getCookie, removeCookie, setCookie } from "typescript-cookie";
 
 const CookieConsent = () => {
-  const [alreadyAccepted, setAlreadyAccepted] = useState(false);
+  const [alreadyAccepted, setAlreadyAccepted] = useState(true);
 
   const navigate = useNavigate();
 
@@ -23,9 +23,13 @@ const CookieConsent = () => {
 
   useEffect(() => {
     const cookie = getCookie("cookie_consent");
-    if (!cookie) return;
+    if (!cookie) {
+      setAlreadyAccepted(false);
+      return;
+    }
     if (cookie !== import.meta.env.PACKAGE_VERSION) {
       removeCookie("cookie_consent");
+      setAlreadyAccepted(false);
       return;
     }
     setAlreadyAccepted(true);

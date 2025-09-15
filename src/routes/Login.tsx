@@ -71,17 +71,17 @@ const Login = () => {
         setError("Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.");
         setIsLoading(false);
       });
-  });
+  }, []);
 
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center py-24">
       <h1 className="text-center text-6xl">
-        {isLoading ? "Anmeldung" : error ? "Anmeldung fehlgeschlagen" : "Anmeldung erforderlich"}
+        {isLoading ? "Anmeldung" : !!error ? "Anmeldung fehlgeschlagen" : "Anmeldung erforderlich"}
       </h1>
       <p className="mt-6 pb-8 text-center text-lg md:w-3/4">
         {isLoading
           ? "Der Anmeldevorgang wird gerade durchlaufen. Sie sind gleich startklar!"
-          : error
+          : !!error
             ? error
             : "Um auf die ClassInsights Dienste zugreifen zu können, müssen Sie sich mit einem  Microsoft Konto Ihrer Schule anmelden."}
       </p>

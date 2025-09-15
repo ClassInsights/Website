@@ -221,31 +221,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   /** Exchange the code for the auth data */
   const exchangeCode = useCallback(
     async (code: string) => {
-      let returnStatus = 200;
+      const response = await fetch(`${conf().VITE_API_URL}/azure/login?code=${code}`);
 
-      fetch(`${conf().VITE_API_URL}/azure/login?code=${code}`)
-        .then(async (result) => {
-          if (!result.ok) returnStatus = result.status;
-          result
-            .json()
-            .then((data) => {
-              if (!isAuthResponse(data)) return -1;
+      if (!response.ok) return response.status;
 
-              updateCookie(data);
-              startRefreshTimeout(
-                Math.floor(data.expires_in + Date.now() / 1000),
-                data.refresh_token,
-              );
-            })
-            .catch(() => {
-              returnStatus = -1;
-            });
-        })
-        .catch(() => {
-          returnStatus = -1;
-        });
+      const data = await response.json();
+      if (!isAuthResponse(data)) return -1;
 
-      return returnStatus;
+      await updateCookie(data);
+      startRefreshTimeout(Math.floor(data.expires_in + Date.now() / 1000), data.refresh_token);
+
+      return 200;
     },
     [updateCookie, startRefreshTimeout],
   );

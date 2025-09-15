@@ -41,17 +41,17 @@ const Impress = () => (
 			<p className="pt-3">Bezirkshauptmannschaft Landeck</p> */}
     <h3 className="pt-6 pb-1">Kontakt</h3>
     <div className="flex items-center gap-2">
-      <Phone className="shrink-0 text-black" width={20} />
+      <Phone className="shrink-0 text-black" size={16} />
       <p>Bald für Sie telefonisch erreichbar!</p>
     </div>
     <div className="flex items-center gap-2">
-      <Mail className="shrink-0 text-black" width={20} />
+      <Mail className="shrink-0 text-black" size={16} />
       <a href="mailto:office@classinsights.at">office@classinsights.at</a>
     </div>
     <h3 className="pt-6 pb-1">Umsetzung Webdesign</h3>
     <p>Jakob Wassertheurer</p>
     <div className="flex items-center gap-2">
-      <Mail className="shrink-0 text-black" width={20} />
+      <Mail className="shrink-0 text-black" size={16} />
       <a href="mailto:jakob@classinsights.at">jakob@classinsights.at</a>
     </div>
     <h3 className="pt-6 pb-1">Beschwerden</h3>
@@ -66,14 +66,14 @@ const Impress = () => (
     <p>
       Sie können Ihre Beschwerde auch direkt bei uns bei folgender E-Mail-Adresse einbringen:
       <span className="flex items-center gap-2">
-        <Mail className="shrink-0 text-black" width={20} />
+        <Mail className="shrink-0 text-black" size={16} />
         <a href="mailto:beschwerde@classinsights.at">beschwerde@classinsights.at</a>
       </span>
     </p>
     <h3 className="pt-6 pb-1">Datenschutz</h3>
     <p>Sie haben Bedenken bezüglich des Datenschutzes? Kontaktieren Sie uns gerne unter:</p>
     <div className="flex items-center gap-2 pb-2">
-      <Mail className="shrink-0 text-black" width={20} />
+      <Mail className="shrink-0 text-black" size={16} />
       <a href="mailto:datenschutz@classinsights.at">datenschutz@classinsights.at</a>
     </div>
     <Link to="/datenschutz" className="hidden items-center gap-1.5 text-primary md:flex">

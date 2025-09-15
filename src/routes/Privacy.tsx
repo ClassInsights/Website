@@ -8,7 +8,7 @@ const Privacy = () => {
     <>
       <div className="pt-32 pb-8">
         <Link to="/" className="flex w-max items-center gap-1.5 pb-2">
-          <ChevronLeft className="shrink-0 text-black" />
+          <ChevronLeft className="shrink-0 text-black" size={16} />
           <p>Zurück zur Startseite</p>
         </Link>
         <h1 className="text-5xl md:hidden">Datenschutz</h1>
@@ -44,11 +44,11 @@ const Privacy = () => {
       <p>Brixnerstraße 16</p>
       <p>6500 Landeck</p>
       <div className="flex items-center gap-2">
-        <Phone className="shrink-0 text-black" width={20} />
+        <Phone className="shrink-0 text-black" size={16} />
         <p>Bald für Sie telefonisch erreichbar!</p>
       </div>
       <div className="flex items-center gap-2">
-        <Mail className="shrink-0 text-black" width={20} />
+        <Mail className="shrink-0 text-black" size={16} />
         <a href="mailto:office@classinsights.at">office@classinsights.at</a>
       </div>
       <h2 className="mt-12 pb-4">II. Rechte der Nutzer und Betroffenen</h2>

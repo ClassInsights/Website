@@ -1,4 +1,4 @@
-import { Award, Settings } from "lucide-react";
+import { Award, ChevronRight, Settings } from "lucide-react";
 import { useCallback } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useSchoolModal } from "../contexts/SchoolContext";
@@ -62,7 +62,7 @@ const School = ({ school, multiple }: SchoolProps) => {
         onKeyDown={() => auth.navigateToDashboard(school.SchoolId)}
       >
         <p>Zum Dashboard</p>
-        <Award className="shrink-" />
+        <ChevronRight className="shrink-0" />
       </div>
     </div>
   );

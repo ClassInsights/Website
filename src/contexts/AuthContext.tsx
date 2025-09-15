@@ -50,7 +50,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     [authData],
   );
   const JWKS = useMemo(() => {
-    console.log("Fetching JWK Set from", conf().VITE_JWKS_URL);
     return jose.createRemoteJWKSet(new URL(conf().VITE_JWKS_URL));
   }, []);
 

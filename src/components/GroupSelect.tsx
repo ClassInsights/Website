@@ -1,6 +1,9 @@
-import { X } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 import type { AzureGroup } from "../types/AzureGroup";
+import { Button } from "./ui/button";
+import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from "./ui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
 type GroupSelectProps = {
   label: string;
@@ -34,7 +37,6 @@ const GroupSelect = ({ label, options, initialSelection, onChange }: GroupSelect
 
   const selectOption = useCallback(
     (id: string) => {
-      setShowOptions(false);
       setSelectedOptions((prev) => {
         const option = options.find((option) => option.id === id);
         if (!option) return prev;
@@ -56,79 +58,51 @@ const GroupSelect = ({ label, options, initialSelection, onChange }: GroupSelect
     [updateSelection],
   );
 
-  const hideOptions = useCallback(() => {
-    document.body.removeEventListener("click", hideOptions);
-    setShowOptions(false);
-  }, []);
-
   return (
     <div className="relative mt-6">
-      <p className="absolute top-[-1.1rem] text-xs">{label}</p>
-      <div className="flex w-full flex-wrap items-center gap-2 rounded-md border-[1px] border-black bg-background px-4 py-2 opacity-70 transition-shadow hover:opacity-100 hover:shadow-md">
+      <p className="absolute top-[-1.5rem] text-xs">{label}</p>
+      <div className="flex min-h-[3.125rem] w-full flex-wrap gap-x-3 gap-y-2 rounded-md border bg-background px-4 py-2 transition-opacity outline-none">
         {selectedOptions.length === 0 ? (
-          <p className="border-[1px] border-transparent">
-            {options.length === 0 ? "Es existieren keine Gruppen" : "Keine Auswahl getroffen"}
-          </p>
+          <p>{options.length === 0 ? "Es existieren keine Gruppen" : "Keine Auswahl getroffen"}</p>
         ) : (
           selectedOptions.map((option) => (
-            <div
+            <Button
               key={option.id}
-              className="flex items-center gap-1 rounded-md border-[1px] border-black px-2"
+              variant="outline"
+              size="sm"
+              onClick={() => deselectOption(option.id)}
             >
-              <p>{option.displayName}</p>
-              <X
-                className="shrink-0 cursor-pointer"
-                width={18}
-                onClick={() => deselectOption(option.id)}
-              />
-            </div>
+              {option.displayName}
+              <X size={16} />
+            </Button>
           ))
         )}
-        {options.length > selectedOptions.length && (
-          <div className="relative">
-            <div
-              className="mr-40 cursor-pointer rounded-full border-[1px] border-black bg-card p-1"
-              onClick={() => {
-                setShowOptions(true);
-                setTimeout(() => document.body.addEventListener("click", hideOptions), 0);
-              }}
-              onKeyDown={() => {
-                setShowOptions(true);
-                setTimeout(() => document.body.addEventListener("click", hideOptions), 0);
-              }}
-            >
-              <X className="shrink-0 rotate-45" width={18} height={18} />
-            </div>
-            {showOptions && (
-              <div
-                className={`absolute top-[-0.25rem] z-10 max-w-52 overflow-x-scroll rounded-md border-[1px] border-black bg-card shadow-md ${
-                  remainingOptions.length >= 4
-                    ? "h-[8.25rem]"
-                    : remainingOptions.length === 3
-                      ? "h-[6.25rem]"
-                      : remainingOptions.length === 2
-                        ? "h-[4.25rem]"
-                        : "h-[2.25rem]"
-                }`}
-                onMouseLeave={hideOptions}
+        {remainingOptions.length > 0 && (
+          <Popover open={showOptions} onOpenChange={setShowOptions}>
+            <PopoverTrigger asChild>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowOptions(true)}
+                className="h-8 w-8 rounded-full px-0!"
               >
-                <div className="w-max">
-                  {remainingOptions.map((option, index) => (
-                    <div
-                      key={option.id}
-                      className={`flex h-8 min-w-full cursor-pointer items-center bg-card hover:bg-card/50 ${
-                        index === remainingOptions.length - 1 ? "" : "border-b-[1px] border-black"
-                      }`}
-                      onClick={() => selectOption(option.id)}
-                      onKeyDown={() => selectOption(option.id)}
-                    >
-                      <p className="px-4 whitespace-nowrap">{option.displayName}</p>
-                    </div>
+                <Plus />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent side="top">
+              <Command>
+                <CommandInput placeholder="Gruppe suchen..." />
+                <CommandList>
+                  <CommandEmpty>Keine Gruppen gefunden.</CommandEmpty>
+                  {remainingOptions.map((option) => (
+                    <CommandItem key={option.id} onSelect={() => selectOption(option.id)}>
+                      {option.displayName}
+                    </CommandItem>
                   ))}
-                </div>
-              </div>
-            )}
-          </div>
+                </CommandList>
+              </Command>
+            </PopoverContent>
+          </Popover>
         )}
       </div>
     </div>

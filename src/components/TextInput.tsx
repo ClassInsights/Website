@@ -8,6 +8,7 @@ type TextInputProps = {
   error?: boolean;
   maxLength?: number;
   disabled?: boolean;
+  required?: boolean;
 };
 
 const TextInput = ({
@@ -18,6 +19,7 @@ const TextInput = ({
   error = false,
   maxLength,
   disabled = false,
+  required = false,
 }: TextInputProps) => {
   const [value, setValue] = useState(initialValue ?? "");
   return (
@@ -37,6 +39,7 @@ const TextInput = ({
         autoComplete="off"
         maxLength={maxLength}
         disabled={disabled}
+        required={required}
       />
     </div>
   );

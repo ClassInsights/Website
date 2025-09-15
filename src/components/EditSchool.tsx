@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
 import { useSchoolModal } from "../contexts/SchoolContext";
 import Button from "./Button";
 import MultipleSelect from "./GroupSelect";
@@ -8,9 +8,16 @@ import TextInput from "./TextInput";
 /** Modal to edit the school */
 const EditSchool = () => {
   const schoolModal = useSchoolModal();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const data = useMemo(() => schoolModal.getData(), [schoolModal]);
   const azureGroups = useMemo(() => schoolModal.azureGroups, [schoolModal]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("submit");
+    schoolModal.save();
+  };
 
   if (!schoolModal.isVisible || !data || !azureGroups) return null;
 
@@ -31,7 +38,11 @@ const EditSchool = () => {
           <X className="shrink-0 cursor-pointer" onClick={schoolModal.hide} />
         </div>
         {/* Certificate Content */}
-        <div className="scrollbar h-full overflow-y-scroll px-6 pt-8">
+        <form
+          ref={formRef}
+          className="scrollbar h-full overflow-y-scroll px-6 pt-8"
+          onSubmit={handleSubmit}
+        >
           <h3 className="pb-1">Lokale API URL</h3>
           <p>
             Hier können Sie die URL der lokalen ClassInsights API bearbeiten. Diese ist wichtig, da
@@ -43,6 +54,7 @@ const EditSchool = () => {
             label="API URL"
             initialValue={data.local_api_url}
             onChange={(value) => schoolModal.updateData({ ...data, local_api_url: value })}
+            required
           />
           <h3 className="mt-8 pb-1">Lokale Dashboard URL</h3>
           <p>Zu dieser URL werden Sie mit einem Klick auf "Zum Dashboard" weitergeleitet.</p>
@@ -51,6 +63,7 @@ const EditSchool = () => {
             label="Dashboard URL"
             initialValue={data.local_dashboard_url}
             onChange={(value) => schoolModal.updateData({ ...data, local_dashboard_url: value })}
+            required
           />
           <h3 className="mt-8 pb-1">Azure Lehrer Gruppe</h3>
           <p>Folgende Azure Gruppen haben Zugriff auf das lokale ClassInsights Dashboard.</p>
@@ -69,15 +82,16 @@ const EditSchool = () => {
             label="Website URL"
             initialValue={data.website}
             onChange={(value) => schoolModal.updateData({ ...data, website: value })}
+            required
           />
           <div className="mt-8 flex justify-end pb-12">
             <Button
               label="Speichern"
-              onPress={() => schoolModal.save()}
+              onPress={() => formRef.current?.requestSubmit()}
               disabled={!schoolModal.hasChanges}
             />
           </div>
-        </div>
+        </form>
       </div>
     </dialog>
   );

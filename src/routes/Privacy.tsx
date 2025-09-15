@@ -154,6 +154,24 @@ const Privacy = () => {
         dazu führen, dass nicht sämtliche Funktionen unseres Internetauftritts vollumfänglich
         nutzbar sind.
       </p>
+      <div id="cookies" className="relative bottom-24" />
+      <h4 className="mt-4 text-lg">d&#41; Technisch notwendige Cookies</h4>
+      <p className="pb-2">
+        Technisch notwendige Cookies sind für den Betrieb unseres Internetauftritts unerlässlich.
+        Ohne diese Cookies können wir Ihnen bestimmte Funktionen unseres Internetauftritts nicht
+        anbieten.
+      </p>
+      <p>Verwendete Cookies:</p>
+      <ul className="list-inside list-disc pb-3">
+        <li>
+          "tasty": Authentifizierungscookie um die Anmeldung zu ermöglichen; wird erst gesetzt wenn
+          eine Anmeldung durchgeführt wurde; wird nach 30 Tagen automatisch entfernt
+        </li>
+        <li>
+          "cookie_consent": Dieser Cookie wird gesetzt, wenn Sie den Cookie Consent Banner
+          weggeklickt haben; wird nach 30 Tagen automatsich entfernt
+        </li>
+      </ul>
       <h3 className="mt-6 pb-3">Kontaktanfragen / Kontaktmöglichkeit</h3>
       <p className="pb-2">
         Sofern Sie per Kontaktformular oder E-Mail mit uns in Kontakt treten, werden die dabei von

@@ -6,6 +6,7 @@ import "./index.css";
 import About from "./routes/About.tsx";
 import Demo from "./routes/Demo.tsx";
 import ErrorPage from "./routes/Error.tsx";
+import GTC from "./routes/GTC.tsx";
 import Home from "./routes/Home.tsx";
 import Impress from "./routes/Impress.tsx";
 import Login from "./routes/Login.tsx";
@@ -30,6 +31,7 @@ ReactDOM.createRoot(root).render(
           <Route path="login" element={<Login />} />
           <Route path="schulen" element={<Schools />} />
           <Route path="verify/:token" element={<Verify />} />
+          <Route path="agb" element={<GTC />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

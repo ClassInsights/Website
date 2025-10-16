@@ -3,8 +3,8 @@ export type SchoolData = {
   SchoolId: number;
   Name: string;
   Website: string | null;
-  LocalApiUrl: string;
-  LocalDashboardUrl: string;
+  LocalApiUrl: string | null;
+  LocalDashboardUrl: string | null;
   TeacherGroups: string[];
   Roles: Role[];
 };
@@ -19,11 +19,11 @@ export function isSchoolData(data: unknown): data is SchoolData {
     "Name" in data &&
     typeof data.Name === "string" &&
     "Website" in data &&
-    (typeof data.Website === null || typeof data.Website === "string") &&
+    (data.Website === null || typeof data.Website === "string") &&
     "LocalApiUrl" in data &&
-    typeof data.LocalApiUrl === "string" &&
+    (data.LocalApiUrl === null || typeof data.LocalApiUrl === "string") &&
     "LocalDashboardUrl" in data &&
-    typeof data.LocalDashboardUrl === "string" &&
+    (data.LocalDashboardUrl === null || typeof data.LocalDashboardUrl === "string") &&
     "TeacherGroups" in data &&
     Array.isArray(data.TeacherGroups) &&
     data.TeacherGroups.every((group) => typeof group === "string") &&

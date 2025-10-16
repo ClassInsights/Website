@@ -1,4 +1,4 @@
-import type { SchoolData } from "./SchoolData";
+import { isSchoolData, type SchoolData } from "./SchoolData";
 
 /** Data structure for decoded JWT id_token data */
 export type TokenData = {
@@ -21,6 +21,6 @@ export function isTokenData(data: unknown): data is TokenData {
     typeof data.email === "string" &&
     "schools" in data &&
     Array.isArray(data.schools) &&
-    data.schools.every((school) => typeof school === "object" && school !== null)
+    data.schools.every(isSchoolData)
   );
 }

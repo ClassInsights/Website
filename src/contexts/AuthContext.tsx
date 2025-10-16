@@ -14,7 +14,7 @@ import {
   useState,
 } from "react";
 import { useNavigate } from "react-router";
-import { getCookie, removeCookie, setCookie } from "typescript-cookie";
+import { getCookie, removeCookie } from "typescript-cookie";
 import type { UserData } from "../types/UserData";
 import { useToast } from "./ToastContext";
 
@@ -89,37 +89,31 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     [JWKS],
   );
 
-  /** Update the cookie with the new auth data and set user application context */
-  const updateCookie = useCallback(
+  /** Update the storage with the new auth data and set user application context */
+  const updateStorage = useCallback(
     async (data: AuthResponse) => {
       const expirationDate = Math.floor(data.expires_in + Date.now() / 1000);
 
-      const cookieData: AuthData = {
+      const storageData: AuthData = {
         id_token: data.id_token,
         access_token: data.access_token,
         refresh_token: data.refresh_token,
         expires_at: expirationDate,
+        delete_at: expirationDate + 60 * 60 * 24 * 30, // Delete after 30 days
       };
 
-      const encodedData = btoa(JSON.stringify(cookieData));
+      const encodedData = btoa(JSON.stringify(storageData));
 
-      const cookieExpirationDate = new Date();
-      cookieExpirationDate.setDate(cookieExpirationDate.getDate() + 30);
+      localStorage.setItem("tasty", encodedData);
 
-      setCookie("tasty", encodedData, {
-        expires: cookieExpirationDate,
-        secure: !import.meta.env.DEV,
-        sameSite: "Lax",
-      });
-
-      const userData = await decodeAuthData(cookieData);
+      const userData = await decodeAuthData(storageData);
       if (userData) setAuthData(userData);
     },
     [decodeAuthData],
   );
 
   /**
-   * Refresh the access token with the refresh token and update cookie
+   * Refresh the access token with the refresh token and update storage
    * @returns The new auth response if the token was successfully refreshed, otherwise undefined
    */
   const refreshToken = useCallback(
@@ -143,10 +137,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const data = await result.json();
       if (!isAuthResponse(data)) return;
 
-      await updateCookie(data);
+      await updateStorage(data);
       return data;
     },
-    [updateCookie],
+    [updateStorage],
   );
 
   /**
@@ -227,12 +221,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const data = await response.json();
       if (!isAuthResponse(data)) return -1;
 
-      await updateCookie(data);
+      await updateStorage(data);
       startRefreshTimeout(Math.floor(data.expires_in + Date.now() / 1000), data.refresh_token);
 
       return 200;
     },
-    [updateCookie, startRefreshTimeout],
+    [updateStorage, startRefreshTimeout],
   );
 
   /** Logout the user and remove the cookie */

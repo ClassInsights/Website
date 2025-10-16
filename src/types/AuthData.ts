@@ -5,6 +5,7 @@ export type AuthData = {
   refresh_token: string;
   /** Number of seconds since midnight, January 1, 1970 Universal Coordinated Time (UTC)*/
   expires_at: number;
+  delete_at: number;
 };
 
 /** Type guard for the AuthData type */
@@ -19,6 +20,8 @@ export function isAuthData(data: unknown): data is AuthData {
     "refresh_token" in data &&
     typeof data.refresh_token === "string" &&
     "expires_at" in data &&
-    typeof data.expires_at === "number"
+    typeof data.expires_at === "number" &&
+    "delete_at" in data &&
+    typeof data.delete_at === "number"
   );
 }

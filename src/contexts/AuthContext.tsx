@@ -14,7 +14,6 @@ import {
   useState,
 } from "react";
 import { useNavigate } from "react-router";
-import { getCookie, removeCookie } from "typescript-cookie";
 import type { UserData } from "../types/UserData";
 import { useToast } from "./ToastContext";
 
@@ -68,7 +67,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       let idData: TokenData | null = null;
       try {
         const { payload } = await jose.jwtVerify(data.id_token, JWKS);
-        if (!isTokenData(payload)) return;
+        if (!isTokenData(payload)) {
+          console.error("Invalid ID token payload", payload);
+          return;
+        }
         idData = payload;
       } catch {}
 
@@ -108,6 +110,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
       const userData = await decodeAuthData(storageData);
       if (userData) setAuthData(userData);
+      else localStorage.removeItem("tasty");
     },
     [decodeAuthData],
   );
@@ -198,12 +201,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   /** Decode the cookie and set the user data */
   const decodeCookie = useCallback(async () => {
-    const cookieData = getCookie("tasty");
+    const cookieData = localStorage.getItem("tasty");
     if (!cookieData) return;
 
     const data = await validateCookie(cookieData);
     if (!data) {
-      removeCookie("tasty");
+      localStorage.removeItem("tasty");
       return;
     }
 
@@ -231,7 +234,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   /** Logout the user and remove the cookie */
   const logout = useCallback(async () => {
-    removeCookie("tasty");
+    localStorage.removeItem("tasty");
     localStorage.setItem("logout", Date.now().toString());
     if (!authData) {
       window.location.replace(conf().VITE_LOGOUT_URL);

@@ -1,12 +1,15 @@
+import { Plus, X } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
-import CloseSVG from "../assets/svg/close.svg?react";
 import type { AzureGroup } from "../types/AzureGroup";
+import { Button } from "./ui/button";
+import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from "./ui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
 type GroupSelectProps = {
-	label: string;
-	options: AzureGroup[];
-	initialSelection: string[];
-	onChange: (selectedOptions: string[]) => void;
+  label: string;
+  options: AzureGroup[];
+  initialSelection: string[];
+  onChange: (selectedOptions: string[]) => void;
 };
 
 /** GroupSelect component
@@ -17,120 +20,93 @@ type GroupSelectProps = {
  * @returns {JSX.Element} - GroupSelect component
  */
 const GroupSelect = ({ label, options, initialSelection, onChange }: GroupSelectProps) => {
-	const [showOptions, setShowOptions] = useState(false);
-	const [selectedOptions, setSelectedOptions] = useState(
-		options.filter((option) => initialSelection.includes(option.id)),
-	);
+  const [showOptions, setShowOptions] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState(
+    options.filter((option) => initialSelection.includes(option.id)),
+  );
 
-	const remainingOptions = useMemo(
-		() => options.filter((option) => !selectedOptions.includes(option)),
-		[options, selectedOptions],
-	);
+  const remainingOptions = useMemo(
+    () => options.filter((option) => !selectedOptions.includes(option)),
+    [options, selectedOptions],
+  );
 
-	const updateSelection = useCallback(
-		(options: AzureGroup[]) => setTimeout(() => onChange(options.map((option) => option.id)), 0),
-		[onChange],
-	);
+  const updateSelection = useCallback(
+    (options: AzureGroup[]) => setTimeout(() => onChange(options.map((option) => option.id)), 0),
+    [onChange],
+  );
 
-	const selectOption = useCallback(
-		(id: string) => {
-			setShowOptions(false);
-			setSelectedOptions((prev) => {
-				const option = options.find((option) => option.id === id);
-				if (!option) return prev;
-				const newSelection = [...prev, option];
-				updateSelection(newSelection);
-				return newSelection;
-			});
-		},
-		[options, updateSelection],
-	);
+  const selectOption = useCallback(
+    (id: string) => {
+      setSelectedOptions((prev) => {
+        const option = options.find((option) => option.id === id);
+        if (!option) return prev;
+        const newSelection = [...prev, option];
+        updateSelection(newSelection);
+        return newSelection;
+      });
+    },
+    [options, updateSelection],
+  );
 
-	const deselectOption = useCallback(
-		(id: string) =>
-			setSelectedOptions((prev) => {
-				const newSelection = prev.filter((option) => option.id !== id);
-				updateSelection(newSelection);
-				return newSelection;
-			}),
-		[updateSelection],
-	);
+  const deselectOption = useCallback(
+    (id: string) =>
+      setSelectedOptions((prev) => {
+        const newSelection = prev.filter((option) => option.id !== id);
+        updateSelection(newSelection);
+        return newSelection;
+      }),
+    [updateSelection],
+  );
 
-	const hideOptions = useCallback(() => {
-		document.body.removeEventListener("click", hideOptions);
-		setShowOptions(false);
-	}, []);
-
-	return (
-		<div className="relative mt-6">
-			<p className="absolute top-[-1.1rem] text-xs">{label}</p>
-			<div className="flex w-full flex-wrap items-center gap-2 rounded-md border-[1px] border-black bg-background px-4 py-2 opacity-70 transition-shadow hover:opacity-100 hover:shadow-md">
-				{selectedOptions.length === 0 ? (
-					<p className="border-[1px] border-transparent">
-						{options.length === 0 ? "Es existieren keine Gruppen" : "Keine Auswahl getroffen"}
-					</p>
-				) : (
-					selectedOptions.map((option) => (
-						<div key={option.id} className="flex items-center gap-1 rounded-md border-[1px] border-black px-2">
-							<p>{option.displayName}</p>
-							<CloseSVG
-								className="shrink-0 cursor-pointer"
-								width={18}
-								onClick={() => deselectOption(option.id)}
-								title="Gruppe entfernen"
-							/>
-						</div>
-					))
-				)}
-				{options.length > selectedOptions.length && (
-					<div className="relative">
-						<div
-							className="mr-40 cursor-pointer rounded-full border-[1px] border-black bg-container p-1"
-							onClick={() => {
-								setShowOptions(true);
-								setTimeout(() => document.body.addEventListener("click", hideOptions), 0);
-							}}
-							onKeyDown={() => {
-								setShowOptions(true);
-								setTimeout(() => document.body.addEventListener("click", hideOptions), 0);
-							}}
-						>
-							<CloseSVG className="shrink-0 rotate-45" width={18} height={18} />
-						</div>
-						{showOptions && (
-							<div
-								className={`absolute top-[-0.25rem] z-10 max-w-52 overflow-x-scroll rounded-md border-[1px] border-black bg-container shadow-md ${
-									remainingOptions.length >= 4
-										? "h-[8.25rem]"
-										: remainingOptions.length === 3
-											? "h-[6.25rem]"
-											: remainingOptions.length === 2
-												? "h-[4.25rem]"
-												: "h-[2.25rem]"
-								}`}
-								onMouseLeave={hideOptions}
-							>
-								<div className="w-max">
-									{remainingOptions.map((option, index) => (
-										<div
-											key={option.id}
-											className={`flex h-8 min-w-full cursor-pointer items-center bg-container hover:bg-container-selected ${
-												index === remainingOptions.length - 1 ? "" : "border-black border-b-[1px]"
-											}`}
-											onClick={() => selectOption(option.id)}
-											onKeyDown={() => selectOption(option.id)}
-										>
-											<p className="whitespace-nowrap px-4">{option.displayName}</p>
-										</div>
-									))}
-								</div>
-							</div>
-						)}
-					</div>
-				)}
-			</div>
-		</div>
-	);
+  return (
+    <div className="relative mt-6">
+      <p className="absolute top-[-1.5rem] text-xs">{label}</p>
+      <div className="flex min-h-[3.125rem] w-full flex-wrap gap-x-3 gap-y-2 rounded-md border bg-background px-4 py-2 transition-opacity outline-none">
+        {selectedOptions.length === 0 ? (
+          <p>{options.length === 0 ? "Es existieren keine Gruppen" : "Keine Auswahl getroffen"}</p>
+        ) : (
+          selectedOptions.map((option) => (
+            <Button
+              key={option.id}
+              variant="outline"
+              size="sm"
+              onClick={() => deselectOption(option.id)}
+            >
+              {option.displayName}
+              <X size={16} />
+            </Button>
+          ))
+        )}
+        {remainingOptions.length > 0 && (
+          <Popover open={showOptions} onOpenChange={setShowOptions}>
+            <PopoverTrigger asChild>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowOptions(true)}
+                className="h-8 w-8 rounded-full px-0!"
+              >
+                <Plus />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent side="top">
+              <Command>
+                <CommandInput placeholder="Gruppe suchen..." />
+                <CommandList>
+                  <CommandEmpty>Keine Gruppen gefunden.</CommandEmpty>
+                  {remainingOptions.map((option) => (
+                    <CommandItem key={option.id} onSelect={() => selectOption(option.id)}>
+                      {option.displayName}
+                    </CommandItem>
+                  ))}
+                </CommandList>
+              </Command>
+            </PopoverContent>
+          </Popover>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default GroupSelect;

@@ -1,8 +1,8 @@
+import { ChevronRight } from "lucide-react";
 import { useCallback, useState } from "react";
-import updatePath from "../../assets/img/update.webp";
-import settingsPath from "../../assets/img/settings.webp";
 import computerPath from "../../assets/img/computer.webp";
-import ArrowSVG from "../../assets/svg/arrow.svg?react";
+import settingsPath from "../../assets/img/settings.webp";
+import updatePath from "../../assets/img/update.webp";
 
 /** Dashboard section with multiple pages to navigate */
 const Dashboard = () => {
@@ -18,18 +18,18 @@ const Dashboard = () => {
               "Mit dem ClassInsights Dashboard behalten Sie stets alle Computer im Überblick und können Informationen auslesen, diese manuell herunterfahren, neustarten oder den aktuellen Nutzer abmelden.",
           }
         : index === 1
-        ? {
-            title: "Einfach Änderungen vornehmen",
-            description:
-              "Das ClassInsights Dashboard ermöglicht es, schnell und einfach zentrale Änderungen am System vorzunehmen. Einige Einstellungen können sogar automatisch vom Active Directory übernommen werden.",
-          }
-        : {
-            title: "Automatische Updates",
-            description:
-              "Sie können mit nur einem Klick das gesamte ClassInsights System automatisch aktualisieren. Keine nervigen manuellen Updates mehr!",
-          },
+          ? {
+              title: "Einfach Änderungen vornehmen",
+              description:
+                "Das ClassInsights Dashboard ermöglicht es, schnell und einfach Änderungen am System vorzunehmen. Einige Einstellungen können sogar automatisch vom Active Directory übernommen werden.",
+            }
+          : {
+              title: "Automatische Updates",
+              description:
+                "Sie können mit nur einem Klick das gesamte ClassInsights System automatisch aktualisieren. Keine nervigen manuellen Updates mehr!",
+            },
 
-    []
+    [],
   );
 
   /** Navigate to previous or next page */
@@ -41,53 +41,41 @@ const Dashboard = () => {
         setPageIndex(pageIndex + 1);
       }
     },
-    [pageIndex]
+    [pageIndex],
   );
 
   /** Get specific navigation button */
   const getArrowSVG = useCallback(
     (direction: "prev" | "next", isMobile: boolean) => {
-      const isDisabled =
-        direction === "prev" ? pageIndex === 0 : pageIndex === 2;
+      const isDisabled = direction === "prev" ? pageIndex === 0 : pageIndex === 2;
 
       return (
-        <ArrowSVG
+        <ChevronRight
           key={`page-${direction}`}
           width={25}
-          className={`shrink-0 fill-black ${
-            direction === "prev" ? "rotate-180 " : ""
-          }${isDisabled ? "opacity-20 " : "cursor-pointer "}${
+          className={`shrink-0 cursor-pointer text-black ${
+            direction === "prev" ? "rotate-180" : ""
+          } ${isDisabled ? "opacity-20" : "cursor-pointer"}${
             isMobile ? "lg:hidden" : "hidden lg:inline"
           }`}
           onClick={() => !isDisabled && navigatePage(direction)}
           onKeyDown={() => !isDisabled && navigatePage(direction)}
-          aria-label={
-            direction === "prev" ? "Vorherige Seite" : "Nächste Seite"
-          }
+          aria-label={direction === "prev" ? "Vorherige Seite" : "Nächste Seite"}
         />
       );
     },
-    [pageIndex, navigatePage]
+    [pageIndex, navigatePage],
   );
 
   return (
-    <section className="flex w-full flex-col items-center gap-10 lg:flex-row ">
+    <section className="flex w-full flex-col items-center gap-10 lg:flex-row">
       <div className="w-full select-none">
         {pageIndex === 0 ? (
-          <img
-            src={computerPath}
-            alt="Room Page of the ClassInsights Dashboard"
-          />
+          <img src={computerPath} alt="Room Page of the ClassInsights Dashboard" />
         ) : pageIndex === 1 ? (
-          <img
-            src={settingsPath}
-            alt="Settings Page of the ClassInsights Dashboard"
-          />
+          <img src={settingsPath} alt="Settings Page of the ClassInsights Dashboard" />
         ) : (
-          <img
-            src={updatePath}
-            alt="Update Page of the ClassInsights Dashboard"
-          />
+          <img src={updatePath} alt="Update Page of the ClassInsights Dashboard" />
         )}
       </div>
       {/* Explaining Content */}
@@ -95,8 +83,8 @@ const Dashboard = () => {
         {getArrowSVG("prev", false)}
         <div className="relative flex flex-col justify-center text-center md:px-5">
           {/* Mobile Placeholder for identical height */}
-          <div className="-z-10 relative select-none opacity-0 lg:hidden">
-            <h2 className="pb-4 ">{content(1).title}</h2>
+          <div className="relative -z-10 opacity-0 select-none lg:hidden">
+            <h2 className="pb-4">{content(1).title}</h2>
             <p className="">{content(1).description}</p>
           </div>
           {/* Display Content */}

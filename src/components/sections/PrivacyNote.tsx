@@ -6,9 +6,7 @@ const PrivacyNote = () => (
     <div className="text-center md:mt-8 md:text-left">
       <h2 className="pb-4">Datenschutz ist uns wichtig</h2>
       <p className="md:w-3/5">
-        Unsere schulinterne API verarbeitet sensible Daten (Hostnamen, Raumzuordnungen)
-        ausschließlich lokal. Externe Abfragen laufen verschlüsselt über die ClassInsights-API - so
-        verbinden wir lokale Datensicherheit mit einer effizienter Infrastruktur.
+        Sensible Daten wie Hostnamen und Raumzuordnungen bleiben bei Ihnen und werden ausschließlich von Ihrer eigenen, lokal betriebenen API Instanz verarbeitet. Externe Abfragen laufen verschlüsselt über die ClassInsights API, sodass lokale Datensicherheit und eine effiziente Infrastruktur Hand in Hand gehen.
       </p>
     </div>
     <div className="md:flex md:justify-end">

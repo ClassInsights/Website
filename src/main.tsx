@@ -13,6 +13,7 @@ import Login from "./routes/Login.tsx";
 import Privacy from "./routes/Privacy.tsx";
 import Schools from "./routes/Schools.tsx";
 import Verify from "./routes/Verify.tsx";
+import Pricing from "./routes/Pricing.tsx";
 
 const root = document.getElementById("root");
 
@@ -32,6 +33,7 @@ ReactDOM.createRoot(root).render(
           <Route path="schulen" element={<Schools />} />
           <Route path="verify/:token" element={<Verify />} />
           <Route path="agb" element={<GTC />} />
+          <Route path="preise" element={<Pricing />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

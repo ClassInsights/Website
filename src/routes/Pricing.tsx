@@ -23,9 +23,9 @@ const Pricing = () => (
     </section>
     <Spacing />
     <ul className="list-none flex gap-8 flex-col lg:flex-row">
-      <PriceModel title="CI Small" computerLimit="bis zu X Computer" pricePerYear="XXX,00" />
-      <PriceModel title="CI Medium" computerLimit="[X] bis [Y] Computer" pricePerYear="XXX,00" />
-      <PriceModel title="CI Large" computerLimit="mehr als Y Computern" pricePerYear="XXX,00" />
+      <PriceModel title="CI Small" computerLimit="bis zu 50 Computer" pricePerYear="199,90" />
+      <PriceModel title="CI Medium" computerLimit="bis zu 125 Computer" pricePerYear="249,90" />
+      <PriceModel title="CI Large" computerLimit="mehr als 125 Computer" pricePerYear="299,90" />
     </ul>
     <small className="block text-center max-w-3xl mx-auto mt-8">* Die CI Small, Medium und Large Lizenzen ermöglichen es, ClassInsights für ein Jahr zu nutzen. Der Gültigkeitszeitraum beginnt mit dem Erhalt der Lizenz. Es gelten stets die <Link to="/agb">AGB</Link>!</small>
     <Spacing />

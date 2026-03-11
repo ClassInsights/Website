@@ -364,7 +364,7 @@ const GTC = () => (
       Installationsanleitung laut Dokumentation. Der Auftraggeber hat Mängel nachvollziehbar zu
       dokumentieren und zu melden. Mängel sind mit nachvollziehbarer Dokumentation
       (Logs/Screenshots/Schritte) an die ClassInsights Support E-Mail{" "}
-      <a href="mailto:office@classinsights.com">office@classinsights.com</a> zu melden. Der
+      <a href="mailto:office@classinsights.at">office@classinsights.at</a> zu melden. Der
       Auftragnehmer leistet primär Verbesserung; Ersatzlieferung bleibt vorbehalten.
     </p>
     <h3 className="mt-4 pb-1">8.2</h3>

@@ -93,13 +93,19 @@ const Navbar = () => {
               >
                 Über uns
               </Link>
+              <Link
+                to="/preise"
+                className={`${mobileLinkStyle} border-opacity-10 border-t border-black`}
+              >
+                Preise
+              </Link>
               <a
                 href="https://docs.classinsights.at"
                 target="_blank"
                 rel="noreferrer"
                 className={`${mobileLinkStyle} border-opacity-10 border-t border-black`}
               >
-                Installation
+                Dokumentation
               </a>
             </div>
             {/* Desktop Menu */}
@@ -108,8 +114,9 @@ const Navbar = () => {
                 Lösungen
               </Link>
               <Link to="/unternehmen">Über uns</Link>
+              <Link to="/preise">Preise</Link>
               <a href="https://docs.classinsights.at" target="_blank" rel="noreferrer">
-                Installation
+                Dokumentation
               </a>
               <div
                 className="hidden cursor-pointer items-center gap-1.5 text-primary md:flex"

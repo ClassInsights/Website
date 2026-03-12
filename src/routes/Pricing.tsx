@@ -8,7 +8,8 @@ import { ChevronRight } from "lucide-react";
 const Pricing = () => (
   <div className="top-0 min-h-dvh w-full">
     <section className="pt-52">
-      <h1 className="pb-6 text-6xl">Lizensierung & Preise</h1>
+      <h1 className="pb-6 text-6xl hidden lg:block">Lizenzierung & Preise</h1>
+      <h1 className="pb-6 text-6xl lg:hidden">Lizenzen & Preise</h1>
       <p className="max-w-3xl">Einfach, transparent und fair. Wählen Sie das passende Packet für Ihre Schule basierend auf der Anzahl der Computer. Alle Lizenzen sind <span className="text-primary">für 1 Jahr gültig ab Erhalt der Lizenz *</span> und beinhalten den vollen Funktionsumfang von ClassInsights. Wir sagen nein zu vergessenen Abonnements!</p>
       <p className="mt-10 pb-3 font-bold">
         Für Neukunden bieten wir eine unverbindliche Testphase von drei Monaten.
